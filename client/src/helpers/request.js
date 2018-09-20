@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.load();
-const apiKey = "07a98e49bc6812c078c64e7fd1e842a2";//process.env.API_KEY;
-const applicationID = "0e9cfee5";//process.env.APPLICATION_ID;
+const apiKey = process.env.API_KEY;
+const applicationID = process.env.APPLICATION_ID;
 
 const Request = function () {
   };
