@@ -36,16 +36,19 @@ const createRouter = function (collection) {
         const newData = req.body;
         collection
             .insertOne(newData)
-            .then(() =>
+            .then(() => {
                 collection
                     .find()
-                    .toArray())
-            .then((docs) =>
-                res.json(docs));
+                    .toArray()
+                    .then((docs) => {
+                        res.json(docs)
+                    })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
     })
-        .catch((error) => {
-            console.error(error)
-        });
+
 
     // UPDATE
     router.put('/:id', (req, res) => {
@@ -69,6 +72,22 @@ const createRouter = function (collection) {
     })
 
     // DELETE
+
+    // DELETE ALL
+    router.delete('/', (req, res) => {
+        collection.deleteMany({})
+        .then(() => {
+            collection
+                .find()
+                .toArray()
+                .then((docs) => {
+                    res.json(docs)
+                })
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+    })
 
     return router;
 }
