@@ -7,8 +7,6 @@ const APIRequest = function () {
 };
 
 APIRequest.prototype.get = function (foodWeWant) {
-    console.log(apiKey);
-    console.log(applicationID);
     return fetch(`https://api.edamam.com/api/food-database/parser?ingr=${foodWeWant}&app_id=${applicationID}&app_key=${apiKey}`)
         .then((response) => response.json());
 };
