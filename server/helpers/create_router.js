@@ -32,6 +32,17 @@ const createRouter = function(collection){
     })
 
     // CREATE
+    router.post('/', (req, res) =>{
+        const newData = req.body;
+        collection
+        .insertOne(newData)
+        .then(() => 
+        collection
+        .find()
+        .toArray())
+        .then((docs) =>
+        res.json(docs));
+    });
 
     // UPDATE
     router.put('/:id', (req, res) => {
