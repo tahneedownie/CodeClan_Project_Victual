@@ -13,7 +13,10 @@ Food.prototype.bindEvents = function(){
 }
 
 Food.prototype.save = function(objectToSave){
-   this.databaseRequest.post(objectToSave);
+   this.databaseRequest.post(objectToSave)
+   .then((allData)=>{
+       PubSub.publish('FormView:all-data-ready', allData);
+   });
 }
 
 module.exports = Food;
