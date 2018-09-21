@@ -1,13 +1,14 @@
 const Request = require('./helpers/request.js');
+//const dotenv = require('dotenv').config();
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
-    const foodWeWant = "orange";
+    const foodWeWant = "banana";
     const request = new Request();
  
     request.get(foodWeWant)
     .then((result) => {
-      //  console.log(result);
+        console.log(result);
         foodURI = result.hints[0].food.uri;
        // console.log(foodURI);
     })
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     .then(()=>{
         request.post(objectToPost)
         .then((result) => {
-         //   console.log(result);
+            console.log(result);
         })
     })
     .catch(console.error)
