@@ -34,6 +34,25 @@ const createRouter = function(collection){
     // CREATE
 
     // UPDATE
+    router.put('/:id', (req, res) => {
+        const id = req.params.id;
+        const updatingItem = req.body;
+        collection.updateOne(
+            {_id: ObjectID(id)},
+            {$set: updatingItem}
+        )
+        .then(() => {
+            collection
+            .find()
+            .toArray()
+            .then((docs) => {
+                res.json(docs)
+            })
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+    })
 
     // DELETE
 
