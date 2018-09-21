@@ -1,13 +1,15 @@
 const Request = require('./helpers/request.js');
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    
-    const foodWeWant = "toast";
+
+    const foodWeWant = "orange";
     const request = new Request();
  
     request.get(foodWeWant)
     .then((result) => {
-        foodURI = result.parsed[0].food.uri;
+      //  console.log(result);
+        foodURI = result.hints[0].food.uri;
+       // console.log(foodURI);
     })
     .then(()=>{
     objectToPost = 
@@ -25,8 +27,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     .then(()=>{
         request.post(objectToPost)
         .then((result) => {
-            nutritionInfoPerGram = result.totalNutrients;
-            console.log(nutritionInfoPerGram);
+         //   console.log(result);
         })
     })
     .catch(console.error)
