@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     food.bindEvents();
 
     const recipeRequest = new RecipeRequest();
-    recipeRequest.get("CA",50,"vegan",["mushroom", "celery"])
+    recipeRequest.get("Calcium","vegan",["none"])
     .then((recipeData)=>{
         console.log(recipeData);
       });
 
-      console.log(NutrientRDA.nutrients.Protein);
+    //  console.log(NutrientRDA.getMinimumContent("Protein", 50));
 });
