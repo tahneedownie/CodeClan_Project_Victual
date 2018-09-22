@@ -12,14 +12,14 @@
       <form id="food-form">
         
           <label for="name">Name of the food:</label>
-          <input type="text" id="name" autocomplete="off"/>
+          <input type="text" id="name" autocomplete="off" required/>
 
           <label for="numberOfUnits">Amount of Unit:</label>
-          <input type="number" id="numberOfUnits" min="0"/>
+          <input type="number" id="numberOfUnits" min="0" required/>
 
           <label for="measurementDropdown">Select Unit:</label>
-          <select id="measurementDropdown">
-            <option disabled selected>--select--</option>
+          <select id="measurementDropdown" required>
+            <option disabled selected value="">--select--</option>
             <option value="kilogram">Kilogram</option>
             <option value="gram">Gram</option>
             <option value="pound">Pound</option>
