@@ -3,6 +3,7 @@ const ListView = require('./views/list_view.js');
 const Food = require('./models/food.js');
 //const dotenv = require('dotenv').config();
 const RecipeRequest = require('./helpers/recipe_request.js');
+const NutrientRDA = require('./models/nutrient_RDA.js');
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -19,9 +20,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     food.bindEvents();
 
     const recipeRequest = new RecipeRequest();
-    recipeRequest.get("CA",50)
+    recipeRequest.get("CA",50,"vegan",["mushroom", "celery"])
     .then((recipeData)=>{
         console.log(recipeData);
       });
 
+      console.log(NutrientRDA.nutrients.Protein);
 });
