@@ -1,5 +1,6 @@
 const FormView = require('./views/form_view.js');
 const ListView = require('./views/list_view.js');
+const ChartView = require('./views/chart_view.js');
 const Food = require('./models/food.js');
 //const dotenv = require('dotenv').config();
 
@@ -16,4 +17,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     const food = new Food();
     food.bindEvents();
+
+    const chartContainer = document.querySelector('#chart-container');
+    const chartView = new ChartView(chartContainer);
+    chartView.render();
 });
