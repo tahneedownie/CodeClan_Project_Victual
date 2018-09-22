@@ -6,7 +6,8 @@ const Food = require('./models/food.js');
 document.addEventListener('DOMContentLoaded', ()=>{
 
     const listDiv = document.querySelector('#food-list');
-    const listView = new ListView(listDiv);
+    const deleteAllButton = document.querySelector('#delete-all-button');
+    const listView = new ListView(listDiv, deleteAllButton);
     listView.bindEvents();
 
     const form = document.querySelector('#food-form');

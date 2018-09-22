@@ -1,7 +1,8 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const ListView = function(listContainer){
+const ListView = function(listContainer, deleteAllButton){
     this.listContainer = listContainer;
+    this.deleteAllButton = deleteAllButton;
 }
 
 ListView.prototype.bindEvents = function(){
@@ -9,6 +10,10 @@ ListView.prototype.bindEvents = function(){
         console.log(event.detail);
         this.listContainer.innerHTML = "";
         this.renderAll(event.detail);
+    });
+    
+    this.deleteAllButton.addEventListener('click', (event) => {
+        PubSub.publish('ListView:delete-all-clicked', null)
     });
 }
 
@@ -50,5 +55,7 @@ ListView.prototype.renderOne = function(dataItem){
     div.appendChild(unorderedList);
     this.listContainer.appendChild(div);
 }
+
+    
 
 module.exports = ListView;

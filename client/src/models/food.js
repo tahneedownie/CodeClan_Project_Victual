@@ -11,6 +11,9 @@ Food.prototype.bindEvents = function(){
         const objectToSave = event.detail;
         this.save(objectToSave);
     });
+    PubSub.subscribe('ListView:delete-all-clicked', (event) => {
+        this.deleteAll();
+    })
 }
 
 Food.prototype.getExistingData = function(){
@@ -25,6 +28,13 @@ Food.prototype.save = function(objectToSave){
    .then((allData)=>{
        PubSub.publish('FormView:all-data-ready', allData);
    });
+}
+
+Food.prototype.deleteAll = function () {
+    this.databaseRequest.deleteAll()
+    .then((allData)=>{
+        PubSub.publish('FormView:all-data-ready', allData);
+      });
 }
 
 module.exports = Food;

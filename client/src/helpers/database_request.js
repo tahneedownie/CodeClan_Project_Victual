@@ -22,6 +22,13 @@ DatabaseRequest.prototype.delete = function (id) {
     })
       .then((response) => response.json());
   };
+
+  DatabaseRequest.prototype.deleteAll = function () {
+      return fetch(this.url, {
+          method: 'DELETE'
+      })
+      .then((response) => response.json());
+  };
   
 DatabaseRequest.prototype.put = function (payload, id) {
     return fetch(`${this.url}/${id}`, {
