@@ -61,8 +61,8 @@ ChartView.prototype.createTableElements = function(){
 }
 
 ChartView.prototype.insertDataIntoTable = function(){
-    this.thTitle.textContent = "Percentage of your RDA";
-    this.thTitle2.textContent = "Percentage of your RDA";
+    this.thTitle.textContent = "% of RDA (Recommended Dietry Allowance)";
+    this.thTitle2.textContent = "% of RDA (Recommended Dietry Allowance)";
     this.th1.textContent = "Protein";
     this.cell1.innerHTML = this.testData.protein;
     this.th2.textContent = "Calcium";
@@ -94,7 +94,7 @@ ChartView.prototype.displayChart = function(){
         yAxis: {
             allowDecimals: false,
             title: {
-                text: 'Percentage of your RDA'
+                text: ''
             }
         },
         tooltip: {
