@@ -50,10 +50,38 @@
 
       <div id="recipe-suggestions"></div>
 
-      <label for="filter-recipes">Enter any ingredient you do NOT want in the recipe. You can enter multiple ingredients by separating with a comma.</label>
-      <form id="filter-recipes">
-          <input type="text" placeholder="enter any exclusions" name="exclusions">
+      
+      <fieldset id="filter">
+          <label for="filter-recipes">Dietary requirements</label>
+          <form id="filter-recipes">
+            <ul>
+          
+       <li> <input type="radio" id="none" name="health" value="none" checked="true"/>
+        <label for="none">No dietary requirements</label>
+      </li>
+      <li>
+        <input type="radio" id="alcohol-free" name="health" value="alcohol-free"/>
+        <label for="alcohol-free">No alcohol</label>
+      </li>
+      <li>
+        <input type="radio" id="vegan" name="health" value="vegan"/>
+        <label for="vegan">Vegan</label>
+      </li>
+      <li>
+        <input type="radio" id="vegetarian" name="health" value="vegetarian"/>
+        <label for="vegetarian">Vegetarian</label>
+      </li>
+      <li>
+        <input type="radio" id="wheat-free" name="health" value="wheat-free"/>
+        <label for="wheat-free">No wheat</label>
+      </li>
+              </ul>
+      <label for="exclusions">Enter any ingredient you do NOT want in the recipe. You can enter multiple ingredients by separating with a comma, e.g: chickpea, garlic</label>
+  
+          <input id="exclusions" type="text" placeholder="enter ingredients" name="exclusions">
           <button type="submit">filter</button>
         </form>
+
+      </fieldset>
   </body>
 </html>

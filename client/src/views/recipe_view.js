@@ -7,17 +7,17 @@ const RecipeView = function(container){
 RecipeView.prototype.displayInitialSuggestions = function(deficientVitamin){
     this.container.innerHTML = "";
     const recipeRequest = new RecipeRequest();
-    recipeRequest.get(deficientVitamin, "none", ["none"])
+    recipeRequest.get(deficientVitamin, "none", [])
     .then((recipes)=>{
         this.render(recipes, deficientVitamin);
     });
 }
 
-RecipeView.prototype.displayFilteredSuggestions = function(deficientVitamin, exclusions){
+RecipeView.prototype.displayFilteredSuggestions = function(deficientVitamin, health, exclusions){
     this.container.innerHTML = "";
     const exclusionsArray = exclusions.replace(/\s+/g, '').split(',');
     const recipeRequest = new RecipeRequest();
-    recipeRequest.get(deficientVitamin, "none", exclusionsArray)
+    recipeRequest.get(deficientVitamin, health, exclusionsArray)
     .then((recipes)=>{
         this.render(recipes, deficientVitamin);
     });

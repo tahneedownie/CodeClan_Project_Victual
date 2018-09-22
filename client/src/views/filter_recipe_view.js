@@ -18,7 +18,8 @@ FilterRecipeView.prototype.bindEvents = function(){
 
 FilterRecipeView.prototype.handleEvent = function(event){
     const exclusions = event.target.exclusions.value;
-    this.recipeView.displayFilteredSuggestions(this.deficientVitamin, exclusions);
+    const health = event.target.health.value;
+    this.recipeView.displayFilteredSuggestions(this.deficientVitamin, health, exclusions);
 }
 
 module.exports = FilterRecipeView;
