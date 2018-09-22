@@ -49,7 +49,7 @@ ListView.prototype.renderOne = function(dataItem){
        const totalPercentage = (amountOfUnits * parseFloat(nutrientObject.quantity));
 
        const listLabel = document.createElement('li');
-       listLabel.textContent = `${nutrientObject.label}: ${totalPercentage}%`;
+       listLabel.textContent = `${nutrientObject.label}: ${totalPercentage.toFixed(2)}%`;
        unorderedList.appendChild(listLabel);
 
 
