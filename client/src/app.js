@@ -3,7 +3,8 @@ const ListView = require('./views/list_view.js');
 const Food = require('./models/food.js');
 //const dotenv = require('dotenv').config();
 const RecipeRequest = require('./helpers/recipe_request.js');
-const NutrientRDA = require('./models/nutrient_RDA.js');
+const RecipeView = require('./views/recipe_view.js');
+const FilterRecipeView = require('./views/filter_recipe_view.js');
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -19,11 +20,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const food = new Food();
     food.bindEvents();
 
-    const recipeRequest = new RecipeRequest();
-    recipeRequest.get("Calcium","vegan",["none"])
-    .then((recipeData)=>{
-        console.log(recipeData);
-      });
+    const recipeDiv = document.querySelector("#recipe-suggestions");
+    const filterRecipeForm = document.querySelector('#filter-recipes');
+    const filterRecipeView = new FilterRecipeView(filterRecipeForm, recipeDiv, "Protein");
+    filterRecipeView.bindEvents();
+
+    // const recipeRequest = new RecipeRequest();
+    // recipeRequest.get("Calcium","vegan",["none"])
+    // .then((recipeData)=>{
+    //     console.log(recipeData);
+    //   });
 
     //  console.log(NutrientRDA.getMinimumContent("Protein", 50));
 });

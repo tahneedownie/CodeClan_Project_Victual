@@ -23,9 +23,10 @@ RecipeRequest.prototype.buildQueryString = function(vitamin, healthRequirement, 
     }
     if(!exclusionsArray.includes('none')){
         exclusionsArray.forEach((requirement)=>{
-            query += `&exclusion=${requirement}`;
+            query += `&excluded=${requirement}`;
         });
     }
+    console.log(query);
     return query;
 }
 
