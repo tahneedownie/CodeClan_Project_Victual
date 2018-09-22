@@ -13,7 +13,11 @@ Food.prototype.bindEvents = function(){
     });
     PubSub.subscribe('ListView:delete-all-clicked', (event) => {
         this.deleteAll();
-    })
+    });
+    PubSub.subscribe('ListView:delete-item-clicked', (event) => {
+      const idToDelete = event.detail;
+      this.delete(idToDelete);
+    });
 }
 
 Food.prototype.getExistingData = function(){
@@ -35,6 +39,14 @@ Food.prototype.deleteAll = function () {
     .then((allData)=>{
         PubSub.publish('FormView:all-data-ready', allData);
       });
+}
+
+Food.prototype.delete = function (id) {
+  this.databaseRequest.delete(id)
+  .then((allData)=>{
+    PubSub.publish('FormView:all-data-ready', allData);
+  });
+
 }
 
 module.exports = Food;

@@ -11,7 +11,7 @@ ListView.prototype.bindEvents = function(){
         this.listContainer.innerHTML = "";
         this.renderAll(event.detail);
     });
-    
+
     this.deleteAllButton.addEventListener('click', (event) => {
         PubSub.publish('ListView:delete-all-clicked', null)
     });
@@ -30,16 +30,28 @@ ListView.prototype.renderOne = function(dataItem){
     const nameHeading = document.createElement('h3');
     nameHeading.textContent = `${dataItem.name}: ${dataItem.grams} grams`;
     div.appendChild(nameHeading);
+
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', () => {
+      PubSub.publish('ListView:delete-item-clicked', dataItem._id)
+    })
+    div.appendChild(deleteButton);
+
+
+
     const unorderedList = document.createElement('ul');
 
     for(let nutritionDetailKey of Object.keys(dataItem.details.totalDaily)){
        //console.log(dataItem.details.totalDaily[nutritionDetailKey]);
        const nutrientObject = dataItem.details.totalDaily[nutritionDetailKey];
        const totalPercentage = (numberOfGrams * parseFloat(nutrientObject.quantity));
-       
+
        const listLabel = document.createElement('li');
        listLabel.textContent = `${nutrientObject.label}: ${totalPercentage}%`;
        unorderedList.appendChild(listLabel);
+
 
 
         // for(let nutritionDetail in dataItem.details.totalNutrients[]){
@@ -56,6 +68,6 @@ ListView.prototype.renderOne = function(dataItem){
     this.listContainer.appendChild(div);
 }
 
-    
+
 
 module.exports = ListView;
