@@ -6,10 +6,18 @@ const Food = function(){
 }
 
 Food.prototype.bindEvents = function(){
+    this.getExistingData();
     PubSub.subscribe('FormView:food-submitted', (event)=>{
         const objectToSave = event.detail;
         this.save(objectToSave);
     });
+}
+
+Food.prototype.getExistingData = function(){
+  this.databaseRequest.get()
+  .then((allData)=>{
+    PubSub.publish('FormView:all-data-ready', allData);
+  });
 }
 
 Food.prototype.save = function(objectToSave){
