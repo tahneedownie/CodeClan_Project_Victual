@@ -2,6 +2,7 @@ const FormView = require('./views/form_view.js');
 const ListView = require('./views/list_view.js');
 const Food = require('./models/food.js');
 //const dotenv = require('dotenv').config();
+const RecipeRequest = require('./helpers/recipe_request.js');
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -16,4 +17,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     const food = new Food();
     food.bindEvents();
+
+    const recipeRequest = new RecipeRequest();
+    recipeRequest.get("CA",50)
+    .then((recipeData)=>{
+        console.log(recipeData);
+      });
+
 });
