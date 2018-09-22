@@ -24,11 +24,11 @@ ListView.prototype.renderAll = function(allData){
 }
 
 ListView.prototype.renderOne = function(dataItem){
-    const numberOfGrams = parseFloat(dataItem.grams);
+    const amountOfUnits = parseFloat(dataItem.amount);
     const div = document.createElement('div');
     div.className = "food-item";
     const nameHeading = document.createElement('h3');
-    nameHeading.textContent = `${dataItem.name}: ${dataItem.grams} grams`;
+    nameHeading.textContent = `${dataItem.name}: ${dataItem.amount} ${dataItem.measurement}`;
     div.appendChild(nameHeading);
 
 
@@ -46,7 +46,7 @@ ListView.prototype.renderOne = function(dataItem){
     for(let nutritionDetailKey of Object.keys(dataItem.details.totalDaily)){
        //console.log(dataItem.details.totalDaily[nutritionDetailKey]);
        const nutrientObject = dataItem.details.totalDaily[nutritionDetailKey];
-       const totalPercentage = (numberOfGrams * parseFloat(nutrientObject.quantity));
+       const totalPercentage = (amountOfUnits * parseFloat(nutrientObject.quantity));
 
        const listLabel = document.createElement('li');
        listLabel.textContent = `${nutrientObject.label}: ${totalPercentage}%`;

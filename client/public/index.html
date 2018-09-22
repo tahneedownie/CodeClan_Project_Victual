@@ -14,8 +14,32 @@
           <label for="name">Name of the food:</label>
           <input type="text" id="name" autocomplete="off"/>
 
-          <label for="numberOfGrams">Number of grams:</label>
-          <input type="number" id="numberOfGrams" min="0"/>
+          <label for="numberOfUnits">Amount of Unit:</label>
+          <input type="number" id="numberOfUnits" min="0"/>
+
+          <label for="measurementDropdown">Select Unit:</label>
+          <select id="measurementDropdown">
+            <option value="kilogram">Kilogram</option>
+            <option value="gram">Gram</option>
+            <option value="pound">Pound</option>
+            <option value="ounce">Ounce</option>
+            <option value="serving">Serving</option>
+            <option value="cup">Cup</option>
+            <option value="unit">Whole</option>
+            <option value="liter">Liter</option>
+            <option value="milliliter">Milliliter</option>
+            <option value="cubic_inch">Cubic Inch</option>
+            <option value="quart">Quart</option>
+            <option value="drop">Drop</option>
+            <option value="gallon">Gallon</option>
+            <option value="dash">Dash</option>
+            <option value="fluid_ounce">Fluid Ounce</option>
+            <option value="pint">Pint</option>
+            <option value="pinch">Pinch</option>
+            <option value="teaspoon">Teaspoon</option>
+            <option value="tablespoon">Tablespoon</option>
+            <option value="dessert_spoon">Dessertspoon</option>
+          </select>
 
         <input type="submit" value="Save" id="save"/>
       </form>

@@ -15,11 +15,13 @@ FormView.prototype.bindEvents = function(){
 
 FormView.prototype.handleEvent = function(event){
     const nameOfFood = event.target.name.value;
-    const numberOfGrams = event.target.numberOfGrams.value;
-    this.queryAPI(nameOfFood, numberOfGrams);
+    const numberOfUnits = event.target.numberOfUnits.value; 
+    const unitSelected = event.target.measurementDropdown.value;
+    // console.log(unitSelected);
+    this.queryAPI(nameOfFood, numberOfUnits, unitSelected);
 }
 
-FormView.prototype.queryAPI = function(nameOfFood, numberOfGrams){
+FormView.prototype.queryAPI = function(nameOfFood, numberOfUnits, unitSelected){
     const APIrequest = new APIRequest();
  
     APIrequest.get(nameOfFood)
@@ -33,7 +35,7 @@ FormView.prototype.queryAPI = function(nameOfFood, numberOfGrams){
         "ingredients": [
             {
                 "quantity": 1,
-                "measureURI": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
+                "measureURI": `http://www.edamam.com/ontologies/edamam.owl#Measure_${unitSelected}`,
                 "foodURI": foodURI
             }
         ]
@@ -42,17 +44,18 @@ FormView.prototype.queryAPI = function(nameOfFood, numberOfGrams){
     .then(()=>{
         APIrequest.post(objectToPost)
         .then((result) => {
-            this.publishResult(nameOfFood, numberOfGrams, result);
+            this.publishResult(nameOfFood, numberOfUnits, unitSelected, result);
         })
     })
     .catch(console.error)
 }
 
 
-FormView.prototype.publishResult = function(nameOfFood, numberOfGrams, result){
+FormView.prototype.publishResult = function(nameOfFood, numberOfUnits, unitSelected, result){
     const objectToPublish = {
         name: nameOfFood,
-        grams: numberOfGrams,
+        amount: numberOfUnits,
+        measurement: unitSelected,
         details: result
     };
     PubSub.publish('FormView:food-submitted', objectToPublish);
