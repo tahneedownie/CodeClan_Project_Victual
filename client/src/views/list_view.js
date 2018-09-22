@@ -7,7 +7,7 @@ const ListView = function(listContainer, deleteAllButton){
 
 ListView.prototype.bindEvents = function(){
     PubSub.subscribe('FormView:all-data-ready', (event)=>{
-        console.log(event.detail);
+        // console.log(event.detail);
         this.listContainer.innerHTML = "";
         this.renderAll(event.detail);
     });
