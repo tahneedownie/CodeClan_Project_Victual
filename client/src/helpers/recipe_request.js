@@ -34,7 +34,9 @@ RecipeRequest.prototype.getShortHand = function(vitamin){
 }
 
 RecipeRequest.prototype.getMinimumContent = function(vitamin){
-    return 0.5 * NutrientRDA.nutrients[vitamin].RDA;
+    const minimumContent = 0.5 * NutrientRDA.nutrients[vitamin].RDA;
+    const minimumContentEncodedForURL = minimumContent.toString().replace(/\./g, '%2E');
+    return minimumContentEncodedForURL;
 }
 
 

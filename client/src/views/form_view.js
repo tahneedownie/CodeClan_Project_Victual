@@ -58,6 +58,7 @@ FormView.prototype.publishResult = function(nameOfFood, numberOfUnits, unitSelec
         measurement: unitSelected,
         details: result
     };
+    console.log(objectToPublish);
     PubSub.publish('FormView:food-submitted', objectToPublish);
 }
 

@@ -7,11 +7,11 @@ NutrientRDA.nutrients = {
     },
     Fat: {
         shortHand: "FAT",
-        RDA: 65
+        RDA: 66
     },
     Fibre: {
         shortHand: "FIBTG",
-        RDA: 25
+        RDA: 26
     },
     Protein: {
         shortHand: "PROCNT",
@@ -47,11 +47,11 @@ NutrientRDA.nutrients = {
     },
     Riboflavin: {
         shortHand: "RIBHF",
-        RDA: 1.7
+        RDA: 2
     },
     Thiamin: {
         shortHand: "THIA",
-        RDA: 1.5
+        RDA: 2
     },
     Vitamin_E: {
         shortHand: "TOCPHA",
@@ -75,7 +75,7 @@ NutrientRDA.nutrients = {
     },
     Zinc: {
         shortHand: "ZN",
-        RDA: 15
+        RDA: 16
     }
 }
 

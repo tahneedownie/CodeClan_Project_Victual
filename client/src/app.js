@@ -22,14 +22,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     const recipeDiv = document.querySelector("#recipe-suggestions");
     const filterRecipeForm = document.querySelector('#filter-recipes');
-    const filterRecipeView = new FilterRecipeView(filterRecipeForm, recipeDiv, "Protein");
+    const filterRecipeView = new FilterRecipeView(filterRecipeForm, recipeDiv, "Thiamin");
     filterRecipeView.bindEvents();
 
-    // const recipeRequest = new RecipeRequest();
-    // recipeRequest.get("Calcium","vegan",["none"])
-    // .then((recipeData)=>{
-    //     console.log(recipeData);
-    //   });
-
-    //  console.log(NutrientRDA.getMinimumContent("Protein", 50));
 });
