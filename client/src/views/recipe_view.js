@@ -4,29 +4,32 @@ const RecipeView = function(container){
     this.container = container;
 }
 
-RecipeView.prototype.displayInitialSuggestions = function(deficientVitamin){
+RecipeView.prototype.displayInitialSuggestions = function(deficientVitaminArray){
     this.container.innerHTML = "";
     const recipeRequest = new RecipeRequest();
-    recipeRequest.get(deficientVitamin, "none", [])
+    recipeRequest.get(deficientVitaminArray, "none", [])
     .then((recipes)=>{
-        this.render(recipes, deficientVitamin);
+        this.render(recipes, deficientVitaminArray);
     });
 }
 
-RecipeView.prototype.displayFilteredSuggestions = function(deficientVitamin, health, exclusions){
+RecipeView.prototype.displayFilteredSuggestions = function(deficientVitaminArray, health, exclusions){
     this.container.innerHTML = "";
     const exclusionsArray = exclusions.replace(/\s+/g, '').split(',');
     const recipeRequest = new RecipeRequest();
-    recipeRequest.get(deficientVitamin, health, exclusionsArray)
+    recipeRequest.get(deficientVitaminArray, health, exclusionsArray)
     .then((recipes)=>{
-        this.render(recipes, deficientVitamin);
+        this.render(recipes, deficientVitaminArray);
     });
 }
 
 
-RecipeView.prototype.render = function(recipes, deficientVitamin){
+RecipeView.prototype.render = function(recipes, deficientVitaminArray){
     const heading = document.createElement("h2");
-    heading.textContent = `Here are some recipes high in ${deficientVitamin}`;
+    heading.textContent = "Here are some recipes high in ";
+    for(let vitamin of deficientVitaminArray){
+        heading.textContent += vitamin+" ";
+    }
     this.container.appendChild(heading);
     const randomThreeRecipes = this.getRandomThree(recipes.hits);
     for(let recipeObject of randomThreeRecipes){
@@ -49,7 +52,6 @@ RecipeView.prototype.getRandomThree = function(array){
             randomThree.push(randomElement);
         }
     }
-    console.log(randomThree);
     return randomThree;
 }
 

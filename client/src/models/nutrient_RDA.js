@@ -9,7 +9,7 @@ NutrientRDA.nutrients = {
         shortHand: "FAT",
         RDA: 66
     },
-    Fibre: {
+    Fiber: {
         shortHand: "FIBTG",
         RDA: 26
     },

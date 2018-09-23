@@ -8,25 +8,50 @@ const RecipeRequest = function () {
     this.url = `https://api.edamam.com/search?q=&app_id=${applicationID}&app_key=${apiKey}`;
 };
 
-RecipeRequest.prototype.get = function (vitamin, healthRequirement, exclusionsArray) {
-    return fetch(`${this.buildQueryString(vitamin, healthRequirement, exclusionsArray)}`)
+RecipeRequest.prototype.get = function (deficientVitaminArray, healthRequirement, exclusionsArray) {
+    return fetch(`${this.buildQueryString(deficientVitaminArray, healthRequirement, exclusionsArray)}`)
         .then((response) => response.json());
 };
 
-RecipeRequest.prototype.buildQueryString = function(vitamin, healthRequirement, exclusionsArray){
+RecipeRequest.prototype.buildQueryString = function(deficientVitaminArray, healthRequirement, exclusionsArray){
     let query = "";
     query += this.url;
-    query += `&nutrients%5B${this.getShortHand(vitamin)}%5D=${this.getMinimumContent(vitamin)}`;
-    query += "%2B&from=0&to=20";
+    query += this.getNutrientQuery(deficientVitaminArray);
+    query += this.getNumberOfResultsQuery();
+    query += this.getHealthRequirementQuery(healthRequirement);
+    query += this.getExclusionsQuery(exclusionsArray);
+    return query;
+}
+
+RecipeRequest.prototype.getNumberOfResultsQuery = function(){
+    return "from=0&to=20";
+}
+
+RecipeRequest.prototype.getHealthRequirementQuery = function(healthRequirement){
     if(healthRequirement !== "none"){
-        query += `&health=${healthRequirement}`;
+        return `&health=${healthRequirement}`;
     }
+    else{
+        return "";
+    }
+}
+
+RecipeRequest.prototype.getExclusionsQuery = function(exclusionsArray){
+    let exclusionsQuery = "";
     if(exclusionsArray.length !== 0){
         exclusionsArray.forEach((requirement)=>{
-            query += `&excluded=${requirement}`;
+             exclusionsQuery += `&excluded=${requirement}`;
         });
     }
-    return query;
+    return exclusionsQuery;
+}
+
+RecipeRequest.prototype.getNutrientQuery = function(deficientVitaminArray){
+    let nutrientQuery = "&nutrients";
+    for(let vitamin of deficientVitaminArray){
+        nutrientQuery += `%5B${this.getShortHand(vitamin)}%5D=${this.getMinimumContent(vitamin)}%2B&`
+    };
+    return nutrientQuery;
 }
 
 RecipeRequest.prototype.getShortHand = function(vitamin){
