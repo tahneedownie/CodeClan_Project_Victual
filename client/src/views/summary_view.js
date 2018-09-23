@@ -64,8 +64,8 @@ SummaryView.prototype.renderSummary = function (allData) {
 SummaryView.prototype.calculateTotal = function (allData, mineral) {
     let totalPercentage = 0;
     for (const dataItem of allData ) {
-        if (dataItem.details.totalDaily[mineral]) {
-            totalPercentage += dataItem.details.totalDaily[mineral].quantity;
+        if (dataItem.details[mineral]) {
+            totalPercentage += dataItem.details[mineral].quantity;
         }
     }
     return totalPercentage.toFixed(2);
