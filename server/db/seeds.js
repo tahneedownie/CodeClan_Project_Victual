@@ -3,7 +3,6 @@ db.dropDatabase();
 db.user_food_items.insertMany(
     [
         {
-            "_id": "5ba79f9b39453642d7b2b0ff",
             "name": "banana",
             "amount": "1",
             "measurement": "gram",
@@ -122,7 +121,6 @@ db.user_food_items.insertMany(
             }
         },
         {
-            "_id": "5ba7a47c52e858456879444c",
             "name": "banana",
             "amount": "1",
             "measurement": "serving",
