@@ -15,7 +15,12 @@ RecipeView.prototype.displayInitialSuggestions = function(deficientVitaminArray)
 
 RecipeView.prototype.displayFilteredSuggestions = function(deficientVitaminArray, health, exclusions){
     this.container.innerHTML = "";
-    const exclusionsArray = exclusions.replace(/\s+/g, '').split(',');
+    let exclusionsArray = [];
+    if(exclusions !== ""){
+        exclusionsArray = exclusions.replace(/\s+/g, '').split(',');
+    }
+    console.log(health);
+    console.log(exclusionsArray);
     const recipeRequest = new RecipeRequest();
     recipeRequest.get(deficientVitaminArray, health, exclusionsArray)
     .then((recipes)=>{
