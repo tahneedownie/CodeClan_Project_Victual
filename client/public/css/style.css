@@ -7,3 +7,9 @@
 * {
   font-family: 'Open Sans', sans-serif;
 }
+
+.logo {
+  width: 100%;
+  max-width: 250px;
+  max-height: 130px;
+}
