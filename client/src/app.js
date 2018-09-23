@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     const recipeDiv = document.querySelector("#recipe-suggestions");
     const filterRecipeForm = document.querySelector('#filter-recipes');
-    const filterRecipeView = new FilterRecipeView(filterRecipeForm, recipeDiv, "Thiamin");
+    const filterRecipeView = new FilterRecipeView(filterRecipeForm, recipeDiv, "Calcium");
     filterRecipeView.bindEvents();
 
 });

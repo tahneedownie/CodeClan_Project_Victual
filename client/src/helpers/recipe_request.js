@@ -17,7 +17,7 @@ RecipeRequest.prototype.buildQueryString = function(vitamin, healthRequirement, 
     let query = "";
     query += this.url;
     query += `&nutrients%5B${this.getShortHand(vitamin)}%5D=${this.getMinimumContent(vitamin)}`;
-    query += "%2B&from=0&to=5";
+    query += "%2B&from=0&to=20";
     if(healthRequirement !== "none"){
         query += `&health=${healthRequirement}`;
     }
