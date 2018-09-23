@@ -26,25 +26,39 @@ RecipeView.prototype.displayFilteredSuggestions = function(deficientVitaminArray
 
 RecipeView.prototype.render = function(recipes, deficientVitaminArray){
     const heading = document.createElement("h2");
-    heading.textContent = "Here are some recipes high in ";
-    for(let vitamin of deficientVitaminArray){
-        heading.textContent += vitamin+" ";
-    }
+    heading.textContent = "Recipes high in: ";
+    deficientVitaminArray.forEach((vitamin,index)=>{
+        heading.textContent += vitamin;
+        if(index < deficientVitaminArray.length-1){
+            heading.textContent += ", ";
+        }
+    })
     this.container.appendChild(heading);
     const randomThreeRecipes = this.getRandomThree(recipes.hits);
-    for(let recipeObject of randomThreeRecipes){
-        const title = document.createElement("h3");
-        title.textContent = recipeObject.recipe.label;
-        const url = document.createElement("a");
-        url.setAttribute("href", recipeObject.recipe.url);
-        url.textContent = recipeObject.recipe.url;
-        this.container.appendChild(title);
-        this.container.appendChild(url);
+    if(randomThreeRecipes.length === 0){
+        const noResults = document.createElement("h3");
+        noResults.textContent = "Sorry, no results found."
+        this.container.appendChild(noResults);
+    }
+    else{
+        for(let recipeObject of randomThreeRecipes){
+            const title = document.createElement("h3");
+            title.textContent = recipeObject.recipe.label;
+            const url = document.createElement("a");
+            url.setAttribute("href", recipeObject.recipe.url);
+            url.textContent = recipeObject.recipe.url;
+            this.container.appendChild(title);
+            this.container.appendChild(url);
+        }
     }
 }
 
 RecipeView.prototype.getRandomThree = function(array){
+    console.log(array);
     const randomThree = [];
+    if(array.length <= 3){
+        return array;
+    }
     while(randomThree.length < 3){
         const randomIndex = Math.floor(Math.random()*array.length);
         const randomElement = array[randomIndex];

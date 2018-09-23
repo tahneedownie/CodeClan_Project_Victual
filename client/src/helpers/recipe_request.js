@@ -20,6 +20,7 @@ RecipeRequest.prototype.buildQueryString = function(deficientVitaminArray, healt
     query += this.getNumberOfResultsQuery();
     query += this.getHealthRequirementQuery(healthRequirement);
     query += this.getExclusionsQuery(exclusionsArray);
+    console.log(query);
     return query;
 }
 
@@ -59,9 +60,7 @@ RecipeRequest.prototype.getShortHand = function(vitamin){
 }
 
 RecipeRequest.prototype.getMinimumContent = function(vitamin){
-    const minimumContent = 0.5 * NutrientRDA.nutrients[vitamin].RDA;
-    const minimumContentEncodedForURL = minimumContent.toString().replace(/\./g, '%2E');
-    return minimumContentEncodedForURL;
+    return 0.5 * NutrientRDA.nutrients[vitamin].RDA;
 }
 
 
