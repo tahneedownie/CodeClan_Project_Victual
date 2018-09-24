@@ -7,6 +7,7 @@ const ListView = function(listContainer, deleteAllButton){
 
 ListView.prototype.bindEvents = function(){
     PubSub.subscribe('FormView:all-data-ready', (event)=>{
+
         this.listContainer.innerHTML = "";
         this.renderAll(event.detail);
     });
@@ -38,9 +39,12 @@ ListView.prototype.renderOne = function(dataItem){
     })
     div.appendChild(deleteButton);
 
-
+    const expandButton = document.createElement('button');
+    expandButton.textContent = 'Details...';
+    div.appendChild(expandButton);
 
     const unorderedList = document.createElement('ul');
+    unorderedList.style.display = 'none';
 
     for(let nutritionDetailKey of Object.keys(dataItem.details)){
        //console.log(dataItem.details[nutritionDetailKey]);
@@ -65,6 +69,14 @@ ListView.prototype.renderOne = function(dataItem){
 
     div.appendChild(unorderedList);
     this.listContainer.appendChild(div);
+
+    expandButton.addEventListener('click', () => {
+        if (unorderedList.style.display === 'none') {
+            unorderedList.style.display = 'block';
+        } else if (unorderedList.style.display === 'block') {
+            unorderedList.style.display = 'none';
+        }
+    })
 }
 
 
