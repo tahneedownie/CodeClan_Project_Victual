@@ -43,9 +43,9 @@ ListView.prototype.renderOne = function(dataItem){
 
     const unorderedList = document.createElement('ul');
 
-    for(let nutritionDetailKey of Object.keys(dataItem.details.totalDaily)){
-       //console.log(dataItem.details.totalDaily[nutritionDetailKey]);
-       const nutrientObject = dataItem.details.totalDaily[nutritionDetailKey];
+    for(let nutritionDetailKey of Object.keys(dataItem.details)){
+       //console.log(dataItem.details[nutritionDetailKey]);
+       const nutrientObject = dataItem.details[nutritionDetailKey];
        const totalPercentage = (amountOfUnits * parseFloat(nutrientObject.quantity));
 
        const listLabel = document.createElement('li');

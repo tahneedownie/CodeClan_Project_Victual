@@ -9,7 +9,9 @@ Food.prototype.bindEvents = function(){
     this.getExistingData();
     PubSub.subscribe('FormView:food-submitted', (event)=>{
         const objectToSave = event.detail;
-        this.save(objectToSave);
+        const amendedObjectToSave = this.extractTotalDaily(objectToSave);
+        // console.log(amendedObjectToSave);
+        this.save(amendedObjectToSave);
     });
     PubSub.subscribe('ListView:delete-all-clicked', (event) => {
         this.deleteAll();
@@ -25,6 +27,11 @@ Food.prototype.getExistingData = function(){
   .then((allData)=>{
     PubSub.publish('FormView:all-data-ready', allData);
   });
+}
+
+Food.prototype.extractTotalDaily = function (objectToSave){
+    objectToSave.details = objectToSave.details.totalDaily;
+    return objectToSave; 
 }
 
 Food.prototype.save = function(objectToSave){
