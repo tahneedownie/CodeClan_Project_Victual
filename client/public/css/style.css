@@ -90,3 +90,7 @@ select {
   width: 120px;
   height: 25px;
 }
+
+#filter-recipes {
+  display: none;
+}

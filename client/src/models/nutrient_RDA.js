@@ -37,7 +37,7 @@ NutrientRDA.nutrients = {
         shortHand: "NA",
         RDA: 2400
     },
-    Niacin: {
+    "Niacin (B3)": {
         shortHand: "NIA",
         RDA: 20
     },
@@ -53,23 +53,23 @@ NutrientRDA.nutrients = {
         shortHand: "THIA",
         RDA: 2
     },
-    Vitamin_E: {
+    "Vitamin E": {
         shortHand: "TOCPHA",
         RDA: 20
     },
-    Vitamin_A: {
+    "Vitamin A": {
         shortHand: "VITA_RAE",
         RDA: 900
     },
-    Vitamin_B6: {
+    "Vitamin B6": {
         shortHand: "VITB6A",
         RDA: 2
     },
-    Vitamin_C: {
+    "Vitamin C": {
         shortHand: "VITC",
         RDA: 60
     },
-    Vitamin_K: {
+    "Vitamin K": {
         shortHand: "VITK1",
         RDA: 80
     },

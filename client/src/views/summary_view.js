@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const RecipeView = require('./recipe_view.js');
 
 const SummaryView = function (summaryContainer) {
     this.summaryContainer = summaryContainer;
@@ -38,6 +39,7 @@ SummaryView.prototype.bindEvents = function () {
         console.log(allData);
         this.summaryContainer.innerHTML = ""
         this.renderSummary(allData);
+        this.createRecipeButtons();
     })
 }
 
@@ -57,6 +59,9 @@ SummaryView.prototype.renderSummary = function (allData) {
     };
     this.summaryContainer.appendChild(summaryHeading);
     this.summaryContainer.appendChild(unorderedList);
+    this.threeMostDeficientNutrients = this.getThreeMostDeficientNutrients(nutrientInfoObject);
+   // console.log(this.threeMostDeficientNutrients);
+  //  this.displayRecipes(this.threeMostDeficientNutrients);
     this.publishNutrientObject(nutrientInfoObject);
 }
 
@@ -73,6 +78,40 @@ SummaryView.prototype.calculateTotal = function (allData, mineral) {
         }
     }
     return totalPercentage.toFixed(2);
+}
+
+SummaryView.prototype.displayRecipes  = function(threeMostDeficientNutrients){
+    const recipeDiv = document.querySelector("#recipe-suggestions");
+    const recipeView = new RecipeView(recipeDiv);
+    recipeView.displayInitialSuggestions(threeMostDeficientNutrients);
+}
+
+SummaryView.prototype.getThreeMostDeficientNutrients = function(nutrientInfoObject){
+    const nutrientInfoArray = [];
+    for(const objectKey of Object.keys(nutrientInfoObject)){
+        nutrientInfoArray.push(nutrientInfoObject[objectKey]);
+    };
+    nutrientInfoArray.sort((object1, object2)=>{
+        return object1.amount - object2.amount;
+    });
+    const nutrientNameArray = nutrientInfoArray.map((object)=>{
+        return object.name;
+    });
+    console.log(nutrientNameArray);
+    return nutrientNameArray.slice(0,3);
+}
+
+SummaryView.prototype.createRecipeButtons = function(){
+    const div = document.createElement('div');
+    this.threeMostDeficientNutrients.forEach((nutrient)=>{
+        const button = document.createElement('button');
+        button.textContent = nutrient + " rich recipes";
+        button.addEventListener('click', (event)=>{
+            PubSub.publish(`SummaryView:nutrient-clicked`, nutrient);
+        });
+        div.appendChild(button);
+    });
+    this.summaryContainer.appendChild(div);
 }
 
 module.exports = SummaryView;

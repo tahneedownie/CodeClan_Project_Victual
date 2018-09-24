@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const chartView = new ChartView(chartContainer);
     chartView.bindEvents();
 
-    const recipeDiv = document.querySelector("#recipe-suggestions");
+   
     const filterRecipeForm = document.querySelector('#filter-recipes');
-    const filterRecipeView = new FilterRecipeView(filterRecipeForm, recipeDiv, ["Protein", "Magnesium"]);
+    const filterRecipeView = new FilterRecipeView(filterRecipeForm);
     filterRecipeView.bindEvents();
 
 });

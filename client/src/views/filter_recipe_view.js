@@ -1,14 +1,14 @@
 const RecipeView = require('./recipe_view.js');
 
-const FilterRecipeView = function(form, recipeContainer, deficientVitaminArray){
+const FilterRecipeView = function(form){
     this.form = form;
-    this.recipeContainer = recipeContainer;
-    this.deficientVitaminArray = deficientVitaminArray;
-    this.recipeView = new RecipeView(recipeContainer);
+    // this.recipeContainer = recipeContainer;
+    // this.deficientVitaminArray = deficientVitaminArray;
+    
+    
 }
 
 FilterRecipeView.prototype.bindEvents = function(){
-    this.recipeView.displayInitialSuggestions(this.deficientVitaminArray);
     this.form.addEventListener('submit', (event)=>{
         event.preventDefault();
         this.handleEvent(event);
