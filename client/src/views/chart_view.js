@@ -52,8 +52,8 @@ ChartView.prototype.createTableElements = function(){
     this.row0 = this.header.insertRow(0);
     this.thTitle = document.createElement('th');
     this.thTitle2 = document.createElement('th');
-    this.thTitle.textContent = "% of RDA (Recommended Dietry Allowance)";
-    this.thTitle2.textContent = "% of RDA (Recommended Dietry Allowance)";
+    this.thTitle.textContent = "% of RDA (Recommended Dietary Allowance)";
+    this.thTitle2.textContent = "% of RDA (Recommended Dietary Allowance)";
     this.row0.appendChild(this.thTitle);
     this.row0.appendChild(this.thTitle2);
     this.createRows();
