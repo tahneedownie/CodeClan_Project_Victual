@@ -40,7 +40,7 @@ ListView.prototype.renderOne = function(dataItem){
     div.appendChild(deleteButton);
 
     const expandButton = document.createElement('button');
-    expandButton.textContent = 'Details...';
+    expandButton.textContent = 'RDA %s';
     div.appendChild(expandButton);
 
     const unorderedList = document.createElement('ul');

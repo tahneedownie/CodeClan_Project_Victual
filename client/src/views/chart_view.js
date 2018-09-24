@@ -57,7 +57,7 @@ ChartView.prototype.displayChart = function(){
             type: 'bar'
         },
         title: {
-            text: 'Your total daily intake'
+            text: 'Your Total Daily Intake'
         },
         yAxis: {
             allowDecimals: false,
