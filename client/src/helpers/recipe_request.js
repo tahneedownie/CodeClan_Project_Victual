@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.load();
-const apiKey = "3aef42721e55d7947be68804a84435d9";//process.env.RECIPE_API_KEY;
-const applicationID = "3f9b33ea";//process.env.RECIPE_APPLICATION_ID;
+const apiKey = process.env.RECIPE_API_KEY;
+const applicationID = process.env.RECIPE_APPLICATION_ID;
 const NutrientRDA = require('../models/nutrient_RDA.js');
 const RecipeRequest = function () {
     this.url = `https://api.edamam.com/search?q=&app_id=${applicationID}&app_key=${apiKey}`;
