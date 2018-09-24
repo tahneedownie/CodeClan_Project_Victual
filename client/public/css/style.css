@@ -3,6 +3,7 @@
   font-family: 'Nunito Sans', sans-serif;
   border: 0;
   margin: 0;
+  padding: 0;
 }
 
 .logo {
@@ -14,14 +15,43 @@
   margin-bottom: 10px;
 }
 
+.nav_bar {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin-left: 25px;
+}
+
+.nav_item {
+  margin-right: 50px;
+  color: #050505;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
 .decoration {
-  background-color: #050505;
-  height: 40px;
+  /* background-color: #050505; */
+  background-color: #D1D1D1;
+  height: 1px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /* height: 40px; */
+}
+
+.decoration_2 {
+  /* background-color: #050505; */
+  background-color: #D1D1D1;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  /* height: 40px; */
 }
 
 h2 {
-  font-weight: 100;
-  color: #050505;
+  font-size: 27px;
+  font-weight: 200;
+  /* color: #050505; */
+  color: white;
   margin-top: 15px;
   margin-left: 0px;
 }
@@ -31,18 +61,25 @@ h2 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  /* background-image: url('./images/oatmeal-761434_1280.jpg'); */
+  /* background-image: url('./images/table-2879213_1920.jpg'); */
+  /* background-image: url('./images/wood-2879244_1920.jpg'); */
+  background-image: url('./images/wood_edit.jpg');
+  background-size: 100%;
+  background-position: top;
+  margin-bottom: 30px;
 }
 
 .form_wrapper {
   background-color: #EEEEEE;
-  width: 300px;
+  width: 310px;
   display: flex;
   flex-direction: column;
   margin-top: 15px;
   margin-bottom: 15px;
   padding-top: 25px;
   padding-bottom: 25px;
+  padding-left: 6px;
 }
 
 .form-item {
@@ -80,7 +117,7 @@ select {
   color: white;
   width: 120px;
   height: 25px;
-  margin-right: 12px;
+  margin-right: 14px;
 }
 
 .delete_all_button {

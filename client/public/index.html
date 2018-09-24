@@ -16,24 +16,32 @@
   <body>
 
 
-    <h2>Select A Date:</h2>
-
-    <input type="date" id="date-selector">
-
-
     <img class ="logo" src="./css/images/victual_logo_green_V4.png" alt="victual_logo">
 
     <div class="decoration"> </div>
+    <ul class="nav_bar">
+      <li class="nav_item">LOG</li>
+      <li class="nav_item">GRAPHS</li>
+      <li class="nav_item">RECIPES</li>
+    </ul>
+    <div class="decoration_2"> </div>
+
+
+    <!-- <h2>SELECT DATE</h2>
+    <input type="date" id="date-selector"> -->
 
       <div class="form_with_header_wrapper">
 
       <h2>ADD FOOD / DRINK</h2>
 
-
       <form id="food-form">
 
-
         <div class="form_wrapper">
+
+          <div class="form-item">
+          <label class= "primary" for="name">Date:</label>
+          <input type="date" id="date-selector">
+          </div>
 
           <div class="form-item">
           <label class= "primary" for="name">Name:</label>
@@ -122,7 +130,7 @@
         </form>
 
         <div id="recipe-suggestions"></div>
-        
+
       </div>
 
 
