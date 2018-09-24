@@ -5,5 +5,98 @@
 } */
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Nunito Sans', sans-serif;
+  border: 0;
+  margin: 0;
+}
+
+.logo {
+  width: 100%;
+  max-width: 250px;
+  max-height: 130px;
+  margin-left: 25px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.decoration {
+  background-color: #050505;
+  height: 40px;
+}
+
+body {
+  /* background-image: url(./images/oatmeal-761434_1280.jpg); */
+}
+
+h2 {
+  font-weight: 100;
+  color: #050505;
+  margin-top: 15px;
+  margin-left: 0px;
+}
+
+.form_with_header_wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form_wrapper {
+  background-color: #EEEEEE;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.form-item {
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+label.primary {
+  font-size: 12pt;
+  display: block;
+}
+
+input {
+  width: 150px;
+  height: 20px;
+}
+
+select {
+  width: 150px;
+  height: 20px;
+}
+
+.button-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 25px;
+}
+
+.save_button {
+  background-color: #8EC63F;
+  font-size: 10pt;
+  color: white;
+  width: 120px;
+  height: 25px;
+  margin-right: 12px;
+}
+
+.delete_all_button {
+  background-color: #8EC63F;
+  font-size: 10pt;
+  color: white;
+  width: 120px;
+  height: 25px;
 }

@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="css/style.css">
@@ -9,20 +10,38 @@
   </head>
   <body>
 
+
     <h2>Select A Date:</h2>
 
     <input type="date" id="date-selector">
 
-      <h2>Add a food item</h2>
+
+    <img class ="logo" src="./css/images/victual_logo_green_V4.png" alt="victual_logo">
+
+    <div class="decoration"> </div>
+
+      <div class="form_with_header_wrapper">
+
+      <h2>ADD FOOD / DRINK</h2>
+
+
       <form id="food-form">
 
-          <label for="name">Name of the food:</label>
+
+        <div class="form_wrapper">
+
+          <div class="form-item">
+          <label class= "primary" for="name">Name:</label>
           <input type="text" id="name" autocomplete="off" required/>
+          </div>
 
-          <label for="numberOfUnits">Amount of Unit:</label>
+          <div class="form-item">
+          <label class= "primary" for="numberOfUnits">Amount:</label>
           <input type="number" id="numberOfUnits" min="0" required/>
+          </div>
 
-          <label for="measurementDropdown">Select Unit:</label>
+          <div class="form-item">
+          <label class= "primary" for="measurementDropdown">Unit:</label>
           <select id="measurementDropdown" required>
             <option disabled selected value="">--select--</option>
             <option value="kilogram">Kilogram</option>
@@ -46,11 +65,20 @@
             <option value="tablespoon">Tablespoon</option>
             <option value="dessert_spoon">Dessertspoon</option>
           </select>
+          </div>
 
-        <input type="submit" value="Save" id="save"/>
+          <div class="button-wrapper">
+        <input class="save_button" type="submit" value="Save" id="save"/>
+        <button class="delete_all_button" id="delete-all-button">Delete All</button>
+          </div>
+
+          </div>
+
       </form>
 
-      <button id="delete-all-button">DELETE ALL</button>
+      </div>
+
+
 
       <div id="food-list"></div>
   </body>
