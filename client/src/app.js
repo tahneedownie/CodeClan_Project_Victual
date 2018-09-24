@@ -37,15 +37,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     summaryView.bindEvents();
 
     const food = new Food(dateSelector);
-
     food.bindEvents();
 
     const chartContainer = document.querySelector('#chart-container');
     const chartView = new ChartView(chartContainer);
     chartView.bindEvents();
-   
-    const filterRecipeForm = document.querySelector('#filter-recipes');
-    const filterRecipeView = new FilterRecipeView(filterRecipeForm);
-    filterRecipeView.bindEvents();
 
 });

@@ -10,15 +10,17 @@ RecipeView.prototype.bindEvents = function(){
     PubSub.subscribe("SummaryView:nutrient-clicked", (event)=>{
         
         this.container.style.display = "block";
-        const nutrientName = event.detail;
-        this.displayInitialSuggestions(nutrientName);
+        this.nutrientName = event.detail;
+        this.displayInitialSuggestions(this.nutrientName);
     })
 }
 
 RecipeView.prototype.displayInitialSuggestions = function(deficientNutrient){
     const recipeListContainer = document.querySelector('#recipe-suggestions');
     recipeListContainer.innerHTML = "";
-    
+
+    this.createForm();
+
     const recipeRequest = new RecipeRequest();
     recipeRequest.get(deficientNutrient, "none", [])
     .then((recipes)=>{
@@ -26,14 +28,24 @@ RecipeView.prototype.displayInitialSuggestions = function(deficientNutrient){
     });
 }
 
+RecipeView.prototype.createForm = function(){
+    const filterRecipeForm = document.querySelector('#filter-recipes');
+    filterRecipeForm.addEventListener('submit', (event)=>{
+        event.preventDefault();
+        const exclusions = event.target.exclusions.value;
+        const health = event.target.health.value;
+        this.displayFilteredSuggestions(this.nutrientName, health, exclusions);
+        filterRecipeForm.reset();
+    });
+}
+
 RecipeView.prototype.displayFilteredSuggestions = function(deficientNutrient, health, exclusions){
-    this.container.innerHTML = "";
+    const recipeListContainer = document.querySelector('#recipe-suggestions');
+    recipeListContainer.innerHTML = "";
     let exclusionsArray = [];
     if(exclusions !== ""){
         exclusionsArray = exclusions.replace(/\s+/g, '').split(',');
     }
-    console.log(health);
-    console.log(exclusionsArray);
     const recipeRequest = new RecipeRequest();
     recipeRequest.get(deficientNutrient, health, exclusionsArray)
     .then((recipes)=>{
@@ -43,15 +55,18 @@ RecipeView.prototype.displayFilteredSuggestions = function(deficientNutrient, he
 
 
 RecipeView.prototype.render = function(recipes, deficientNutrient){
+    const recipeListContainer = document.querySelector('#recipe-suggestions');
+    recipeListContainer.innerHTML = "";
+    console.log(recipeListContainer);
     const heading = document.createElement("h2");
     heading.textContent = "Recipes high in: ";
     heading.textContent += deficientNutrient;
-    this.container.appendChild(heading);
+    recipeListContainer.appendChild(heading);
     const randomThreeRecipes = this.getRandomThree(recipes.hits);
     if(randomThreeRecipes.length === 0){
         const noResults = document.createElement("h3");
         noResults.textContent = "Sorry, no results found."
-        this.container.appendChild(noResults);
+        recipeListContainer.appendChild(noResults);
     }
     else{
         for(let recipeObject of randomThreeRecipes){
@@ -60,8 +75,8 @@ RecipeView.prototype.render = function(recipes, deficientNutrient){
             const url = document.createElement("a");
             url.setAttribute("href", recipeObject.recipe.url);
             url.textContent = recipeObject.recipe.url;
-            this.container.appendChild(title);
-            this.container.appendChild(url);
+            recipeListContainer.appendChild(title);
+            recipeListContainer.appendChild(url);
         }
     }
 }
