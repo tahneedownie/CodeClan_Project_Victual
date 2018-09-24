@@ -1,8 +1,9 @@
 const APIRequest = require('../helpers/API_request.js');
 const PubSub = require('../helpers/pub_sub.js');
 
-const FormView = function(form){
+const FormView = function(form, dateSelector){
     this.form = form;
+    this.dateSelector = dateSelector;
 }
 
 FormView.prototype.bindEvents = function(){
@@ -56,8 +57,10 @@ FormView.prototype.publishResult = function(nameOfFood, numberOfUnits, unitSelec
         name: nameOfFood,
         amount: numberOfUnits,
         measurement: unitSelected,
+        date: this.dateSelector.value,
         details: result
     };
+    console.log(objectToPublish);
     PubSub.publish('FormView:food-submitted', objectToPublish);
 }
 

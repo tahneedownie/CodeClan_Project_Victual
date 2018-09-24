@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="css/style.css">
@@ -9,21 +11,44 @@
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  
+
   </head>
   <body>
 
-      <h2>Add a food item</h2>
+
+    <h2>Select A Date:</h2>
+
+    <input type="date" id="date-selector">
+
+
+    <img class ="logo" src="./css/images/victual_logo_green_V4.png" alt="victual_logo">
+
+    <div class="decoration"> </div>
+
+      <div class="form_with_header_wrapper">
+
+      <h2>ADD FOOD / DRINK</h2>
+
+
       <form id="food-form">
-        
-          <label for="name">Name of the food:</label>
-          <input type="text" id="name" autocomplete="off"/>
 
-          <label for="numberOfUnits">Amount of Unit:</label>
-          <input type="number" id="numberOfUnits" min="0"/>
 
-          <label for="measurementDropdown">Select Unit:</label>
-          <select id="measurementDropdown">
+        <div class="form_wrapper">
+
+          <div class="form-item">
+          <label class= "primary" for="name">Name:</label>
+          <input type="text" id="name" autocomplete="off" required/>
+          </div>
+
+          <div class="form-item">
+          <label class= "primary" for="numberOfUnits">Amount:</label>
+          <input type="number" id="numberOfUnits" min="0" required/>
+          </div>
+
+          <div class="form-item">
+          <label class= "primary" for="measurementDropdown">Unit:</label>
+          <select id="measurementDropdown" required>
+            <option disabled selected value="">--select--</option>
             <option value="kilogram">Kilogram</option>
             <option value="gram">Gram</option>
             <option value="pound">Pound</option>
@@ -45,15 +70,63 @@
             <option value="tablespoon">Tablespoon</option>
             <option value="dessert_spoon">Dessertspoon</option>
           </select>
+          </div>
 
-        <input type="submit" value="Save" id="save"/>
+          <div class="button-wrapper">
+        <input class="save_button" type="submit" value="Save" id="save"/>
+        <button class="delete_all_button" id="delete-all-button">Delete All</button>
+          </div>
+
+          </div>
+
       </form>
 
-      <button id="delete-all-button">DELETE ALL</button>
+      </div>
+
+
 
       <div id="food-list"></div>
 
       <div id="chart-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-      
+
+
+      <div id="recipe-suggestions"></div>
+
+
+      <fieldset id="filter">
+          <label for="filter-recipes">Dietary requirements</label>
+          <form id="filter-recipes">
+            <ul>
+
+       <li> <input type="radio" id="none" name="health" value="none" checked="true"/>
+        <label for="none">No dietary requirements</label>
+      </li>
+      <li>
+        <input type="radio" id="alcohol-free" name="health" value="alcohol-free"/>
+        <label for="alcohol-free">No alcohol</label>
+      </li>
+      <li>
+        <input type="radio" id="vegan" name="health" value="vegan"/>
+        <label for="vegan">Vegan</label>
+      </li>
+      <li>
+        <input type="radio" id="vegetarian" name="health" value="vegetarian"/>
+        <label for="vegetarian">Vegetarian</label>
+      </li>
+      <li>
+        <input type="radio" id="wheat-free" name="health" value="wheat-free"/>
+        <label for="wheat-free">No wheat</label>
+      </li>
+              </ul>
+      <label for="exclusions">Enter any ingredient you do NOT want in the recipe. You can enter multiple ingredients by separating with a comma, e.g: chickpea, garlic</label>
+
+          <input id="exclusions" type="text" placeholder="enter ingredients" name="exclusions">
+          <button type="submit">filter</button>
+        </form>
+
+      </fieldset>
+
+      <div id="summary-container"></div>
+
   </body>
 </html>

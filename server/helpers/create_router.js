@@ -17,6 +17,20 @@ const createRouter = function (collection) {
             });
     })
 
+    // INDEX BY DATE
+    router.get('/:date', (req, res) => {
+        const date = req.params.date;
+        collection
+        .find({ date: date})
+        .toArray()
+            .then((docs) => {
+                res.json(docs)
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    })
+
     // SHOW
     router.get('/:id', (req, res) => {
         const id = req.params.id;
@@ -32,13 +46,14 @@ const createRouter = function (collection) {
     })
 
     // CREATE
-    router.post('/', (req, res) => {
+    router.post('/:date', (req, res) => {
         const newData = req.body;
+        const date = req.body.date;
         collection
             .insertOne(newData)
             .then(() => {
                 collection
-                    .find()
+                    .find({ date: date})
                     .toArray()
                     .then((docs) => {
                         res.json(docs)
@@ -51,16 +66,17 @@ const createRouter = function (collection) {
 
 
     // UPDATE
-    router.put('/:id', (req, res) => {
+    router.put('/:id/:date', (req, res) => {
         const id = req.params.id;
         const updatingItem = req.body;
+        const date = req.params.date;
         collection.updateOne(
             { _id: ObjectID(id) },
             { $set: updatingItem }
         )
             .then(() => {
                 collection
-                    .find()
+                    .find({date: date})
                     .toArray()
                     .then((docs) => {
                         res.json(docs)
@@ -72,12 +88,12 @@ const createRouter = function (collection) {
     })
 
     // DELETE
-
-    router.delete('/:id', (req, res) => {
+    router.delete('/:id/:date', (req, res) => {
         const id = req.params.id;
+        const date = req.params.date;
         collection
             .deleteOne({ _id: ObjectID(id) })
-            .then(() => collection.find().toArray())
+            .then(() => collection.find({date: date}).toArray())
             .then((docs) => res.json(docs))
             .catch((error) => {
                 console.error(error)
@@ -85,12 +101,13 @@ const createRouter = function (collection) {
     });
 
 
-    // DELETE ALL
-    router.delete('/', (req, res) => {
-        collection.deleteMany({})
+    // DELETE ALL FOR DATE
+    router.delete('/:date', (req, res) => {
+        const date = req.params.date;
+        collection.deleteMany({date: date})
             .then(() => {
                 collection
-                    .find()
+                    .find({date: date})
                     .toArray()
                     .then((docs) => {
                         res.json(docs)

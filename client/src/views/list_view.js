@@ -7,7 +7,7 @@ const ListView = function(listContainer, deleteAllButton){
 
 ListView.prototype.bindEvents = function(){
     PubSub.subscribe('FormView:all-data-ready', (event)=>{
-        console.log(event.detail);
+
         this.listContainer.innerHTML = "";
         this.renderAll(event.detail);
     });
@@ -39,17 +39,20 @@ ListView.prototype.renderOne = function(dataItem){
     })
     div.appendChild(deleteButton);
 
-
+    const expandButton = document.createElement('button');
+    expandButton.textContent = 'Details...';
+    div.appendChild(expandButton);
 
     const unorderedList = document.createElement('ul');
+    unorderedList.style.display = 'none';
 
-    for(let nutritionDetailKey of Object.keys(dataItem.details.totalDaily)){
-       //console.log(dataItem.details.totalDaily[nutritionDetailKey]);
-       const nutrientObject = dataItem.details.totalDaily[nutritionDetailKey];
+    for(let nutritionDetailKey of Object.keys(dataItem.details)){
+       //console.log(dataItem.details[nutritionDetailKey]);
+       const nutrientObject = dataItem.details[nutritionDetailKey];
        const totalPercentage = (amountOfUnits * parseFloat(nutrientObject.quantity));
 
        const listLabel = document.createElement('li');
-       listLabel.textContent = `${nutrientObject.label}: ${totalPercentage}%`;
+       listLabel.textContent = `${nutrientObject.label}: ${totalPercentage.toFixed(2)}%`;
        unorderedList.appendChild(listLabel);
 
 
@@ -66,6 +69,14 @@ ListView.prototype.renderOne = function(dataItem){
 
     div.appendChild(unorderedList);
     this.listContainer.appendChild(div);
+
+    expandButton.addEventListener('click', () => {
+        if (unorderedList.style.display === 'none') {
+            unorderedList.style.display = 'block';
+        } else if (unorderedList.style.display === 'block') {
+            unorderedList.style.display = 'none';
+        }
+    })
 }
 
 

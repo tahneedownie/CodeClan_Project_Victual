@@ -1,4 +1,4 @@
-const DatabaseRequest = function(url){
+const DatabaseRequest = function (url) {
     this.url = url;
 }
 
@@ -7,8 +7,13 @@ DatabaseRequest.prototype.get = function () {
         .then((response) => response.json());
 };
 
-DatabaseRequest.prototype.post = function (payload) {
-    return fetch(this.url, {
+DatabaseRequest.prototype.getForDate = function (date) {
+    return fetch(`${this.url}/${date}`)
+        .then((response) => response.json());
+};
+
+DatabaseRequest.prototype.post = function (payload, date) {
+    return fetch(`${this.url}/${date}`, {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: { 'Content-Type': 'application/json' }
@@ -16,27 +21,27 @@ DatabaseRequest.prototype.post = function (payload) {
         .then(response => response.json());
 };
 
-DatabaseRequest.prototype.delete = function (id) {
-    return fetch(`${this.url}/${id}`, {
-      method: 'DELETE'
+DatabaseRequest.prototype.delete = function (id, date) {
+    return fetch(`${this.url}/${id}/${date}`, {
+        method: 'DELETE'
     })
-      .then((response) => response.json());
-  };
+        .then((response) => response.json());
+};
 
-  DatabaseRequest.prototype.deleteAll = function () {
-      return fetch(this.url, {
-          method: 'DELETE'
-      })
-      .then((response) => response.json());
-  };
-  
+DatabaseRequest.prototype.deleteAll = function (date) {
+    return fetch(`${this.url}/${date}`, {
+        method: 'DELETE'
+    })
+        .then((response) => response.json());
+};
+
 DatabaseRequest.prototype.put = function (payload, id) {
     return fetch(`${this.url}/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify(payload),
-      headers: { 'Content-Type': 'application/json' }
+        method: 'PUT',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json' }
     })
-      .then((response) => response.json());
-  };
+        .then((response) => response.json());
+};
 
 module.exports = DatabaseRequest;
