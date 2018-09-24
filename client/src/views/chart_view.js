@@ -70,6 +70,11 @@ ChartView.prototype.displayChart = function(){
                 return '<b>' + this.series.name + '</b><br/>' +
                     this.point.y + ' ' + this.point.name.toLowerCase();
             }
+        },
+        plotOptions: {
+            series: {
+                color: "#8EC63F"
+            }
         }
       });
 }
