@@ -39,7 +39,7 @@ const SummaryView = function (summaryContainer) {
 SummaryView.prototype.bindEvents = function () {
     PubSub.subscribe('FormView:all-data-ready', (event) => {
         const allData = event.detail;
-        // console.log(allData);
+        console.log(allData);
         this.summaryContainer.innerHTML = ""
         this.renderSummary(allData);
     })
@@ -58,14 +58,15 @@ SummaryView.prototype.renderSummary = function (allData) {
 
     this.summaryContainer.appendChild(summaryHeading);
     this.summaryContainer.appendChild(unorderedList);
-    
+
 }
 
 SummaryView.prototype.calculateTotal = function (allData, mineral) {
     let totalPercentage = 0;
     for (const dataItem of allData ) {
         if (dataItem.details[mineral]) {
-            totalPercentage += dataItem.details[mineral].quantity;
+            const amountOfUnits = dataItem.amount;
+            totalPercentage += (dataItem.details[mineral].quantity * amountOfUnits);
         }
     }
     return totalPercentage.toFixed(2);
