@@ -73,6 +73,10 @@ NutrientRDA.nutrients = {
         shortHand: "VITK1",
         RDA: 80
     },
+    "Vitamin D": {
+        shortHand: "VITD",
+        RDA: 16
+    },
     Zinc: {
         shortHand: "ZN",
         RDA: 16

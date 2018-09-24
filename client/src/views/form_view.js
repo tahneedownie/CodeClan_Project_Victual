@@ -27,6 +27,7 @@ FormView.prototype.queryAPI = function(nameOfFood, numberOfUnits, unitSelected){
  
     APIrequest.get(nameOfFood)
     .then((result) => {
+        console.log(result);
         foodURI = result.hints[0].food.uri;
     })
     .then(()=>{

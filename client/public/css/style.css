@@ -91,6 +91,6 @@ select {
   height: 25px;
 }
 
-#filter-recipes {
+#recipes-container {
   display: none;
 }

@@ -2,10 +2,6 @@ const RecipeView = require('./recipe_view.js');
 
 const FilterRecipeView = function(form){
     this.form = form;
-    // this.recipeContainer = recipeContainer;
-    // this.deficientVitaminArray = deficientVitaminArray;
-    
-    
 }
 
 FilterRecipeView.prototype.bindEvents = function(){
@@ -19,7 +15,9 @@ FilterRecipeView.prototype.bindEvents = function(){
 FilterRecipeView.prototype.handleEvent = function(event){
     const exclusions = event.target.exclusions.value;
     const health = event.target.health.value;
-    this.recipeView.displayFilteredSuggestions(this.deficientVitaminArray, health, exclusions);
+    const recipeDiv = document.querySelector("#recipe-suggestions");
+    const recipeView = new RecipeView(recipeDiv);
+    recipeView.displayFilteredSuggestions(this.deficientVitaminArray, health, exclusions);
 }
 
 module.exports = FilterRecipeView;

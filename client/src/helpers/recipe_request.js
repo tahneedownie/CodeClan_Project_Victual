@@ -4,9 +4,10 @@ const apiKey = process.env.RECIPE_API_KEY;
 const applicationID = process.env.RECIPE_APPLICATION_ID;
 const NutrientRDA = require('../models/nutrient_RDA.js');
 const RecipeRequest = function () {
-    this.url = `https://api.edamam.com/search?q=&app_id=${applicationID}&app_key=${apiKey}/`;
+    this.url = `https://api.edamam.com/search?q=&app_id=${applicationID}&app_key=${apiKey}`;
 };
 RecipeRequest.prototype.get = function (deficientNutrient, healthRequirement, exclusionsArray) {
+    console.log(deficientNutrient);
     return fetch(`${this.buildQueryString(deficientNutrient, healthRequirement, exclusionsArray)}`)
         .then((response) => response.json());
 };

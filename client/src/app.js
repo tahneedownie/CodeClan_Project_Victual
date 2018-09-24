@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const formView = new FormView(form, dateSelector);
     formView.bindEvents();
 
+    const recipesContainer = document.querySelector('#recipes-container');
+    const recipeView = new RecipeView(recipesContainer);
+    recipeView.bindEvents();
+
     const summaryDiv = document.querySelector('#summary-container');
     const summaryView = new SummaryView(summaryDiv);
     summaryView.bindEvents();
@@ -39,7 +43,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const chartContainer = document.querySelector('#chart-container');
     const chartView = new ChartView(chartContainer);
     chartView.bindEvents();
-
    
     const filterRecipeForm = document.querySelector('#filter-recipes');
     const filterRecipeView = new FilterRecipeView(filterRecipeForm);

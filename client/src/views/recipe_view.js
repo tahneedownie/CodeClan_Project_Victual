@@ -1,19 +1,32 @@
+const PubSub = require('../helpers/pub_sub.js');
+
 const RecipeRequest = require('../helpers/recipe_request.js');
 
 const RecipeView = function(container){
     this.container = container;
 }
 
-RecipeView.prototype.displayInitialSuggestions = function(deficientVitaminArray){
-    this.container.innerHTML = "";
+RecipeView.prototype.bindEvents = function(){
+    PubSub.subscribe("SummaryView:nutrient-clicked", (event)=>{
+        
+        this.container.style.display = "block";
+        const nutrientName = event.detail;
+        this.displayInitialSuggestions(nutrientName);
+    })
+}
+
+RecipeView.prototype.displayInitialSuggestions = function(deficientNutrient){
+    const recipeListContainer = document.querySelector('#recipe-suggestions');
+    recipeListContainer.innerHTML = "";
+    
     const recipeRequest = new RecipeRequest();
-    recipeRequest.get(deficientVitaminArray, "none", [])
+    recipeRequest.get(deficientNutrient, "none", [])
     .then((recipes)=>{
-        this.render(recipes, deficientVitaminArray);
+        this.render(recipes, deficientNutrient);
     });
 }
 
-RecipeView.prototype.displayFilteredSuggestions = function(deficientVitaminArray, health, exclusions){
+RecipeView.prototype.displayFilteredSuggestions = function(deficientNutrient, health, exclusions){
     this.container.innerHTML = "";
     let exclusionsArray = [];
     if(exclusions !== ""){
@@ -22,22 +35,17 @@ RecipeView.prototype.displayFilteredSuggestions = function(deficientVitaminArray
     console.log(health);
     console.log(exclusionsArray);
     const recipeRequest = new RecipeRequest();
-    recipeRequest.get(deficientVitaminArray, health, exclusionsArray)
+    recipeRequest.get(deficientNutrient, health, exclusionsArray)
     .then((recipes)=>{
-        this.render(recipes, deficientVitaminArray);
+        this.render(recipes, deficientNutrient);
     });
 }
 
 
-RecipeView.prototype.render = function(recipes, deficientVitaminArray){
+RecipeView.prototype.render = function(recipes, deficientNutrient){
     const heading = document.createElement("h2");
     heading.textContent = "Recipes high in: ";
-    deficientVitaminArray.forEach((vitamin,index)=>{
-        heading.textContent += vitamin;
-        if(index < deficientVitaminArray.length-1){
-            heading.textContent += ", ";
-        }
-    })
+    heading.textContent += deficientNutrient;
     this.container.appendChild(heading);
     const randomThreeRecipes = this.getRandomThree(recipes.hits);
     if(randomThreeRecipes.length === 0){
@@ -59,7 +67,6 @@ RecipeView.prototype.render = function(recipes, deficientVitaminArray){
 }
 
 RecipeView.prototype.getRandomThree = function(array){
-    console.log(array);
     const randomThree = [];
     if(array.length <= 3){
         return array;
