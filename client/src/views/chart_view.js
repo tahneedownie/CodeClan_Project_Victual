@@ -13,8 +13,8 @@ ChartView.prototype.bindEvents = function(){
 }
 
 ChartView.prototype.render = function(){
-    this.createTableElements();
-    this.displayChart();
+   this.createTableElements();
+   this.displayChart();
 }
 
 ChartView.prototype.createTableElements = function(){

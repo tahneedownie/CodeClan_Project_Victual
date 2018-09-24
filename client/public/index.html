@@ -81,13 +81,13 @@
 
       </form>
 
-      </div>
-
-
+    </div>
+      
 
       <div id="food-list"></div>
 
       <div id="chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
+      
 
       <div id="recipes-container">
 
@@ -122,11 +122,25 @@
         </form>
 
         <div id="recipe-suggestions"></div>
-        
+
       </div>
 
 
       <div id="summary-container"></div>
 
+      <h3>See data for last 7 days</h3>
+
+      
+          <select id="line-chart-options">
+              <option disabled selected value="">--select--</option>
+              <option value="Protein">Protein</option>
+              <option value="Magnesium">Magnesium</option>
+              <option value="Calcium">Calcium</option>
+              <option value="Calcium">Potassium</option>
+            </select>
+      
+      <div id="line-chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
+
   </body>
+
 </html>
