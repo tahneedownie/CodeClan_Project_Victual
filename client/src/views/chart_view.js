@@ -2,45 +2,14 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const ChartView = function(container){
     this.container = container;
-    this.testData = {
-        protein: {
-            name: "Protein",
-            amount: 50
-        },
-        calcium: {
-            name: "Calcium",
-            amount: 15
-        },
-        vitamin_c: {
-            name: "Vitamin C",
-            amount: 35
-        },
-        fibre: {
-            name: "Fibre",
-            amount: 100
-        },
-        iron: {
-            name: "Iron",
-            amount: 57
-        },
-        zinc: {
-            name: "Zinc",
-            amount: 6
-        },
-        potassium: {
-            name: "Potassium",
-            amount: 2
-        },
-        vitamin_b: {
-            name: "Vitamin B",
-            amount: 33
-        },
-        vitamin_d: {
-            name: "Vitamin D",
-            amount: 54
-        }
+}
 
-    }
+ChartView.prototype.bindEvents = function(){
+    PubSub.subscribe("SummaryView:nutrient-object-ready", (event)=>{
+        const nutrientInfoObject = event.detail;
+        this.data = nutrientInfoObject;
+        this.render();
+    });
 }
 
 ChartView.prototype.render = function(){
@@ -66,13 +35,13 @@ ChartView.prototype.createTableElements = function(){
 
 ChartView.prototype.createRows = function(){
     let i = 0;
-    for(let element in this.testData){
+    for(let element in this.data){
         const row = this.body.insertRow(i);
         const th = document.createElement('th');
         row.appendChild(th);
         const cell = row.insertCell(1);
-        th.textContent = this.testData[element].name;
-        cell.innerHTML = this.testData[element].amount;
+        th.textContent = this.data[element].name;
+        cell.innerHTML = this.data[element].amount;
         i++;
     }
 }

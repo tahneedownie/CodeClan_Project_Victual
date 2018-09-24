@@ -49,16 +49,23 @@ SummaryView.prototype.renderSummary = function (allData) {
     const summaryHeading = document.createElement('h2');
     summaryHeading.textContent = 'Your Daily Summary'
     const unorderedList = document.createElement('ul');
-
+    const nutrientInfoObject = {};
     for (const mineral in this.allPotentialMinerals) {
         const listItem = document.createElement('li');
         listItem.textContent = `${this.allPotentialMinerals[mineral]}: ${this.calculateTotal(allData, mineral)}%`
         unorderedList.appendChild(listItem);
+        nutrientInfoObject[mineral] = {
+            name: this.allPotentialMinerals[mineral],
+            amount: this.calculateTotal(allData, mineral)
+        };
     };
-
     this.summaryContainer.appendChild(summaryHeading);
     this.summaryContainer.appendChild(unorderedList);
+    this.publishNutrientObject(nutrientInfoObject);
+}
 
+SummaryView.prototype.publishNutrientObject = function(nutrientInfoObject){
+    PubSub.publish("SummaryView:nutrient-object-ready", nutrientInfoObject);
 }
 
 SummaryView.prototype.calculateTotal = function (allData, mineral) {

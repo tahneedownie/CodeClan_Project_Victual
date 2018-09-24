@@ -36,10 +36,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     food.bindEvents();
 
-
     const chartContainer = document.querySelector('#chart-container');
     const chartView = new ChartView(chartContainer);
-    chartView.render();
+    chartView.bindEvents();
 
     const recipeDiv = document.querySelector("#recipe-suggestions");
     const filterRecipeForm = document.querySelector('#filter-recipes');
