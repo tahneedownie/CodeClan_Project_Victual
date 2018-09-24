@@ -62,8 +62,10 @@ ChartView.prototype.displayChart = function(){
         yAxis: {
             allowDecimals: false,
             title: {
-                text: ''
-            }
+                text: ' '
+            },
+            min: 0,
+            max: 200
         },
         tooltip: {
             formatter: function () {
