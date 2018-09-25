@@ -153,7 +153,8 @@ ChartView.prototype.displaySpiderChart = function () {
         series: [{
             name: '% of RDA',
             data: this.getValues(),
-            pointPlacement: 'on'
+            pointPlacement: 'on',
+            color: '#8EC63F'
         }]
     
     });
