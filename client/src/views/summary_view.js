@@ -1,8 +1,9 @@
 const PubSub = require('../helpers/pub_sub.js');
 const RecipeView = require('./recipe_view.js');
 
-const SummaryView = function (summaryContainer) {
+const SummaryView = function (summaryContainer, lineChartView) {
     this.summaryContainer = summaryContainer;
+    this.lineChartView = lineChartView;
     this.allPotentialMinerals = {
         "CA": "Calcium",
         "CHOCDF": "Carbs",
@@ -35,7 +36,6 @@ const SummaryView = function (summaryContainer) {
 SummaryView.prototype.bindEvents = function () {
     PubSub.subscribe('FormView:all-data-ready', (event) => {
         const allData = event.detail;
-        console.log(allData);
         this.summaryContainer.innerHTML = ""
         this.renderSummary(allData);
         this.createRecipeButtons();
@@ -65,6 +65,7 @@ SummaryView.prototype.renderSummary = function (allData) {
     this.summaryContainer.appendChild(unorderedList);
 
     this.threeMostDeficientNutrients = this.getThreeMostDeficientNutrients(nutrientInfoObject);
+    this.lineChartView.createGraph(this.threeMostDeficientNutrients[0]);
     this.publishNutrientObject(nutrientInfoObject);
 }
 

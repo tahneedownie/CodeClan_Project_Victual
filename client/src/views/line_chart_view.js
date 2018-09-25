@@ -39,8 +39,12 @@ this.allPotentialMinerals = {
 LineChartView.prototype.bindEvents = function(){
 this.options.addEventListener('change', (event)=>{
     this.nutrientToDisplay = event.target.value;
-    const databaseRequest = new DatabaseRequest('http://localhost:3000/api/user_food_items');
+    this.createGraph(this.nutrientToDisplay);
+})}
 
+LineChartView.prototype.createGraph = function(nutrientToDisplay){
+    this.nutrientToDisplay = nutrientToDisplay;
+    const databaseRequest = new DatabaseRequest('http://localhost:3000/api/user_food_items');
     var today = moment().format('YYYY-MM-DD');
     var yesterday = moment().subtract(1, "days").format('YYYY-MM-DD');
     var twoDaysAgo = moment().subtract(2, "days").format('YYYY-MM-DD');
@@ -94,7 +98,7 @@ this.options.addEventListener('change', (event)=>{
             this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
             this.render();
     })})
-})}
+}
 
 LineChartView.prototype.calculateTotal = function (allData, mineral) {
 let totalPercentage = 0;
