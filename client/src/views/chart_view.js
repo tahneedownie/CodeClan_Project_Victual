@@ -113,7 +113,7 @@ ChartView.prototype.displaySpiderChart = function () {
 
         chart: {
             polar: true,
-            type: 'line'
+            type: 'area'
         },
     
         title: {
@@ -135,7 +135,7 @@ ChartView.prototype.displaySpiderChart = function () {
             gridLineInterpolation: 'polygon',
             lineWidth: 0,
             min: 0,
-            max: 150
+            max: 250
         },
     
         tooltip: {
@@ -149,15 +149,34 @@ ChartView.prototype.displaySpiderChart = function () {
             y: 70,
             layout: 'vertical'
         },
+
+        plotOptions: {
+            series: {
+                marker: {
+                    enabled: false
+                }
+            }
+        },
     
-        series: [{
+        series: [
+            {
+                name: 'RDA',
+                data: [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],
+                pointPlacement: 'on',
+                color: '#D3D3D3'  
+            }, 
+            
+            {
             name: '% of RDA',
             data: this.getValues(),
             pointPlacement: 'on',
-            color: '#8EC63F'
-        }]
+            color: '#8EC63F',
+            fillColor: '#8EC63F',
+            fillOpacity: 0.9
+        }, ]
     
     });
 }
 
 module.exports = ChartView;
+

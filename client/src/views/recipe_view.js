@@ -58,7 +58,13 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
     recipeListContainer.innerHTML = "";
     const heading = document.createElement("h2");
     heading.className = 'recipe-suggestions-heading';
+<<<<<<< HEAD
     heading.textContent = `Recipes high in: ${deficientNutrient}`;
+=======
+    heading.textContent = "Recipes high in ";
+    heading.textContent += deficientNutrient;
+
+>>>>>>> 64d217823bde5333171f2242dc1301ce79663e3a
     recipeListContainer.appendChild(heading);
 
     const randomThreeRecipes = this.getRandomThree(recipes.hits);
@@ -69,6 +75,10 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
         recipeListContainer.appendChild(noResults);
     }
     else {
+        
+        const recipeImagesDiv = document.createElement('div');
+        recipeImagesDiv.className = 'recipe-images-div';
+
         for (let recipeObject of randomThreeRecipes) {
             console.log(recipeObject);
 
@@ -82,6 +92,7 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
             // url.textContent = recipeObject.recipe.url;
             // recipeListContainer.appendChild(title);
             url.className = 'title-of-recipe';
+            url.setAttribute('target', '_blank');
             url.appendChild(title);
             recipeDiv.appendChild(url);
 
@@ -90,8 +101,10 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
             recipeImage.src = recipeObject.recipe.image;
             url.appendChild(recipeImage);
 
-            recipeListContainer.appendChild(recipeDiv);
+            recipeImagesDiv.appendChild(recipeDiv);
         }
+
+        recipeListContainer.appendChild(recipeImagesDiv);
     }
 }
 
