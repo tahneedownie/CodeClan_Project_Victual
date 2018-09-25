@@ -34,8 +34,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const recipeView = new RecipeView(recipesContainer);
     recipeView.bindEvents();
 
+    const lineChartContainer = document.querySelector('#line-chart-container');
+    const lineChartOptions = document.querySelector('#line-chart-options');
+    const lineChartView = new LineChartView(lineChartOptions, lineChartContainer);
+    lineChartView.bindEvents();
+
     const summaryDiv = document.querySelector('#summary-container');
-    const summaryView = new SummaryView(summaryDiv);
+    const summaryView = new SummaryView(summaryDiv, lineChartView);
     summaryView.bindEvents();
 
     const food = new Food(dateSelector);
@@ -45,10 +50,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const chartView = new ChartView(chartContainer);
     chartView.bindEvents();
 
-    const lineChartContainer = document.querySelector('#line-chart-container');
-    console.log(lineChartContainer);
-    const lineChartOptions = document.querySelector('#line-chart-options');
-    const lineChartView = new LineChartView(lineChartOptions, lineChartContainer);
-    lineChartView.bindEvents();
+
 
 });
