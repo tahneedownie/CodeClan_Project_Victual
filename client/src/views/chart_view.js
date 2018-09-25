@@ -15,6 +15,7 @@ ChartView.prototype.bindEvents = function(){
 ChartView.prototype.render = function(){
     this.createTableElements();
     this.displayChart();
+    this.displaySpiderChart();
 }
 
 ChartView.prototype.createTableElements = function(){
@@ -57,7 +58,7 @@ ChartView.prototype.displayChart = function(){
             type: 'bar'
         },
         title: {
-            text: 'Your total daily intake'
+            text: 'Your Total Daily Intake'
         },
         yAxis: {
             allowDecimals: false,
@@ -79,6 +80,83 @@ ChartView.prototype.displayChart = function(){
             }
         }
       });
+}
+
+
+
+
+///////////////////////////////////////////////////////
+
+
+
+
+ChartView.prototype.getNutrients = function () {
+    let nutrients = [];
+    for (element in this.data) {
+        nutrients.push(this.data[element].name)
+    }
+    return nutrients;
+}
+
+ChartView.prototype.getValues = function () {
+    let values = [];
+    for (element in this.data) {
+        values.push(parseFloat(this.data[element].amount))
+    }
+    console.log(values);
+    return values;
+    
+}
+
+ChartView.prototype.displaySpiderChart = function () {
+    Highcharts.chart('spider-chart-container', {
+
+        chart: {
+            polar: true,
+            type: 'line'
+        },
+    
+        title: {
+            text: '%s Of RDA',
+            x: -50
+        },
+    
+        pane: {
+            size: '75%'
+        },
+    
+        xAxis: {
+            categories: this.getNutrients(),
+            tickmarkPlacement: 'on',
+            lineWidth: 0
+        },
+    
+        yAxis: {
+            gridLineInterpolation: 'polygon',
+            lineWidth: 0,
+            min: 0,
+            max: 150
+        },
+    
+        tooltip: {
+            // shared: true,
+            // pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+        },
+    
+        legend: {
+            align: 'right',
+            verticalAlign: 'top',
+            y: 70,
+            layout: 'vertical'
+        },
+    
+        series: [{
+            name: '% of RDA',
+            data: this.getValues(),
+            pointPlacement: 'on'
+        }]
+    
+    });
 }
 
 module.exports = ChartView;
