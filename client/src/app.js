@@ -1,6 +1,7 @@
 const FormView = require('./views/form_view.js');
 const ListView = require('./views/list_view.js');
 const ChartView = require('./views/chart_view.js');
+const LineChartView = require('./views/line_chart_view.js');
 const SummaryView = require('./views/summary_view.js');
 const Food = require('./models/food.js');
 
@@ -42,5 +43,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const chartContainer = document.querySelector('#chart-container');
     const chartView = new ChartView(chartContainer);
     chartView.bindEvents();
+
+    const lineChartContainer = document.querySelector('#line-chart-container');
+    console.log(lineChartContainer);
+    const lineChartOptions = document.querySelector('#line-chart-options');
+    const lineChartView = new LineChartView(lineChartOptions, lineChartContainer);
+    lineChartView.bindEvents();
 
 });

@@ -114,4 +114,5 @@ SummaryView.prototype.createRecipeButtons = function(){
     this.summaryContainer.appendChild(div);
 }
 
+
 module.exports = SummaryView;
