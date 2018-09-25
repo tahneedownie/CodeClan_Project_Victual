@@ -129,7 +129,7 @@ Highcharts.chart('line-chart-container', {
         type: 'line'
     },
     title: {
-        text: 'Your total daily intake'
+        text: `Your weekly intake of ${this.nutrientToDisplay}`
     },
     yAxis: {
         allowDecimals: false,
