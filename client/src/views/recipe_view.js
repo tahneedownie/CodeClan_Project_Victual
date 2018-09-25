@@ -61,6 +61,7 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
     heading.className = 'recipe-suggestions-heading';
     heading.textContent = "Recipes high in: ";
     heading.textContent += deficientNutrient;
+
     recipeListContainer.appendChild(heading);
 
     const randomThreeRecipes = this.getRandomThree(recipes.hits);
@@ -71,6 +72,10 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
         recipeListContainer.appendChild(noResults);
     }
     else {
+        
+        const recipeImagesDiv = document.createElement('div');
+        recipeImagesDiv.className = 'recipe-images-div';
+
         for (let recipeObject of randomThreeRecipes) {
             console.log(recipeObject);
 
@@ -92,8 +97,10 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
             recipeImage.src = recipeObject.recipe.image;
             url.appendChild(recipeImage);
 
-            recipeListContainer.appendChild(recipeDiv);
+            recipeImagesDiv.appendChild(recipeDiv);
         }
+
+        recipeListContainer.appendChild(recipeImagesDiv);
     }
 }
 

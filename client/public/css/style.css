@@ -135,7 +135,7 @@ select {
 }
 
 .delete_all_button {
-  background-color: red;
+  background-color: #DE6B48;
   font-size: 10pt;
   color: white;
   width: 120px;
@@ -286,19 +286,35 @@ select {
 
 
 #recipe-suggestions {
-
+  
 }
 
 .recipe-suggestions-heading {
   color: black;
+  text-align: center;
 }
 
 .no-recipe-results-message {
 
 }
 
+.recipe-images-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .recipe-title-img-div {
-  
+  margin: 20px;
+
+}
+
+.recipe-title-img-div a img {
+  width: 400px;
+}
+
+.recipe-title-img-div a h3 {
+  text-align: center;
 }
 
 .title-of-recipe {
