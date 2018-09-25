@@ -114,7 +114,7 @@ SummaryView.prototype.createRecipeButtons = function(){
     this.threeMostDeficientNutrients.forEach((nutrient)=>{
         const button = document.createElement('button');
         button.className = 'recipe-for-nutrient-button';
-        button.textContent = nutrient + " rich recipes";
+        button.textContent = nutrient + " Rich Recipes";
         button.addEventListener('click', (event)=>{
             PubSub.publish(`SummaryView:nutrient-clicked`, nutrient);
         });
