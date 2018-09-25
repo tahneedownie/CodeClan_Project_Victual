@@ -193,11 +193,11 @@ select {
 }
 
 .item-details-list {
-
+  padding: 10px;
 }
 
 .item-details-list li {
-
+  list-style-type: none;
 }
 
 
