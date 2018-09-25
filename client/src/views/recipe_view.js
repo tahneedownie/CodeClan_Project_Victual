@@ -25,7 +25,6 @@ RecipeView.prototype.displayInitialSuggestions = function(deficientNutrient){
     recipeRequest.get(deficientNutrient, "none", [])
     .then((recipes)=>{
         this.render(recipes, deficientNutrient);
-        console.log(recipes);
     });
 }
 
