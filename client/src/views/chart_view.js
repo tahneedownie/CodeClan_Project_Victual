@@ -113,7 +113,7 @@ ChartView.prototype.displaySpiderChart = function () {
 
         chart: {
             polar: true,
-            type: 'line'
+            type: 'area'
         },
     
         title: {
@@ -158,30 +158,25 @@ ChartView.prototype.displaySpiderChart = function () {
             }
         },
     
-        series: [{
+        series: [
+            {
+                name: 'RDA',
+                data: [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],
+                pointPlacement: 'on',
+                color: '#D3D3D3'  
+            }, 
+            
+            {
             name: '% of RDA',
             data: this.getValues(),
             pointPlacement: 'on',
-            color: '#8EC63F'
-        }, {
-            name: 'RDA',
-            data: [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],
-            pointPlacement: 'on',
-            color: 'grey'  
-        }]
+            color: '#8EC63F',
+            fillColor: '#8EC63F',
+            fillOpacity: 0.9
+        }, ]
     
     });
 }
 
 module.exports = ChartView;
 
-
-// series: [{
-//     name: 'Allocated Budget',
-//     data: [43000, 19000, 60000, 35000, 17000, 10000],
-//     pointPlacement: 'on'
-// }, {
-//     name: 'Actual Spending',
-//     data: [50000, 39000, 42000, 31000, 26000, 14000],
-//     pointPlacement: 'on'
-// }]
