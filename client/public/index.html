@@ -21,22 +21,31 @@
 
     <div class="decoration"> </div>
 
+    <div class="nav_bar_date_container">
+
     <ul class="nav_bar">
       <a class="nav_item" href="#food-list">FOOD DIARY</a>
       <a class="nav_item" href="#chart-container">SUMMARY</a>
       <a class="nav_item" href="#recipe-suggestion-buttons-container">RECIPES</a>
     </ul>
 
+    <div class="date_selector_container">
+    <div class="date_selector_field">
+        <label class="date_selector_label" for="name">Date:</label>
+        <input class="date_selector_drop_down" type="date" id="date-selector" required="required">
+    </div>
+    </div>
+
+    </div>
+
     <div class="decoration_2"> </div>
+
+
 
   <div class="form_with_header_wrapper">
 
-      <div class="form-item">
-          <label class="primary" for="name">Date:</label>
-          <input type="date" id="date-selector" required="required">
-        </div>
 
-    <h2>ADD FOOD / DRINK</h2>
+    <h2 class="black_background">ADD FOOD / DRINK</h2>
 
     <form id="food-form">
 
@@ -100,6 +109,7 @@
       <div id="food-list"></div>
     </div>
 
+
 <div id="charts-outer-div">
 
   <div id="chart-container"></div>
@@ -111,7 +121,7 @@
   <div id="line-chart-div">
 
       <h3>See data for last 7 days</h3>
-    
+
       <select id="line-chart-options">
               <option disabled selected value="">--select--</option>
               <option value="Calcium">Calcium</option>
@@ -137,9 +147,9 @@
               <option value="Vitamin E">Vitamin E</option>
               <option value="Vitamin K">Vitamin K</option>
               <option value="Zinc">Zinc</option>
-    
+
       </select>
-    
+
       <div id="line-chart-container"></div>
 
       </div>
