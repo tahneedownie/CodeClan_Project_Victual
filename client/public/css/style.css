@@ -149,14 +149,16 @@ select {
 
 
 
-
-/* JS CREATED STUFF */
-
 /* FOOD ITEM STUFF FROM LIST_VIEW.JS */
+
+#food-list {
+  
+}
 
 /* food item div */
 .food-item {
-
+  width: 200px;
+  margin: 0 auto;
 }
 
 .food-item-heading {
@@ -177,4 +179,118 @@ select {
 
 .item-details-list li {
 
+}
+
+
+/* CHARTS */
+
+#chart-container {
+  display: inline-block;
+}
+
+#spider-chart-container {
+  float: right;
+}
+
+#line-chart-container {
+
+}
+
+#line-chart-div {
+
+}
+
+#line-chart-div h3 {
+
+}
+
+#line-chart-options {
+
+}
+
+
+/* SUMMARY VIEW */
+
+#summary-container {
+  display: none;
+}
+
+#summary-heading {
+  color: black;
+}
+
+.summary-details-list {
+
+}
+
+.summary-details-list li {
+  
+}
+
+
+/* RECIPE BUTTONS */
+
+#recipe-buttons-container {
+
+}
+
+.recipe-for-nutrient-button {
+
+}
+
+/* RECIPES */
+
+#recipes-container {
+
+}
+
+/* RECPIES FILTER FORM */
+
+
+#filter-selection-div{
+
+}
+
+.filter-radio{
+
+}
+
+.filter-radio input {
+
+}
+
+.filter-radio label {
+
+}
+
+#exlusions-div {
+
+}
+
+.filter-text-div {
+
+}
+
+#exclusions {
+
+}
+
+/* RECIPES SUGGESTIONS RESULTS */
+
+
+#recipe-suggestions {
+
+}
+
+.recipe-suggestions-heading {
+  color: black;
+}
+
+.no-recipe-results-message {
+
+}
+
+.title-of-recipe {
+  text-decoration: none;
+  color: red;
 }

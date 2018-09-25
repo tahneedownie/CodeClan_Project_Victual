@@ -8,25 +8,24 @@ const SummaryView = function (summaryContainer) {
         "CHOCDF": "Carbs",
         "CHOLE": "Cholesterol",
         "ENERC_KCAL": "Energy",
-        "FASAT": "Sugars",
         "FAT": "Fat",
-        "FE": "Iron",
-        "FIBTG": "Fibre",
+        "FIBTG": "Fiber",
         "FOLDFE": "Folic Acid",
-        "K": "Potassium",
+        "FE": "Iron",
         "MG": "Magnesium",
-        "NA": "Sodium",
         "NIA": "Niacin (B3)",
         "P": "Phosphorus",
+        "K": "Potassium",
         "PROCNT": "Protein",
         "RIBF": "Riboflavin (B2)",
+        "NA": "Sodium",
         "THIA": "Thiamin (B1)",
-        "TOCPHA": "Vitamin E",
         "VITA_RAE": "Vitamin A",
         "VITB12": "Vitamin B12",
         "VITB6A": "Vitamin B6",
         "VITC": "Vitamin C",
         "VITD": "Vitamin D",
+        "TOCPHA": "Vitamin E",
         "VITK1": "Vitamin K",
         "ZN": "Zinc"
     }
@@ -45,8 +44,12 @@ SummaryView.prototype.bindEvents = function () {
 
 SummaryView.prototype.renderSummary = function (allData) {
     const summaryHeading = document.createElement('h2');
-    summaryHeading.textContent = 'Your Daily Summary'
+    summaryHeading.setAttribute('id', 'summary-heading');
+    summaryHeading.textContent = 'Your Daily Summary';
+
     const unorderedList = document.createElement('ul');
+    unorderedList.className = "summary-details-list";
+
     const nutrientInfoObject = {};
     for (const mineral in this.allPotentialMinerals) {
         const listItem = document.createElement('li');
@@ -57,11 +60,11 @@ SummaryView.prototype.renderSummary = function (allData) {
             amount: this.calculateTotal(allData, mineral)
         };
     };
+
     this.summaryContainer.appendChild(summaryHeading);
     this.summaryContainer.appendChild(unorderedList);
+
     this.threeMostDeficientNutrients = this.getThreeMostDeficientNutrients(nutrientInfoObject);
-   // console.log(this.threeMostDeficientNutrients);
-  //  this.displayRecipes(this.threeMostDeficientNutrients);
     this.publishNutrientObject(nutrientInfoObject);
 }
 
@@ -97,21 +100,27 @@ SummaryView.prototype.getThreeMostDeficientNutrients = function(nutrientInfoObje
     const nutrientNameArray = nutrientInfoArray.map((object)=>{
         return object.name;
     });
-    console.log(nutrientNameArray);
     return nutrientNameArray.slice(0,3);
 }
 
 SummaryView.prototype.createRecipeButtons = function(){
     const div = document.createElement('div');
+    div.setAttribute('id', 'recipe-buttons-container');
+
     this.threeMostDeficientNutrients.forEach((nutrient)=>{
         const button = document.createElement('button');
+        button.className = 'recipe-for-nutrient-button';
         button.textContent = nutrient + " rich recipes";
         button.addEventListener('click', (event)=>{
             PubSub.publish(`SummaryView:nutrient-clicked`, nutrient);
         });
+
         div.appendChild(button);
     });
-    this.summaryContainer.appendChild(div);
+
+    const buttonsDiv = document.querySelector('#recipe-suggestion-buttons-container');
+    buttonsDiv.appendChild(div);
+    // this.summaryContainer.appendChild(div);
 }
 
 

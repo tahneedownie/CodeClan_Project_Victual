@@ -16,7 +16,8 @@
 
     <p id= "top-page-reference"></p>
 
-    <img class ="logo" src="./css/images/victual_logo_green_V4.png" alt="victual_logo">
+
+  <img class="logo" src="./css/images/victual_logo_green_V4.png" alt="victual_logo">
 
     <div class="decoration"> </div>
 
@@ -28,31 +29,32 @@
 
     <div class="decoration_2"> </div>
 
-      <div class="form_with_header_wrapper">
 
-      <h2>ADD FOOD / DRINK</h2>
+  <div class="form_with_header_wrapper">
 
-      <form id="food-form">
+    <h2>ADD FOOD / DRINK</h2>
 
-        <div class="form_wrapper">
+    <form id="food-form">
 
-          <div class="form-item">
-          <label class= "primary" for="name">Date:</label>
+      <div class="form_wrapper">
+
+        <div class="form-item">
+          <label class="primary" for="name">Date:</label>
           <input type="date" id="date-selector">
-          </div>
+        </div>
 
-          <div class="form-item">
-          <label class= "primary" for="name">Name:</label>
-          <input type="text" id="name" autocomplete="off" required/>
-          </div>
+        <div class="form-item">
+          <label class="primary" for="name">Name:</label>
+          <input type="text" id="name" autocomplete="off" required />
+        </div>
 
-          <div class="form-item">
-          <label class= "primary" for="numberOfUnits">Amount:</label>
-          <input type="number" id="numberOfUnits" min="0" required/>
-          </div>
+        <div class="form-item">
+          <label class="primary" for="numberOfUnits">Amount:</label>
+          <input type="number" id="numberOfUnits" min="0" required />
+        </div>
 
-          <div class="form-item">
-          <label class= "primary" for="measurementDropdown">Unit:</label>
+        <div class="form-item">
+          <label class="primary" for="measurementDropdown">Unit:</label>
           <select id="measurementDropdown" required>
             <option disabled selected value="">--select--</option>
             <option value="kilogram">Kilogram</option>
@@ -76,16 +78,16 @@
             <option value="tablespoon">Tablespoon</option>
             <option value="dessert_spoon">Dessertspoon</option>
           </select>
-          </div>
+        </div>
 
-          <div class="button-wrapper">
-        <input class="save_button" type="submit" value="Save" id="save"/>
-        <button class="delete_all_button" id="delete-all-button">Delete All</button>
-          </div>
+        <div class="button-wrapper">
+          <input class="save_button" type="submit" value="Save" id="save" />
+          <button class="delete_all_button" id="delete-all-button">Delete All</button>
+        </div>
 
-          </div>
+      </div>
 
-      </form>
+    </form>
 
     </div>
 
@@ -93,53 +95,100 @@
     <img class="arrow" src="./css/images/white_arrow.png" alt="arrow nav">
     </a>
 
-      <div id="food-list"></div>
+  <div id="food-list"></div>
 
-      <div id="chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
+  <div id="chart-container" style="min-width: 310px; width: 50%; height: 500px; margin: 0 auto"></div>
 
-      <div id="spider-chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
+  <div id="spider-chart-container" style="min-width: 310px; width: 50%; height: 500px; margin: 0 auto"></div>
 
-      <div id="recipes-container">
+  <div id="recipe-suggestion-buttons-container"></div>
 
-          <label for="filter-recipes">Dietary requirements</label>
-          <form id="filter-recipes">
-            <ul>
+  <div id="recipes-container">
 
-       <li> <input type="radio" id="none" name="health" value="none" checked="true"/>
-        <label for="none">No dietary requirements</label>
-      </li>
-      <li>
-        <input type="radio" id="alcohol-free" name="health" value="alcohol-free"/>
-        <label for="alcohol-free">No alcohol</label>
-      </li>
-      <li>
-        <input type="radio" id="vegan" name="health" value="vegan"/>
-        <label for="vegan">Vegan</label>
-      </li>
-      <li>
-        <input type="radio" id="vegetarian" name="health" value="vegetarian"/>
-        <label for="vegetarian">Vegetarian</label>
-      </li>
-      <li>
-        <input type="radio" id="wheat-free" name="health" value="wheat-free"/>
-        <label for="wheat-free">No wheat</label>
-      </li>
-              </ul>
-      <label for="exclusions">Enter any ingredient you do NOT want in the recipe. You can enter multiple ingredients by separating with a comma, e.g: chickpea, garlic</label>
+    <label for="filter-recipes">Dietary requirements</label>
+    <form id="filter-recipes">
 
-          <input id="exclusions" type="text" placeholder="enter ingredients" name="exclusions">
-          <button type="submit">filter</button>
-        </form>
+      <div id="filter-selection-div">
 
-        <div id="recipe-suggestions"></div>
+        <div class="filter-radio">
+          <input type="radio" id="none" name="health" value="none" checked="true" />
+          <label for="none">No dietary requirements</label>
+        </div>
+
+        <div class="filter-radio">
+          <input type="radio" id="alcohol-free" name="health" value="alcohol-free" />
+          <label for="alcohol-free">No alcohol</label>
+        </div>
+
+        <div class="filter-radio">
+          <input type="radio" id="vegan" name="health" value="vegan" />
+          <label for="vegan">Vegan</label>
+        </div>
+
+        <div class="filter-radio">
+          <input type="radio" id="vegetarian" name="health" value="vegetarian" />
+          <label for="vegetarian">Vegetarian</label>
+        </div>
+
+        <div class="filter-radio">
+          <input type="radio" id="wheat-free" name="health" value="wheat-free" />
+          <label for="wheat-free">No wheat</label>
+        </div>
 
       </div>
 
+      <div id="exlusions-div">
+      <label for="exclusions">Enter any ingredient you do NOT want in the recipe. You can enter multiple ingredients by
+        separating with a comma, e.g: chickpea, garlic</label>
+      <div class="filter-text-div">
+          <input id="exclusions" type="text" placeholder="enter ingredients" name="exclusions">
+      </div>
+      </div>
 
-      <div id="summary-container"></div>
+      <button id="filter-recipe-button" type="submit">filter</button>
 
-      <h3>See data for last 7 days</h3>
+    </form>
 
+    <div id="recipe-suggestions"></div>
+
+  </div>
+
+
+  <div id="summary-container"></div>
+
+  <div id="line-chart-div">
+
+  <h3>See data for last 7 days</h3>
+
+  <select id="line-chart-options">
+          <option disabled selected value="">--select--</option>
+          <option value="Calcium">Calcium</option>
+          <option value="Carbs">Carbs</option>
+          <option value="Cholesterol">Cholesterol</option>
+          <option value="Energy">Energy</option>
+          <option value="Fat">Fat</option>
+          <option value="Fiber">Fiber</option>
+          <option value="Iron">Iron</option>
+          <option value="Folic Acid">Folic Acid</option>
+          <option value="Niacin (B3)">Niacin (B3)</option>
+          <option value="Phosphorus">Phosphorus</option>
+          <option value="Potassium">Potassium</option>
+          <option value="Protein">Protein</option>
+          <option value="Riboflavin (B2)">Riboflavin (B2)</option>
+          <option value="Sodium">Sodium</option>
+          <option value="Thiamin (B1)">Thiamin (B1)</option>
+          <option value="Vitamin A">Vitamin A</option>
+          <option value="Vitamin B12">Vitamin B12</option>
+          <option value="Vitamin B6">Vitamin B6</option>
+          <option value="Vitamin C">Vitamin C</option>
+          <option value="Vitamin D">Vitamin D</option>
+          <option value="Vitamin E">Vitamin E</option>
+          <option value="Vitamin K">Vitamin K</option>
+          <option value="Zinc">Zinc</option>
+
+  </select>
+
+  <div id="line-chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
 
           <select id="line-chart-options">
               <option disabled selected value="">--select--</option>
@@ -151,6 +200,6 @@
 
       <div id="line-chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
 
-  </body>
+</body>
 
 </html>

@@ -1,6 +1,22 @@
 const NutrientRDA = function(){}
 
 NutrientRDA.nutrients = {
+    Cholesterol: {
+        shortHand: "CHOLE",
+        RDA: 300
+    },
+    Energy: {
+        shortHand: "ENERC_KCAL",
+        RDA: 2200
+    },
+    "Folic Acid": {
+        shortHand: "FOLDFE",
+        RDA: 400
+    },
+    Sugars: {
+        shortHand: "SUGAR",
+        RDA: 26
+    },
     Carbs: {
         shortHand: "CHOCDF",
         RDA: 300
@@ -45,11 +61,11 @@ NutrientRDA.nutrients = {
         shortHand: "P",
         RDA: 700
     },
-    Riboflavin: {
+    "Riboflavin (B2)": {
         shortHand: "RIBHF",
         RDA: 2
     },
-    Thiamin: {
+    "Thiamin (B1)": {
         shortHand: "THIA",
         RDA: 2
     },
@@ -76,6 +92,10 @@ NutrientRDA.nutrients = {
     "Vitamin D": {
         shortHand: "VITD",
         RDA: 16
+    },
+    "Vitamin B12": {
+        shortHand: "VITB12",
+        RDA: 2
     },
     Zinc: {
         shortHand: "ZN",
