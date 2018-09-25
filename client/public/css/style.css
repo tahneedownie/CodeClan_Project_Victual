@@ -59,8 +59,8 @@ a:hover {
   bottom: 0;
   right: 0;
   width: 5%;
-  background-color: #D1D1D1;
-  opacity: 0.8;
+  background-color: #050505;
+  opacity: 0.40;
   margin-right: 25px;
   margin-bottom: 10px;
   z-index: 2;
@@ -83,11 +83,6 @@ h2 {
   background-size: 100%;
   background-position: top;
   margin-bottom: 0px;
-}
-
-.colour-block {
-  background-color: #D9D9D9;
-  height: 30px;
 }
 
 .form_wrapper {
@@ -150,6 +145,11 @@ select {
   cursor: pointer;
 }
 
+.colour-block {
+  background-color: #D3BCC4;
+  height: 30px;
+}
+
 #recipes-container {
   display: none;
 }
@@ -161,7 +161,7 @@ select {
 /* FOOD DIARY SECTION*/
 
 #food-list-outer-container {
-  background-color: #D9D9D9;
+  background-color: #D3BCC4;
   padding-bottom: 30px;
 }
 
@@ -179,8 +179,9 @@ select {
 #food-list h2 {
   text-decoration: underline;
   color: black;
+  font-weight: bold;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 /* food item div */
@@ -188,10 +189,12 @@ select {
   width: 200px;
   margin: 5px auto;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .food-item-heading {
   text-align: center;
+  font-weight: lighter;
 }
 
 .item-delete-button {
@@ -201,7 +204,7 @@ select {
   width: 80px;
   height: 25px;
   cursor: pointer;
-  margin: 2px;
+  margin: 14px;
   margin-bottom: 15px;
 }
 
@@ -228,23 +231,22 @@ select {
 /* CHARTS */
 
 #charts-outer-div {
-  
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin-top: 30px;
 }
 
 #chart-container {
-  display: inline-block;
   min-width: 310px;
   width: 50%;
   height: 500px;
-  margin: 100px auto;
 }
 
 #spider-chart-container {
-  float: right;
   min-width: 310px;
   width: 50%;
   height: 500px;
-  margin: 100px auto;
 }
 
 #line-chart-container {
@@ -282,7 +284,7 @@ select {
 }
 
 .summary-details-list li {
-  
+
 }
 
 
@@ -312,7 +314,7 @@ select {
 
 
 #filter-selection-div{
-  
+
 }
 
 .filter-radio{
@@ -343,7 +345,7 @@ select {
 
 
 #recipe-suggestions {
-  
+
 }
 
 .recipe-suggestions-heading {
@@ -380,5 +382,3 @@ select {
   text-decoration: none;
   color: black;
 }
-
-
