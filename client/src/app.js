@@ -12,7 +12,6 @@ const DateSelectorView = require('./views/date_selector_view.js');
 //const dotenv = require('dotenv').config();
 const RecipeRequest = require('./helpers/recipe_request.js');
 const RecipeView = require('./views/recipe_view.js');
-const FilterRecipeView = require('./views/filter_recipe_view.js');
 
 document.addEventListener('DOMContentLoaded', ()=>{
 

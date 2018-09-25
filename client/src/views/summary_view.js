@@ -8,10 +8,10 @@ const SummaryView = function (summaryContainer) {
         "CHOCDF": "Carbs",
         "CHOLE": "Cholesterol",
         "ENERC_KCAL": "Energy",
-        "FASAT": "Sugars",
+        "SUGAR": "Sugars",
         "FAT": "Fat",
         "FE": "Iron",
-        "FIBTG": "Fibre",
+        "FIBTG": "Fiber",
         "FOLDFE": "Folic Acid",
         "K": "Potassium",
         "MG": "Magnesium",
@@ -97,7 +97,6 @@ SummaryView.prototype.getThreeMostDeficientNutrients = function(nutrientInfoObje
     const nutrientNameArray = nutrientInfoArray.map((object)=>{
         return object.name;
     });
-    console.log(nutrientNameArray);
     return nutrientNameArray.slice(0,3);
 }
 
