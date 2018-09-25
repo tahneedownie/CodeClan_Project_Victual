@@ -33,7 +33,8 @@ this.allPotentialMinerals = {
     "VITK1": "Vitamin K",
     "ZN": "Zinc"
 }
-this.weeklyDataObject = {};
+//xthis.weeklyDataObject = {};
+
 }
 
 LineChartView.prototype.bindEvents = function(){
@@ -48,6 +49,8 @@ this.options.addEventListener('change', (event)=>{
     var fourDaysAgo = moment().subtract(4, "days").format('YYYY-MM-DD');
     var fiveDaysAgo = moment().subtract(5, "days").format('YYYY-MM-DD');
     var sixDaysAgo = moment().subtract(6, "days").format('YYYY-MM-DD');
+
+    this.datesData = [today, yesterday, twoDaysAgo, threeDaysAgo, fourDaysAgo, fiveDaysAgo, sixDaysAgo];
     
     let mineralKey = "";
     for(let mineral in this.allPotentialMinerals){
@@ -55,45 +58,43 @@ this.options.addEventListener('change', (event)=>{
             mineralKey = mineral;
         };
     }
+    this.RDAData = [];
 
     databaseRequest.getForDate(today)
         .then((singleDaysData)=>{
-            this.weeklyDataObject[today] = this.calculateTotal(singleDaysData, mineralKey);
+            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
     })
     .then(()=>{
         databaseRequest.getForDate(yesterday)
         .then((singleDaysData)=>{
-            this.weeklyDataObject[yesterday] = this.calculateTotal(singleDaysData, mineralKey);
+            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
     })})
     .then(()=>{
             databaseRequest.getForDate(twoDaysAgo)
         .then((singleDaysData)=>{
-            this.weeklyDataObject[twoDaysAgo] = this.calculateTotal(singleDaysData, mineralKey);
+            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
     })})
     .then(()=>{
             databaseRequest.getForDate(threeDaysAgo)
         .then((singleDaysData)=>{
-                this.weeklyDataObject[threeDaysAgo] = this.calculateTotal(singleDaysData, mineralKey);
+            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
     })})
     .then(()=>{
         databaseRequest.getForDate(fourDaysAgo)
         .then((singleDaysData)=>{
-            this.weeklyDataObject[fourDaysAgo] = this.calculateTotal(singleDaysData, mineralKey);
+            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
     })})
     .then(()=>{
         databaseRequest.getForDate(fiveDaysAgo)
         .then((singleDaysData)=>{
-            this.weeklyDataObject[fiveDaysAgo] = this.calculateTotal(singleDaysData, mineralKey);
+            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
     })})
     .then(()=>{
         databaseRequest.getForDate(sixDaysAgo)
         .then((singleDaysData)=>{
-            this.weeklyDataObject[sixDaysAgo] = this.calculateTotal(singleDaysData, mineralKey);
+            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
             this.render();
     })})
-    .then(()=>{
-        this.render();
-    });
 })}
 
 LineChartView.prototype.calculateTotal = function (allData, mineral) {
@@ -109,46 +110,22 @@ return totalPercentage.toFixed(2);
 
 LineChartView.prototype.render = function(){
 this.container.innerHTML = "";
-this.createTableElements();
 this.displayChart();
 }
 
-LineChartView.prototype.createTableElements = function(){
-this.dataTable = document.createElement('table');
-this.dataTable.setAttribute('id', 'datatable');
-this.header = this.dataTable.createTHead();
-this.body = this.dataTable.createTBody();
-this.row0 = this.header.insertRow(0);
-this.thDate = document.createElement('th');
-this.thNutrient = document.createElement('th');
-this.thDate.textContent = "Date";
-this.thNutrient.textContent = this.nutrientToDisplay;
-this.row0.appendChild(this.thDate);
-this.row0.appendChild(this.thNutrient);
-this.createRows();
-this.container.appendChild(this.dataTable);
-}
-
-LineChartView.prototype.createRows = function(){
-let i = 0;
-for(let element in this.weeklyDataObject){
-    const row = this.body.insertRow(i);
-    const th = document.createElement('th');
-    th.textContent = element;
-    row.appendChild(th);
-    const cell = row.insertCell(1);
-    cell.innerHTML = this.weeklyDataObject[element];
-    i++;
-}
-}
-
-
 LineChartView.prototype.displayChart = function(){
 Highcharts.chart('line-chart-container', {
-    data: {
-        table: 'datatable',
-        enablePolling: true
+        xAxis: {
+        categories: this.datesData,
+        tickmarkPlacement: 'on',
+        lineWidth: 0
     },
+        series: [{
+        name: '% of RDA',
+        data: this.RDAData,
+        pointPlacement: 'on'
+    }],
+   
     chart: {
         type: 'line'
     },
@@ -160,14 +137,7 @@ Highcharts.chart('line-chart-container', {
         title: {
             text: ' '
         },
-        min: 0,
-        max: 200
-    },
-    tooltip: {
-        formatter: function () {
-            return '<b>' + this.series.name + '</b><br/>' +
-                this.point.y + ' ' + this.point.name.toLowerCase();
-        }
+        min: 0
     },
     plotOptions: {
         series: {
