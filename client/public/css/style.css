@@ -227,16 +227,31 @@ select {
 
 /* CHARTS */
 
+#charts-outer-div {
+  
+}
+
 #chart-container {
   display: inline-block;
+  min-width: 310px;
+  width: 50%;
+  height: 500px;
+  margin: 100px auto;
 }
 
 #spider-chart-container {
   float: right;
+  min-width: 310px;
+  width: 50%;
+  height: 500px;
+  margin: 100px auto;
 }
 
 #line-chart-container {
-
+  min-width: 310px;
+  width: 75%;
+  height: 500px;
+  margin: 0 auto;
 }
 
 #line-chart-div {
@@ -317,7 +332,7 @@ select {
 }
 
 .filter-text-div {
-  
+
 }
 
 #exclusions {
