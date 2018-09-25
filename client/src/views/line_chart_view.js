@@ -96,6 +96,7 @@ LineChartView.prototype.createGraph = function(nutrientToDisplay){
         databaseRequest.getForDate(sixDaysAgo)
         .then((singleDaysData)=>{
             this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
+            console.log(this.RDAData);
             this.render();
     })})
 }
