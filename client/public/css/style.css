@@ -6,6 +6,7 @@
   padding: 0;
 }
 
+
 #top-page-reference {
   /* display: none; */
 }
@@ -151,7 +152,7 @@ select {
 
 
 
-/* FOOD ITEM STUFF FROM LIST_VIEW.JS */
+/* FOOD DIARY SECTION*/
 
 #food-list {
   min-height: 500px;
@@ -160,6 +161,7 @@ select {
   margin: 0 auto;
   padding: 10px;
   text-align: center;
+
 }
 
 #food-list h2 {
@@ -258,8 +260,6 @@ select {
 
 /* RECIPE BUTTONS */
 
-
-
 #recipe-buttons-container {
   width: 100%;
   margin: 0 auto;
@@ -321,6 +321,7 @@ select {
 .recipe-suggestions-heading {
   color: black;
   text-align: center;
+  font-weight: bold;
 }
 
 .no-recipe-results-message {
@@ -344,6 +345,7 @@ select {
 
 .recipe-title-img-div a h3 {
   text-align: center;
+  margin: 5px;
 }
 
 .title-of-recipe {
