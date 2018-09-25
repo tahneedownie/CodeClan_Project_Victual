@@ -48,7 +48,7 @@ RecipeView.prototype.displayFilteredSuggestions = function (deficientNutrient, h
     const recipeRequest = new RecipeRequest();
     recipeRequest.get(deficientNutrient, health, exclusionsArray)
         .then((recipes) => {
-            this.render(recipes, deficientNutrient);
+            this.render(recipes, deficientNutrient, health);
         });
 }
 
@@ -56,11 +56,9 @@ RecipeView.prototype.displayFilteredSuggestions = function (deficientNutrient, h
 RecipeView.prototype.render = function (recipes, deficientNutrient) {
     const recipeListContainer = document.querySelector('#recipe-suggestions');
     recipeListContainer.innerHTML = "";
-    console.log(recipeListContainer);
     const heading = document.createElement("h2");
     heading.className = 'recipe-suggestions-heading';
-    heading.textContent = "Recipes high in: ";
-    heading.textContent += deficientNutrient;
+    heading.textContent = `Recipes high in: ${deficientNutrient}`;
     recipeListContainer.appendChild(heading);
 
     const randomThreeRecipes = this.getRandomThree(recipes.hits);

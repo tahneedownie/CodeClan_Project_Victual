@@ -50,15 +50,22 @@ ListView.prototype.renderOne = function(dataItem){
     const unorderedList = document.createElement('ul');
     unorderedList.className = "item-details-list";
     unorderedList.style.display = 'none';
+    
+    const listItemTextArray = [];
 
     for(let nutritionDetailKey of Object.keys(dataItem.details)){
        const nutrientObject = dataItem.details[nutritionDetailKey];
        const totalPercentage = (amountOfUnits * parseFloat(nutrientObject.quantity));
-
-       const listLabel = document.createElement('li');
-       listLabel.textContent = `${nutrientObject.label}: ${totalPercentage.toFixed(2)}%`;
-       unorderedList.appendChild(listLabel);
+       const listItemText = `${nutrientObject.label}: ${totalPercentage.toFixed(2)}%`;
+       listItemTextArray.push(listItemText);
     }
+
+    listItemTextArray.sort();
+    listItemTextArray.forEach((listItemText)=>{
+        const listItem = document.createElement('li');
+        listItem.textContent = listItemText;
+        unorderedList.appendChild(listItem);
+    })
 
     div.appendChild(unorderedList);
     this.listContainer.appendChild(div);
