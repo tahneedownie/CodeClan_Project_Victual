@@ -59,7 +59,7 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
     console.log(recipeListContainer);
     const heading = document.createElement("h2");
     heading.className = 'recipe-suggestions-heading';
-    heading.textContent = "Recipes high in: ";
+    heading.textContent = "Recipes high in ";
     heading.textContent += deficientNutrient;
 
     recipeListContainer.appendChild(heading);
@@ -89,6 +89,7 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
             // url.textContent = recipeObject.recipe.url;
             // recipeListContainer.appendChild(title);
             url.className = 'title-of-recipe';
+            url.setAttribute('target', '_blank');
             url.appendChild(title);
             recipeDiv.appendChild(url);
 
