@@ -98,7 +98,7 @@ LineChartView.prototype.createGraph = function(nutrientToDisplay){
             this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
             this.RDAData.reverse();
             this.render();
-    })})
+    })});
 }
 
 LineChartView.prototype.calculateTotal = function (allData, mineral) {
