@@ -874,8 +874,8 @@ db.user_food_items.insertMany(
         },
         {
             "name": "chocolate",
-            "amount": "25",
-            "measurement": "grams",
+            "amount": "1",
+            "measurement": "ounce",
             "date": "2018-09-25",
             "details": {
                 "ENERC_KCAL": {
@@ -1371,8 +1371,8 @@ db.user_food_items.insertMany(
         },
         {
             "name": "apple pie",
-            "amount": "150",
-            "measurement": "gram",
+            "amount": "1",
+            "measurement": "serving",
             "date": "2018-09-24",
             "details": {
                 "ENERC_KCAL": {
@@ -1489,8 +1489,8 @@ db.user_food_items.insertMany(
         },
         {
             "name": "chocolate",
-            "amount": "25",
-            "measurement": "grams",
+            "amount": "1",
+            "measurement": "ounce",
             "date": "2018-09-24",
             "details": {
                 "ENERC_KCAL": {
@@ -1740,8 +1740,8 @@ db.user_food_items.insertMany(
         },
         {
             "name": "chocolate",
-            "amount": "25",
-            "measurement": "grams",
+            "amount": "1",
+            "measurement": "ounce",
             "date": "2018-09-23",
             "details": {
                 "ENERC_KCAL": {
@@ -2360,8 +2360,8 @@ db.user_food_items.insertMany(
         },
         {
             "name": "apple pie",
-            "amount": "150",
-            "measurement": "gram",
+            "amount": "1",
+            "measurement": "serving",
             "date": "2018-09-22",
             "details": {
                 "ENERC_KCAL": {
