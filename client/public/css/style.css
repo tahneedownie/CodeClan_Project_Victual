@@ -4,6 +4,7 @@
   border: 0;
   margin: 0;
   padding: 0;
+  /* text-transform: uppercase; */
 }
 
 
@@ -81,7 +82,12 @@ h2 {
   background-image: url('./images/wood_edit.jpg');
   background-size: 100%;
   background-position: top;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
+}
+
+.colour-block {
+  background-color: #D9D9D9;
+  height: 30px;
 }
 
 .form_wrapper {
@@ -154,6 +160,11 @@ select {
 
 /* FOOD DIARY SECTION*/
 
+#food-list-outer-container {
+  background-color: #D9D9D9;
+  padding-bottom: 30px;
+}
+
 #food-list {
   min-height: 500px;
   border: 1px solid #D3D3D3;
@@ -161,13 +172,15 @@ select {
   margin: 0 auto;
   padding: 10px;
   text-align: center;
-
+  background-color: white;
+  text-transform: capitalize;
 }
 
 #food-list h2 {
   text-decoration: underline;
   color: black;
-  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 /* food item div */
@@ -284,7 +297,7 @@ select {
 
 
 #filter-selection-div{
-
+  
 }
 
 .filter-radio{
@@ -304,7 +317,7 @@ select {
 }
 
 .filter-text-div {
-
+  
 }
 
 #exclusions {
