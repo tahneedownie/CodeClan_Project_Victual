@@ -30,27 +30,22 @@
 }
 
 .decoration {
-  /* background-color: #050505; */
   background-color: #D1D1D1;
   height: 1px;
   margin-top: 10px;
   margin-bottom: 20px;
-  /* height: 40px; */
 }
 
 .decoration_2 {
-  /* background-color: #050505; */
   background-color: #D1D1D1;
   height: 1px;
   margin-top: 20px;
   margin-bottom: 15px;
-  /* height: 40px; */
 }
 
 h2 {
   font-size: 27px;
   font-weight: 200;
-  /* color: #050505; */
   color: white;
   margin-top: 15px;
   margin-left: 0px;
@@ -61,9 +56,6 @@ h2 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* background-image: url('./images/oatmeal-761434_1280.jpg'); */
-  /* background-image: url('./images/table-2879213_1920.jpg'); */
-  /* background-image: url('./images/wood-2879244_1920.jpg'); */
   background-image: url('./images/wood_edit.jpg');
   background-size: 100%;
   background-position: top;
