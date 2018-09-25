@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const dateSelectorView = new DateSelectorView(dateSelector);
     dateSelectorView.bindEvents();
 
+    console.log(dateSelector);
+
     const listDiv = document.querySelector('#food-list');
     const deleteAllButton = document.querySelector('#delete-all-button');
     const listView = new ListView(listDiv, deleteAllButton);
