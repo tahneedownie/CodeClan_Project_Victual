@@ -53,7 +53,7 @@ LineChartView.prototype.createGraph = function(nutrientToDisplay){
     var fiveDaysAgo = moment().subtract(5, "days").format('YYYY-MM-DD');
     var sixDaysAgo = moment().subtract(6, "days").format('YYYY-MM-DD');
 
-    this.datesData = [today, yesterday, twoDaysAgo, threeDaysAgo, fourDaysAgo, fiveDaysAgo, sixDaysAgo];
+    this.datesData = [sixDaysAgo, fiveDaysAgo, fourDaysAgo, threeDaysAgo, twoDaysAgo, yesterday, today];
     
     let mineralKey = "";
     for(let mineral in this.allPotentialMinerals){
