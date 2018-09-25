@@ -159,12 +159,19 @@ select {
   width: 50%;
   margin: 0 auto;
   padding: 10px;
+  text-align: center;
+}
+
+#food-list h2 {
+  text-decoration: underline;
+  color: black;
+  margin: 0;
 }
 
 /* food item div */
 .food-item {
   width: 200px;
-  margin: 0 auto;
+  margin: 5px auto;
   text-align: center;
 }
 
