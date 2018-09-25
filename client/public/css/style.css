@@ -228,23 +228,25 @@ select {
 /* CHARTS */
 
 #charts-outer-div {
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #chart-container {
-  display: inline-block;
+  /* display: inline-block; */
   min-width: 310px;
-  width: 50%;
+  width: 40%;
   height: 500px;
-  margin: 100px auto;
+  margin: 20px auto;
 }
 
 #spider-chart-container {
-  float: right;
+  /* float: right; */
   min-width: 310px;
-  width: 50%;
+  width: 40%;
   height: 500px;
-  margin: 100px auto;
+  margin: 20px auto;
 }
 
 #line-chart-container {
@@ -305,38 +307,89 @@ select {
 /* RECIPES */
 
 #recipes-container {
+  /* border: 1px solid black; */
+  /* text-align: center; */
+  margin-top: 30px;
+}
 
+#recipes-container h3 {
+  text-align: center;
+  margin: 10px 0;
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 /* RECPIES FILTER FORM */
 
 
 #filter-selection-div{
-  
+  /* border: 1px solid black; */
 }
 
-.filter-radio{
-
+form#filter-recipes {
+  width:50%;
+  margin: 0 auto;
+  background-color: #D1D1D1;
+  text-align: center;
 }
 
-.filter-radio input {
 
+.filter-radio {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px;
+}
+
+.filter-radio input[type="radio"] {
+  width: 20px;
 }
 
 .filter-radio label {
-
+  /* border: 1px solid black; */
+  display: inline-block;
+  width: 250px;
+  text-align: center;
 }
 
 #exlusions-div {
-
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 15px;
 }
 
-.filter-text-div {
+#exclusions-div label {
+  padding: 20px;
+  background-color: white;
+} 
 
+.filter-text-div {
+  margin: 15px;
 }
 
 #exclusions {
+  text-align: center;
+  width: 80%;
+  height: 30px;
+}
 
+#filter-recipe-button {
+  width: 80px;
+  margin: 0 auto;
+  padding: 10px;
+  margin: 5px;
+  background-color: #8EC63F;
+  color: white;
+  cursor: pointer;
+  font-size : 20px;
+  margin-bottom: 10px;
+}
+
+#exlusions-label-div{
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
 }
 
 /* RECIPES SUGGESTIONS RESULTS */

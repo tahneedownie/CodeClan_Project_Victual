@@ -26,8 +26,8 @@ ChartView.prototype.createTableElements = function(){
     this.row0 = this.header.insertRow(0);
     this.thTitle = document.createElement('th');
     this.thTitle2 = document.createElement('th');
-    this.thTitle.textContent = "% of RDA (Recommended Dietary Allowance)";
-    this.thTitle2.textContent = "% of RDA (Recommended Dietary Allowance)";
+    this.thTitle.textContent = "% of RDA (Recommended Daily Allowance)";
+    this.thTitle2.textContent = "% of RDA (Recommended Daily Allowance)";
     this.row0.appendChild(this.thTitle);
     this.row0.appendChild(this.thTitle2);
     this.createRows();
@@ -117,7 +117,7 @@ ChartView.prototype.displaySpiderChart = function () {
         },
     
         title: {
-            text: '%s Of RDA',
+            text: '% of RDA (Recommended Daily Allowance)',
             x: -50
         },
     

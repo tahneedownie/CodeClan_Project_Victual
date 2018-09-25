@@ -150,19 +150,19 @@
 
   <div id="recipes-container">
 
-    <label for="filter-recipes">Dietary requirements</label>
+    <h3>Dietary requirements</h3>
     <form id="filter-recipes">
 
       <div id="filter-selection-div">
 
         <div class="filter-radio">
           <input type="radio" id="none" name="health" value="none" checked="true" />
-          <label for="none">No dietary requirements</label>
+          <label for="none">No Dietary Requirements</label>
         </div>
 
         <div class="filter-radio">
           <input type="radio" id="alcohol-free" name="health" value="alcohol-free" />
-          <label for="alcohol-free">No alcohol</label>
+          <label for="alcohol-free">No Alcohol</label>
         </div>
 
         <div class="filter-radio">
@@ -177,20 +177,22 @@
 
         <div class="filter-radio">
           <input type="radio" id="wheat-free" name="health" value="wheat-free" />
-          <label for="wheat-free">No wheat</label>
+          <label for="wheat-free">No Wheat</label>
         </div>
 
       </div>
 
       <div id="exlusions-div">
+        <div id="exlusions-label-div">
       <label for="exclusions">Enter any ingredient you do NOT want in the recipe. You can enter multiple ingredients by
-        separating with a comma, e.g: chickpea, garlic</label>
+        separating with a comma (e.g: chickpea, garlic):</label>
+      </div>
       <div class="filter-text-div">
-          <input id="exclusions" type="text" placeholder="enter ingredients" name="exclusions">
+          <input id="exclusions" type="text" placeholder="Enter ingredients..." name="exclusions" autocomplete="off">
       </div>
       </div>
 
-      <button id="filter-recipe-button" type="submit">filter</button>
+      <button id="filter-recipe-button" type="submit">Filter</button>
 
     </form>
 
