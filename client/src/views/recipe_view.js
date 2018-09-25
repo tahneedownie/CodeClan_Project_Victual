@@ -58,13 +58,7 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
     recipeListContainer.innerHTML = "";
     const heading = document.createElement("h2");
     heading.className = 'recipe-suggestions-heading';
-<<<<<<< HEAD
     heading.textContent = `Recipes high in: ${deficientNutrient}`;
-=======
-    heading.textContent = "Recipes high in ";
-    heading.textContent += deficientNutrient;
-
->>>>>>> 64d217823bde5333171f2242dc1301ce79663e3a
     recipeListContainer.appendChild(heading);
 
     const randomThreeRecipes = this.getRandomThree(recipes.hits);
