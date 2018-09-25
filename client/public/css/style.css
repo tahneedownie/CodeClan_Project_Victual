@@ -234,18 +234,22 @@ select {
   display: flex;
   flex-direction: row;
   list-style-type: none;
-  margin-top: 30px;
+  justify-content: center;
+  /* background-color: #F1E7E6; */
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 #chart-container {
   min-width: 310px;
-  width: 50%;
+  width: 40%;
   height: 500px;
+  margin-right: 100px;
 }
 
 #spider-chart-container {
   min-width: 310px;
-  width: 50%;
+  width: 40%;
   height: 500px;
 }
 
@@ -254,6 +258,7 @@ select {
   width: 75%;
   height: 500px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 #line-chart-div {
@@ -291,14 +296,18 @@ select {
 /* RECIPE BUTTONS */
 
 #recipe-buttons-container {
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: center;
+  /* width: 100%;
   margin: 0 auto;
-  text-align: center;
+  text-align: center; */
 }
 
 .recipe-for-nutrient-button {
   padding: 10px;
-  margin: 5px;
+  margin: 15px;
   background-color: #8EC63F;
   color: white;
   cursor: pointer;
