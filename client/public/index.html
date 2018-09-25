@@ -1,60 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/bundle.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <script src="https://code.highcharts.com/modules/data.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-  </head>
-  <body>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/bundle.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-    <img class ="logo" src="./css/images/victual_logo_green_V4.png" alt="victual_logo">
+</head>
 
-    <div class="decoration"> </div>
+<body>
 
-    <img class ="logo" src="./css/images/victual_logo_green_V4.png" alt="victual_logo">
+  <img class="logo" src="./css/images/victual_logo_green_V4.png" alt="victual_logo">
 
-    <div class="decoration"> </div>
-    <ul class="nav_bar">
-      <li class="nav_item">LOG</li>
-      <li class="nav_item">GRAPHS</li>
-      <li class="nav_item">RECIPES</li>
-    </ul>
-    <div class="decoration_2"> </div>
+  <div class="decoration"> </div>
+  <ul class="nav_bar">
+    <li class="nav_item">LOG</li>
+    <li class="nav_item">GRAPHS</li>
+    <li class="nav_item">RECIPES</li>
+  </ul>
+  <div class="decoration_2"> </div>
 
-      <div class="form_with_header_wrapper">
+  <div class="form_with_header_wrapper">
 
-      <h2>ADD FOOD / DRINK</h2>
+    <h2>ADD FOOD / DRINK</h2>
 
-      <form id="food-form">
+    <form id="food-form">
 
-        <div class="form_wrapper">
+      <div class="form_wrapper">
 
-          <div class="form-item">
-          <label class= "primary" for="name">Date:</label>
+        <div class="form-item">
+          <label class="primary" for="name">Date:</label>
           <input type="date" id="date-selector">
-          </div>
+        </div>
 
-          <div class="form-item">
-          <label class= "primary" for="name">Name:</label>
-          <input type="text" id="name" autocomplete="off" required/>
-          </div>
+        <div class="form-item">
+          <label class="primary" for="name">Name:</label>
+          <input type="text" id="name" autocomplete="off" required />
+        </div>
 
-          <div class="form-item">
-          <label class= "primary" for="numberOfUnits">Amount:</label>
-          <input type="number" id="numberOfUnits" min="0" required/>
-          </div>
+        <div class="form-item">
+          <label class="primary" for="numberOfUnits">Amount:</label>
+          <input type="number" id="numberOfUnits" min="0" required />
+        </div>
 
-          <div class="form-item">
-          <label class= "primary" for="measurementDropdown">Unit:</label>
+        <div class="form-item">
+          <label class="primary" for="measurementDropdown">Unit:</label>
           <select id="measurementDropdown" required>
             <option disabled selected value="">--select--</option>
             <option value="kilogram">Kilogram</option>
@@ -78,78 +76,97 @@
             <option value="tablespoon">Tablespoon</option>
             <option value="dessert_spoon">Dessertspoon</option>
           </select>
-          </div>
+        </div>
 
-          <div class="button-wrapper">
-        <input class="save_button" type="submit" value="Save" id="save"/>
-        <button class="delete_all_button" id="delete-all-button">Delete All</button>
-          </div>
-
-          </div>
-
-      </form>
-
-    </div>
-      
-
-      <div id="food-list"></div>
-
-      <div id="chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
-      
-      <div id="spider-chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
-
-      <div id="recipes-container">
-
-          <label for="filter-recipes">Dietary requirements</label>
-          <form id="filter-recipes">
-            <ul>
-
-       <li> <input type="radio" id="none" name="health" value="none" checked="true"/>
-        <label for="none">No dietary requirements</label>
-      </li>
-      <li>
-        <input type="radio" id="alcohol-free" name="health" value="alcohol-free"/>
-        <label for="alcohol-free">No alcohol</label>
-      </li>
-      <li>
-        <input type="radio" id="vegan" name="health" value="vegan"/>
-        <label for="vegan">Vegan</label>
-      </li>
-      <li>
-        <input type="radio" id="vegetarian" name="health" value="vegetarian"/>
-        <label for="vegetarian">Vegetarian</label>
-      </li>
-      <li>
-        <input type="radio" id="wheat-free" name="health" value="wheat-free"/>
-        <label for="wheat-free">No wheat</label>
-      </li>
-              </ul>
-      <label for="exclusions">Enter any ingredient you do NOT want in the recipe. You can enter multiple ingredients by separating with a comma, e.g: chickpea, garlic</label>
-
-          <input id="exclusions" type="text" placeholder="enter ingredients" name="exclusions">
-          <button type="submit">filter</button>
-        </form>
-
-        <div id="recipe-suggestions"></div>
+        <div class="button-wrapper">
+          <input class="save_button" type="submit" value="Save" id="save" />
+          <button class="delete_all_button" id="delete-all-button">Delete All</button>
+        </div>
 
       </div>
 
+    </form>
 
-      <div id="summary-container"></div>
+  </div>
 
-      <h3>See data for last 7 days</h3>
 
-      
-          <select id="line-chart-options">
-              <option disabled selected value="">--select--</option>
-              <option value="Protein">Protein</option>
-              <option value="Magnesium">Magnesium</option>
-              <option value="Calcium">Calcium</option>
-              <option value="Potassium">Potassium</option>
-            </select>
-      
-      <div id="line-chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
+  <div id="food-list"></div>
 
-  </body>
+  <div id="chart-container" style="min-width: 310px; width: 50%; height: 500px; margin: 0 auto"></div>
+
+  <div id="spider-chart-container" style="min-width: 310px; width: 50%; height: 500px; margin: 0 auto"></div>
+
+  <div id="recipe-suggestion-buttons-container"></div>
+
+  <div id="recipes-container">
+
+    <label for="filter-recipes">Dietary requirements</label>
+    <form id="filter-recipes">
+
+      <div id="filter-selection-div">
+
+        <div class="filter-radio">
+          <input type="radio" id="none" name="health" value="none" checked="true" />
+          <label for="none">No dietary requirements</label>
+        </div>
+
+        <div class="filter-radio">
+          <input type="radio" id="alcohol-free" name="health" value="alcohol-free" />
+          <label for="alcohol-free">No alcohol</label>
+        </div>
+
+        <div class="filter-radio">
+          <input type="radio" id="vegan" name="health" value="vegan" />
+          <label for="vegan">Vegan</label>
+        </div>
+
+        <div class="filter-radio">
+          <input type="radio" id="vegetarian" name="health" value="vegetarian" />
+          <label for="vegetarian">Vegetarian</label>
+        </div>
+
+        <div class="filter-radio">
+          <input type="radio" id="wheat-free" name="health" value="wheat-free" />
+          <label for="wheat-free">No wheat</label>
+        </div>
+
+      </div>
+
+      <div id="exlusions-div">
+      <label for="exclusions">Enter any ingredient you do NOT want in the recipe. You can enter multiple ingredients by
+        separating with a comma, e.g: chickpea, garlic</label>
+      <div class="filter-text-div">
+          <input id="exclusions" type="text" placeholder="enter ingredients" name="exclusions">
+      </div>
+      </div>  
+
+      <button id="filter-recipe-button" type="submit">filter</button>
+
+    </form>
+
+    <div id="recipe-suggestions"></div>
+
+  </div>
+
+
+  <div id="summary-container"></div>
+
+  <div id="line-chart-div">
+
+  <h3>See data for last 7 days</h3>
+
+  <select id="line-chart-options">
+    <option disabled selected value="">--select--</option>
+    <option value="Protein">Protein</option>
+    <option value="Magnesium">Magnesium</option>
+    <option value="Calcium">Calcium</option>
+    <option value="Potassium">Potassium</option>
+  </select>
+
+  <div id="line-chart-container" style="min-width: 310px; height: 1000px; margin: 0 auto"></div>
+
+</div>
+
+</body>
 
 </html>

@@ -52,36 +52,24 @@ ListView.prototype.renderOne = function(dataItem){
     unorderedList.style.display = 'none';
 
     for(let nutritionDetailKey of Object.keys(dataItem.details)){
-       //console.log(dataItem.details[nutritionDetailKey]);
        const nutrientObject = dataItem.details[nutritionDetailKey];
        const totalPercentage = (amountOfUnits * parseFloat(nutrientObject.quantity));
 
        const listLabel = document.createElement('li');
        listLabel.textContent = `${nutrientObject.label}: ${totalPercentage.toFixed(2)}%`;
        unorderedList.appendChild(listLabel);
-
-
-
-        // for(let nutritionDetail in dataItem.details.totalNutrients[]){
-        //     console.log(nutritionDetail);
-            // const listItem = document.createElement('li');
-            // console.log(nutritionDetail);
-            // listItem.textContent = nutritionDetails.label;
-            // unorderedList.appendChild(listItem);
-       // }
     }
-
 
     div.appendChild(unorderedList);
     this.listContainer.appendChild(div);
 
-    expandButton.addEventListener('click', () => {
-        if (unorderedList.style.display === 'none') {
-            unorderedList.style.display = 'block';
-        } else if (unorderedList.style.display === 'block') {
-            unorderedList.style.display = 'none';
-        }
-    })
+        expandButton.addEventListener('click', () => {
+            if (unorderedList.style.display === 'none') {
+                unorderedList.style.display = 'block';
+            } else if (unorderedList.style.display === 'block') {
+                unorderedList.style.display = 'none';
+            }
+        })
 }
 
 
