@@ -27,6 +27,11 @@
   color: #050505;
   font-size: 15px;
   font-weight: bolder;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .decoration {
@@ -155,5 +160,5 @@ select {
 }
 
 .item-details-list li {
-  
+
 }
