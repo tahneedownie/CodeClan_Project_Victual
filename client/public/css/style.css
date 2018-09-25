@@ -216,15 +216,15 @@ select {
 }
 
 #line-chart-div {
-
+  text-align: center;
 }
 
 #line-chart-div h3 {
-
+  /* text-align: center; */
 }
 
 #line-chart-options {
-
+  /* text-align: center; */
 }
 
 
@@ -249,9 +249,12 @@ select {
 
 /* RECIPE BUTTONS */
 
+
+
 #recipe-buttons-container {
-  width: 400px;
+  width: 100%;
   margin: 0 auto;
+  text-align: center;
 }
 
 .recipe-for-nutrient-button {
