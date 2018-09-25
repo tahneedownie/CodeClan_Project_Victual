@@ -11,7 +11,6 @@ this.allPotentialMinerals = {
     "CHOCDF": "Carbs",
     "CHOLE": "Cholesterol",
     "ENERC_KCAL": "Energy",
-    "SUGAR": "Sugars",
     "FAT": "Fat",
     "FE": "Iron",
     "FIBTG": "Fiber",

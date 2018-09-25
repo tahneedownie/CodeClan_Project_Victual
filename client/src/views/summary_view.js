@@ -19,7 +19,6 @@ const SummaryView = function (summaryContainer) {
         "PROCNT": "Protein",
         "RIBF": "Riboflavin (B2)",
         "NA": "Sodium",
-        "SUGAR": "Sugars",
         "THIA": "Thiamin (B1)",
         "VITA_RAE": "Vitamin A",
         "VITB12": "Vitamin B12",
