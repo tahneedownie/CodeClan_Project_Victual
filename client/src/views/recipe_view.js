@@ -1,5 +1,4 @@
 const PubSub = require('../helpers/pub_sub.js');
-
 const RecipeRequest = require('../helpers/recipe_request.js');
 
 const RecipeView = function (container) {
@@ -73,6 +72,11 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
     }
     else {
         for (let recipeObject of randomThreeRecipes) {
+            console.log(recipeObject);
+
+            const recipeDiv = document.createElement('div');
+            recipeDiv.className = 'recipe-title-img-div';
+
             const title = document.createElement("h3");
             title.textContent = recipeObject.recipe.label;
             const url = document.createElement("a");
@@ -81,7 +85,14 @@ RecipeView.prototype.render = function (recipes, deficientNutrient) {
             // recipeListContainer.appendChild(title);
             url.className = 'title-of-recipe';
             url.appendChild(title);
-            recipeListContainer.appendChild(url);
+            recipeDiv.appendChild(url);
+
+
+            const recipeImage = document.createElement('img');
+            recipeImage.src = recipeObject.recipe.image;
+            url.appendChild(recipeImage);
+
+            recipeListContainer.appendChild(recipeDiv);
         }
     }
 }

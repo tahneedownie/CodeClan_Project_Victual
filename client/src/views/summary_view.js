@@ -39,6 +39,7 @@ SummaryView.prototype.bindEvents = function () {
         this.summaryContainer.innerHTML = ""
         this.renderSummary(allData);
         this.createRecipeButtons();
+
     })
 }
 
@@ -105,6 +106,8 @@ SummaryView.prototype.getThreeMostDeficientNutrients = function(nutrientInfoObje
 }
 
 SummaryView.prototype.createRecipeButtons = function(){
+    const buttonsDiv = document.querySelector('#recipe-suggestion-buttons-container');
+    buttonsDiv.innerHTML = '';
     const div = document.createElement('div');
     div.setAttribute('id', 'recipe-buttons-container');
 
@@ -119,7 +122,6 @@ SummaryView.prototype.createRecipeButtons = function(){
         div.appendChild(button);
     });
 
-    const buttonsDiv = document.querySelector('#recipe-suggestion-buttons-container');
     buttonsDiv.appendChild(div);
     // this.summaryContainer.appendChild(div);
 }
