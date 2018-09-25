@@ -134,7 +134,7 @@ select {
 }
 
 .delete_all_button {
-  background-color: #8EC63F;
+  background-color: red;
   font-size: 10pt;
   color: white;
   width: 120px;
