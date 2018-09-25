@@ -244,6 +244,139 @@ db.user_food_items.insertMany(
             }
         },
         {
+            "name": "chicken curry",
+            "amount": "1",
+            "measurement": "serving",
+            "date": "2018-09-25",
+            "details": {
+                "ENERC_KCAL": {
+                    "label": "Energy",
+                    "quantity": 26.88,
+                    "unit": "%"
+                },
+                "FAT": {
+                    "label": "Fat",
+                    "quantity": 57.29,
+                    "unit": "%"
+                },
+                "FASAT": {
+                    "label": "Saturated",
+                    "quantity": 19.23,
+                    "unit": "%"
+                },
+                "CHOCDF": {
+                    "label": "Carbs",
+                    "quantity": 3.3,
+                    "unit": "%"
+                },
+                "FIBTG": {
+                    "label": "Fiber",
+                    "quantity": 0,
+                    "unit": "%"
+                },
+                "PROCNT": {
+                    "label": "Protein",
+                    "quantity": 93,
+                    "unit": "%"
+                },
+                "NA": {
+                    "label": "Sodium",
+                    "quantity": 7.29,
+                    "unit": "%"
+                },
+                "CA": {
+                    "label": "Calcium",
+                    "quantity": 23.31,
+                    "unit": "%"
+                },
+                "MG": {
+                    "label": "Magnesium",
+                    "quantity": 4.91,
+                    "unit": "%"
+                },
+                "K": {
+                    "label": "Potassium",
+                    "quantity": 5.79,
+                    "unit": "%"
+                },
+                "FE": {
+                    "label": "Iron",
+                    "quantity": 0.34,
+                    "unit": "%"
+                },
+                "ZN": {
+                    "label": "Zinc",
+                    "quantity": 6.94,
+                    "unit": "%"
+                },
+                "P": {
+                    "label": "Phosphorus",
+                    "quantity": 3.96,
+                    "unit": "%"
+                },
+                "VITA_RAE": {
+                    "label": "Vitamin A",
+                    "quantity": 0.42,
+                    "unit": "%"
+                },
+                "VITC": {
+                    "label": "Vitamin C",
+                    "quantity": 12.18,
+                    "unit": "%"
+                },
+                "VITD": {
+                    "label": "Vitamin D",
+                    "quantity": 17.88,
+                    "unit": "%"
+                },
+                "VITB12": {
+                    "label": "Vitamin B12",
+                    "quantity": 32.05,
+                    "unit": "%"
+                },
+                "THIA": {
+                    "label": "Thiamin (B1)",
+                    "quantity": 3.255,
+                    "unit": "%"
+                },
+                "RIBF": {
+                    "label": "Riboflavin (B2)",
+                    "quantity": 7.075384615384614,
+                    "unit": "%"
+                },
+                "NIA": {
+                    "label": "Niacin (B3)",
+                    "quantity": 5.236875,
+                    "unit": "%"
+                },
+                "VITB6A": {
+                    "label": "Vitamin B6",
+                    "quantity": 35.57076923076923,
+                    "unit": "%"
+                },
+                "FOLDFE": {
+                    "label": "Folate equivalent (total)",
+                    "quantity": 6.3,
+                    "unit": "%"
+                },
+                "TOCPHA": {
+                    "label": "Vitamin E",
+                    "quantity": 0.84,
+                    "unit": "%"
+                },
+                "VITK1": {
+                    "label": "Vitamin K",
+                    "quantity": 0.525,
+                    "unit": "%"
+                },
+                "CHOLE": {
+                    "label": "Cholesterol",
+                    "quantity": 62.5,
+                    "unit": "%"
+                }
+            }
+        },
+        {
             "name": "banana",
             "amount": "1",
             "measurement": "serving",
@@ -480,6 +613,144 @@ db.user_food_items.insertMany(
                 "VITK1": {
                     "label": "Vitamin K",
                     "quantity": 0.525,
+                    "unit": "%"
+                }
+            }
+        },
+        {
+            "name": "stew",
+            "amount": "1",
+            "measurement": "serving",
+            "date": "2018-09-24",
+            "details": {
+                "ENERC_KCAL": {
+                    "label": "Energy",
+                    "quantity": 30,
+                    "unit": "%"
+                },
+                "FIBTG": {
+                    "label": "Fiber",
+                    "quantity": 27,
+                    "unit": "%"
+                },
+                "FAT": {
+                    "label": "Fat",
+                    "quantity": 45,
+                    "unit": "%"
+                },
+                "FASAT": {
+                    "label": "Saturated",
+                    "quantity": 19.23,
+                    "unit": "%"
+                },
+                "CHOCDF": {
+                    "label": "Carbs",
+                    "quantity": 3.3,
+                    "unit": "%"
+                },
+                "FIBTG": {
+                    "label": "Fiber",
+                    "quantity": 0,
+                    "unit": "%"
+                },
+                "PROCNT": {
+                    "label": "Protein",
+                    "quantity": 93,
+                    "unit": "%"
+                },
+                "NA": {
+                    "label": "Sodium",
+                    "quantity": 7.29,
+                    "unit": "%"
+                },
+                "CA": {
+                    "label": "Calcium",
+                    "quantity": 23.31,
+                    "unit": "%"
+                },
+                "MG": {
+                    "label": "Magnesium",
+                    "quantity": 4.91,
+                    "unit": "%"
+                },
+                "K": {
+                    "label": "Potassium",
+                    "quantity": 5.79,
+                    "unit": "%"
+                },
+                "FE": {
+                    "label": "Iron",
+                    "quantity": 0.34,
+                    "unit": "%"
+                },
+                "ZN": {
+                    "label": "Zinc",
+                    "quantity": 6.94,
+                    "unit": "%"
+                },
+                "P": {
+                    "label": "Phosphorus",
+                    "quantity": 3.96,
+                    "unit": "%"
+                },
+                "VITA_RAE": {
+                    "label": "Vitamin A",
+                    "quantity": 0.42,
+                    "unit": "%"
+                },
+                "VITC": {
+                    "label": "Vitamin C",
+                    "quantity": 12.18,
+                    "unit": "%"
+                },
+                "VITD": {
+                    "label": "Vitamin D",
+                    "quantity": 17.88,
+                    "unit": "%"
+                },
+                "VITB12": {
+                    "label": "Vitamin B12",
+                    "quantity": 101,
+                    "unit": "%"
+                },
+                "THIA": {
+                    "label": "Thiamin (B1)",
+                    "quantity": 3.255,
+                    "unit": "%"
+                },
+                "RIBF": {
+                    "label": "Riboflavin (B2)",
+                    "quantity": 7.075384615384614,
+                    "unit": "%"
+                },
+                "NIA": {
+                    "label": "Niacin (B3)",
+                    "quantity": 5.236875,
+                    "unit": "%"
+                },
+                "VITB6A": {
+                    "label": "Vitamin B6",
+                    "quantity": 35.57076923076923,
+                    "unit": "%"
+                },
+                "FOLDFE": {
+                    "label": "Folate equivalent (total)",
+                    "quantity": 6.3,
+                    "unit": "%"
+                },
+                "TOCPHA": {
+                    "label": "Vitamin E",
+                    "quantity": 0.84,
+                    "unit": "%"
+                },
+                "VITK1": {
+                    "label": "Vitamin K",
+                    "quantity": 0.525,
+                    "unit": "%"
+                },
+                "CHOLE": {
+                    "label": "Cholesterol",
+                    "quantity": 62.5,
                     "unit": "%"
                 }
             }

@@ -131,6 +131,7 @@ select {
   width: 120px;
   height: 25px;
   margin-right: 14px;
+  cursor: pointer;
 }
 
 .delete_all_button {
@@ -139,6 +140,7 @@ select {
   color: white;
   width: 120px;
   height: 25px;
+  cursor: pointer;
 }
 
 #recipes-container {
@@ -231,11 +233,16 @@ select {
 /* RECIPE BUTTONS */
 
 #recipe-buttons-container {
-
+  width: 400px;
+  margin: 0 auto;
 }
 
 .recipe-for-nutrient-button {
-
+  padding: 10px;
+  margin: 5px;
+  background-color: #8EC63F;
+  color: white;
+  cursor: pointer;
 }
 
 /* RECIPES */
