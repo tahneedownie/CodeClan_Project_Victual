@@ -173,7 +173,7 @@ select {
 }
 
 .delete_all_button {
-  background-color: #DE6B48;
+  background-color: #E06C7B;
   font-size: 10pt;
   color: white;
   width: 120px;
@@ -234,7 +234,7 @@ select {
 }
 
 .item-delete-button {
-  background-color: #DE6B48;
+  background-color: #E06C7B;
   font-size: 10pt;
   color: white;
   width: 80px;
@@ -256,7 +256,11 @@ select {
 }
 
 .item-details-list {
-  padding: 10px;
+  padding: 30px;
+  border: 1px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #BABABA;
 }
 
 .item-details-list li {
