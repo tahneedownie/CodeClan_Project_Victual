@@ -290,7 +290,13 @@ select {
 
 }
 
+.recipe-title-img-div {
+  
+}
+
 .title-of-recipe {
   text-decoration: none;
-  color: red;
+  color: black;
 }
+
+
