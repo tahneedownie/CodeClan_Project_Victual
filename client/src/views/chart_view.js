@@ -135,7 +135,7 @@ ChartView.prototype.displaySpiderChart = function () {
             gridLineInterpolation: 'polygon',
             lineWidth: 0,
             min: 0,
-            max: 150
+            max: 250
         },
     
         tooltip: {
@@ -149,15 +149,39 @@ ChartView.prototype.displaySpiderChart = function () {
             y: 70,
             layout: 'vertical'
         },
+
+        plotOptions: {
+            series: {
+                marker: {
+                    enabled: false
+                }
+            }
+        },
     
         series: [{
             name: '% of RDA',
             data: this.getValues(),
             pointPlacement: 'on',
             color: '#8EC63F'
+        }, {
+            name: 'RDA',
+            data: [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],
+            pointPlacement: 'on',
+            color: 'grey'  
         }]
     
     });
 }
 
 module.exports = ChartView;
+
+
+// series: [{
+//     name: 'Allocated Budget',
+//     data: [43000, 19000, 60000, 35000, 17000, 10000],
+//     pointPlacement: 'on'
+// }, {
+//     name: 'Actual Spending',
+//     data: [50000, 39000, 42000, 31000, 26000, 14000],
+//     pointPlacement: 'on'
+// }]
