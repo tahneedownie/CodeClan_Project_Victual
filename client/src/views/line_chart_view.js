@@ -71,34 +71,34 @@ LineChartView.prototype.createGraph = function(nutrientToDisplay){
         databaseRequest.getForDate(yesterday)
         .then((singleDaysData)=>{
             this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-    })})
+    })
     .then(()=>{
             databaseRequest.getForDate(twoDaysAgo)
         .then((singleDaysData)=>{
             this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-    })})
+    })
     .then(()=>{
             databaseRequest.getForDate(threeDaysAgo)
         .then((singleDaysData)=>{
             this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-    })})
+    })
     .then(()=>{
         databaseRequest.getForDate(fourDaysAgo)
         .then((singleDaysData)=>{
             this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-    })})
+    })
     .then(()=>{
         databaseRequest.getForDate(fiveDaysAgo)
         .then((singleDaysData)=>{
             this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-    })})
+    })
     .then(()=>{
         databaseRequest.getForDate(sixDaysAgo)
         .then((singleDaysData)=>{
             this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
             this.RDAData.reverse();
             this.render();
-    })})
+    })})})})})})});
 }
 
 LineChartView.prototype.calculateTotal = function (allData, mineral) {
