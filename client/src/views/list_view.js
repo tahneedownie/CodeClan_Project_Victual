@@ -24,15 +24,18 @@ ListView.prototype.renderAll = function(allData){
 }
 
 ListView.prototype.renderOne = function(dataItem){
+
     const amountOfUnits = parseFloat(dataItem.amount);
+
     const div = document.createElement('div');
     div.className = "food-item";
     const nameHeading = document.createElement('h3');
+    nameHeading.className = "food-item-heading"
     nameHeading.textContent = `${dataItem.name}: ${dataItem.amount} ${dataItem.measurement}`;
     div.appendChild(nameHeading);
 
-
     const deleteButton = document.createElement('button');
+    deleteButton.className = "item-delete-button";
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', () => {
       PubSub.publish('ListView:delete-item-clicked', dataItem._id)
@@ -40,10 +43,12 @@ ListView.prototype.renderOne = function(dataItem){
     div.appendChild(deleteButton);
 
     const expandButton = document.createElement('button');
+    expandButton.className = "item-expand-button"
     expandButton.textContent = 'RDA %s';
     div.appendChild(expandButton);
 
     const unorderedList = document.createElement('ul');
+    unorderedList.className = "item-details-list";
     unorderedList.style.display = 'none';
 
     for(let nutritionDetailKey of Object.keys(dataItem.details)){

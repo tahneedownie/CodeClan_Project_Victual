@@ -94,3 +94,37 @@ select {
 #recipes-container {
   display: none;
 }
+
+
+
+
+
+
+/* JS CREATED STUFF */
+
+/* FOOD ITEM STUFF FROM LIST_VIEW.JS */
+
+/* food item div */
+.food-item {
+
+}
+
+.food-item-heading {
+
+}
+
+.item-delete-button {
+
+}
+
+.item-expand-button {
+
+}
+
+.item-details-list {
+
+}
+
+.item-details-list li {
+  
+}
