@@ -1,5 +1,5 @@
-const APIRequest = require('../helpers/API_request.js');
-const RecipeRequest = require('../helpers/recipe_request.js');
+const FoodAPIRequest = require('../helpers/food_API_request.js');
+const RecipeAPIRequest = require('../helpers/recipe_API_request.js');
 const PubSub = require('../helpers/pub_sub.js');
 
 const FoodAPI = function(){}
@@ -7,8 +7,8 @@ const FoodAPI = function(){}
 FoodAPI.prototype.bindEvents = function(){
     PubSub.subscribe("SummaryView:nutrient-clicked", (event)=>{
         this.deficientNutrient = event.detail;
-        const recipeRequest = new RecipeRequest();
-        recipeRequest.get(this.deficientNutrient, "none", [])
+        const recipeAPIRequest = new RecipeAPIRequest();
+        recipeAPIRequest.get(this.deficientNutrient, "none", [])
             .then((recipes) => {
                 const recipesAndNutrient = {};
                 recipesAndNutrient.recipes = recipes;
@@ -19,8 +19,8 @@ FoodAPI.prototype.bindEvents = function(){
     PubSub.subscribe("RecipeView:filtered-recipe-clicked", (event)=>{
         const health = event.detail.health;
         const exclusions = event.detail.exclusions;
-        const recipeRequest = new RecipeRequest();
-        recipeRequest.get(this.deficientNutrient, health, exclusions)
+        const recipeAPIRequest = new RecipeAPIRequest();
+        recipeAPIRequest.get(this.deficientNutrient, health, exclusions)
             .then((recipes) => {
                 const recipesAndNutrient = {};
                 recipesAndNutrient.recipes = recipes;
@@ -32,9 +32,9 @@ FoodAPI.prototype.bindEvents = function(){
 
 
 FoodAPI.prototype.queryFood = function(nameOfFood, numberOfUnits, unitSelected, dateSelectorValue){
-    const APIrequest = new APIRequest();
+    const foodAPIRequest = new FoodAPIRequest();
  
-    APIrequest.get(nameOfFood)
+    foodAPIRequest.get(nameOfFood)
     .then((result) => {
         foodURI = result.hints[0].food.uri;
     })
@@ -52,7 +52,7 @@ FoodAPI.prototype.queryFood = function(nameOfFood, numberOfUnits, unitSelected, 
     }
     })
     .then(()=>{
-        APIrequest.post(objectToPost)
+        foodAPIRequest.post(objectToPost)
         .then((result) => {
             this.publishResult(nameOfFood, numberOfUnits, unitSelected, result, dateSelectorValue);
         })

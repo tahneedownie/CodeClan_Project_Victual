@@ -1,4 +1,4 @@
-const APIRequest = require('../helpers/API_request.js');
+const FoodAPIRequest = require('../helpers/food_API_request.js');
 const PubSub = require('../helpers/pub_sub.js');
 const FoodAPI = require('../models/food_API.js');
 

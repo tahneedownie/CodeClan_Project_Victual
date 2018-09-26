@@ -7,12 +7,12 @@ const SummaryView = require('./views/summary_view.js');
 const FoodDatabase = require('./models/food_database.js');
 
 const DateSelectorView = require('./views/date_selector_view.js');
-const RecipeRequest = require('./helpers/recipe_request.js');
+// const RecipeAPIRequest = require('./helpers/recipe_API_request.js');
 const RecipeView = require('./views/recipe_view.js');
 
 const FoodAPI = require('./models/food_API.js');
 
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
 
     const dateSelector = document.querySelector('#date-selector');
     const dateSelectorView = new DateSelectorView(dateSelector);
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     // const spiderChartContainer = document.querySelector('#spider-chart-container');
     const spiderChartView = new SpiderChartView();
     spiderChartView.bindEvents();
-    
+
     const foodAPI = new FoodAPI();
     foodAPI.bindEvents();
 

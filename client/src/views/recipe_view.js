@@ -1,5 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
-const RecipeRequest = require('../helpers/recipe_request.js');
+const RecipeAPIRequest = require('../helpers/recipe_API_request.js');
 
 const RecipeView = function (container) {
     this.container = container;
