@@ -9,6 +9,8 @@ const FormView = function(form, dateSelector){
 FormView.prototype.bindEvents = function(){
     this.form.addEventListener('submit', (event)=>{
         event.preventDefault();
+        const recipeDiv = document.querySelector('#recipes-container');
+        recipeDiv.innerHTML = "";
         this.handleEvent(event);
         this.form.reset();
     });
