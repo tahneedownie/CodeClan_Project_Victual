@@ -13,11 +13,9 @@ FoodDatabase.prototype.bindEvents = function(){
         this.getExistingData();
     });
     this.getExistingData();
-    PubSub.subscribe('FormView:food-submitted', (event)=>{
-        console.log(event);
+    PubSub.subscribe('FoodAPI:food-submitted', (event)=>{
         const objectToSave = event.detail;
         const amendedObjectToSave = this.extractTotalDaily(objectToSave);
-        // console.log(amendedObjectToSave);
         this.save(amendedObjectToSave);
     });
     PubSub.subscribe('ListView:delete-all-clicked', (event) => {

@@ -5,13 +5,13 @@ const LineChartView = require('./views/line_chart_view.js');
 const SummaryView = require('./views/summary_view.js');
 const FoodDatabase = require('./models/food_database.js');
 
-
-
 const DateSelectorView = require('./views/date_selector_view.js');
 
 //const dotenv = require('dotenv').config();
 const RecipeRequest = require('./helpers/recipe_request.js');
 const RecipeView = require('./views/recipe_view.js');
+
+const FoodAPI = require('./models/food_API.js');
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const chartView = new ChartView(chartContainer);
     chartView.bindEvents();
 
-
+    const foodAPI = new FoodAPI();
+    foodAPI.bindEvents();
 
 });
