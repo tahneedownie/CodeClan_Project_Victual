@@ -375,8 +375,10 @@ select {
 }
 
 #recipes-container h3 {
+  font-size: 13pt;
+  color: #050505;
   text-align: center;
-  margin: 10px 0;
+  margin: 15px 0;
   text-transform: uppercase;
   text-decoration: underline;
 }
