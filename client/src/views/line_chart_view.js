@@ -111,7 +111,8 @@ LineChartView.prototype.displayChart = function () {
         }],
 
         chart: {
-            type: 'line'
+            type: 'line',
+            backgroundColor: 'rgba(242, 242, 242, 1)'
         },
         title: {
             text: `Weekly ${this.nutrientToDisplay}`

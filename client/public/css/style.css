@@ -284,8 +284,9 @@ select {
   list-style-type: none;
   justify-content: center;
   /* background-color: #F1E7E6; */
-  margin-top: 50px;
+  padding-top: 50px;
   margin-bottom: 50px;
+  background-color: rgba(253, 251, 217, 1);
 }
 
 #chart-container {
@@ -305,6 +306,7 @@ select {
   color: black;
   text-decoration: underline;
   text-align: center;
+  background-color: rgba(253, 251, 217, 1);
 }
 
 #line-chart-container {

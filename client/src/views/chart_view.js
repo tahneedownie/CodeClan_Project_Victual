@@ -53,7 +53,8 @@ ChartView.prototype.displayChart = function(){
             enablePolling: true
         },
         chart: {
-            type: 'bar'
+            type: 'bar',
+            backgroundColor: 'rgba(242, 242, 242, 1)'
         },
         title: {
             text: 'Your Total Daily Intake'
@@ -74,7 +75,7 @@ ChartView.prototype.displayChart = function(){
         },
         plotOptions: {
             series: {
-                color: "#8EC63F"
+                color: "#8EC63F",
             }
         }
       });
