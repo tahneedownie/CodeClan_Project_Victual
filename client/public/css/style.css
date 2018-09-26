@@ -65,6 +65,7 @@ a:hover {
   display: block;
   text-align: center;
   font-weight: bold;
+  padding-bottom: 5px;
 }
 
 .date_selector_drop_down {
