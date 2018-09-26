@@ -365,7 +365,7 @@ select {
   background-color: #8EC63F;
   color: white;
   cursor: pointer;
-  font-size : 20px;
+  font-size : 15px;
 }
 
 /* RECIPES */
@@ -389,14 +389,19 @@ select {
 
 
 #filter-selection-div{
-
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid #BABABA;
 }
 
-form#filter-recipes {
-  width:50%;
-  margin: 0 auto;
-  background-color: #D1D1D1;
+
+form #filter-recipes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  background-color: #D3BCC4;
+  margin-bottom: 10px;
 }
 
 
@@ -435,26 +440,33 @@ form#filter-recipes {
 }
 
 #exclusions {
+  background-color: #FCF1F3;
+  border: 1px solid #BABABA;
   text-align: center;
-  width: 80%;
+  width: 50%;
   height: 30px;
 }
 
+.filter_button_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 #filter-recipe-button {
-  width: 80px;
-  margin: 0 auto;
-  padding: 10px;
-  margin: 5px;
-  background-color: #8EC63F;
+  background-color: #E06C7B;
+  font-size: 10pt;
   color: white;
+  width: 120px;
+  height: 25px;
+  margin-right: 14px;
   cursor: pointer;
-  font-size : 20px;
-  margin-bottom: 10px;
 }
 
 #exlusions-label-div{
   background-color: white;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 10px;
 }
 
