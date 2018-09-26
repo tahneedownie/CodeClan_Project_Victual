@@ -3,15 +3,15 @@ dotenv.load();
 const apiKey = process.env.RECIPE_API_KEY;
 const applicationID = process.env.RECIPE_APPLICATION_ID;
 const NutrientRDA = require('../models/nutrient_RDA.js');
-const RecipeRequest = function () {
+const RecipeAPIRequest = function () {
     this.url = `https://api.edamam.com/search?q=&app_id=${applicationID}&app_key=${apiKey}`;
 };
-RecipeRequest.prototype.get = function (deficientNutrient, healthRequirement, exclusionsArray) {
+RecipeAPIRequest.prototype.get = function (deficientNutrient, healthRequirement, exclusionsArray) {
     // console.log(deficientNutrient);
     return fetch(`${this.buildQueryString(deficientNutrient, healthRequirement, exclusionsArray)}`)
         .then((response) => response.json());
 };
-RecipeRequest.prototype.buildQueryString = function(deficientNutrient, healthRequirement, exclusionsArray){
+RecipeAPIRequest.prototype.buildQueryString = function(deficientNutrient, healthRequirement, exclusionsArray){
     let query = "";
     query += this.url;
     query += this.getNutrientQuery(deficientNutrient);
@@ -20,10 +20,10 @@ RecipeRequest.prototype.buildQueryString = function(deficientNutrient, healthReq
     query += this.getExclusionsQuery(exclusionsArray);
     return query;
 }
-RecipeRequest.prototype.getNumberOfResultsQuery = function(){
+RecipeAPIRequest.prototype.getNumberOfResultsQuery = function(){
     return "from=0&to=20";
 }
-RecipeRequest.prototype.getHealthRequirementQuery = function(healthRequirement){
+RecipeAPIRequest.prototype.getHealthRequirementQuery = function(healthRequirement){
     if(healthRequirement !== "none"){
         return `&health=${healthRequirement}`;
     }
@@ -31,7 +31,7 @@ RecipeRequest.prototype.getHealthRequirementQuery = function(healthRequirement){
         return "";
     }
 }
-RecipeRequest.prototype.getExclusionsQuery = function(exclusionsArray){
+RecipeAPIRequest.prototype.getExclusionsQuery = function(exclusionsArray){
     let exclusionsQuery = "";
     if(exclusionsArray.length !== 0){
         exclusionsArray.forEach((requirement)=>{
@@ -40,15 +40,15 @@ RecipeRequest.prototype.getExclusionsQuery = function(exclusionsArray){
     }
     return exclusionsQuery;
 }
-RecipeRequest.prototype.getNutrientQuery = function(deficientNutrient){
+RecipeAPIRequest.prototype.getNutrientQuery = function(deficientNutrient){
     let nutrientQuery = "&nutrients";
     nutrientQuery += `%5B${this.getShortHand(deficientNutrient)}%5D=${this.getMinimumContent(deficientNutrient)}%2B&`
     return nutrientQuery;
 }
-RecipeRequest.prototype.getShortHand = function(vitamin){
+RecipeAPIRequest.prototype.getShortHand = function(vitamin){
     return NutrientRDA.nutrients[vitamin].shortHand;
 }
-RecipeRequest.prototype.getMinimumContent = function(vitamin){
+RecipeAPIRequest.prototype.getMinimumContent = function(vitamin){
     return 0.5 * NutrientRDA.nutrients[vitamin].RDA;
 }
-module.exports = RecipeRequest;
+module.exports = RecipeAPIRequest;
