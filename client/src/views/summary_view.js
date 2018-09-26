@@ -9,7 +9,7 @@ const SummaryView = function (summaryContainer, lineChartView) {
 }
 
 SummaryView.prototype.bindEvents = function () {
-    PubSub.subscribe('FormView:all-data-ready', (event) => {
+    PubSub.subscribe('FoodDatabase:all-data-ready', (event) => {
         const allData = event.detail;
         this.summaryContainer.innerHTML = ""
         this.renderSummary(allData);
