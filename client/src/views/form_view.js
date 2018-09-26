@@ -11,7 +11,7 @@ FormView.prototype.bindEvents = function(){
     this.form.addEventListener('submit', (event)=>{
         event.preventDefault();
         const recipeDiv = document.querySelector('#recipes-container');
-        recipeDiv.innerHTML = "";
+        recipeDiv.style.display = "none";
         this.handleEvent(event);
         this.form.reset();
     });

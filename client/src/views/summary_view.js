@@ -5,8 +5,7 @@ const AllMinerals = require('../models/all_minerals.js');
 const SummaryView = function (summaryContainer, lineChartView) {
     this.summaryContainer = summaryContainer;
     this.lineChartView = lineChartView;
-    allMinerals = new AllMinerals();
-    this.allPotentialMinerals = allMinerals.allPotentialMinerals;
+    this.allPotentialMinerals = AllMinerals.allPotentialMinerals;
 }
 
 SummaryView.prototype.bindEvents = function () {
