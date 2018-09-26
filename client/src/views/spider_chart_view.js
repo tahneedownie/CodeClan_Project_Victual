@@ -32,7 +32,8 @@ SpiderChartView.prototype.displaySpiderChart = function () {
 
         chart: {
             polar: true,
-            type: 'area'
+            type: 'area',
+            backgroundColor: 'rgba(242, 242, 242, 1)'
         },
 
         title: {
