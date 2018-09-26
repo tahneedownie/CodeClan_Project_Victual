@@ -3,7 +3,7 @@ const ListView = require('./views/list_view.js');
 const ChartView = require('./views/chart_view.js');
 const LineChartView = require('./views/line_chart_view.js');
 const SummaryView = require('./views/summary_view.js');
-const Food = require('./models/food.js');
+const FoodDatabase = require('./models/food_database.js');
 
 
 
@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const summaryView = new SummaryView(summaryDiv, lineChartView);
     summaryView.bindEvents();
 
-    const food = new Food(dateSelector);
-    food.bindEvents();
+    const foodDatabase = new FoodDatabase(dateSelector);
+    foodDatabase.bindEvents();
 
     const chartContainer = document.querySelector('#chart-container');
     const chartView = new ChartView(chartContainer);

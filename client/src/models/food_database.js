@@ -1,12 +1,12 @@
 const PubSub = require('../helpers/pub_sub.js');
 const DatabaseRequest = require('../helpers/database_request.js');
 
-const Food = function(dateSelector){
+const FoodDatabase = function(dateSelector){
     this.databaseRequest = new DatabaseRequest('http://localhost:3000/api/user_food_items');
     this.dateSelectorValue = dateSelector.value;
 }
 
-Food.prototype.bindEvents = function(){
+FoodDatabase.prototype.bindEvents = function(){
     PubSub.subscribe('DateSelectorView:date-changed', (event) => {
         newDate = event.detail;
         this.dateSelectorValue = newDate;
@@ -28,33 +28,33 @@ Food.prototype.bindEvents = function(){
     });
 }
 
-Food.prototype.getExistingData = function(){
+FoodDatabase.prototype.getExistingData = function(){
   this.databaseRequest.getForDate(this.dateSelectorValue)
   .then((allData)=>{
     PubSub.publish('FormView:all-data-ready', allData);
   });
 }
 
-Food.prototype.extractTotalDaily = function (objectToSave){
+FoodDatabase.prototype.extractTotalDaily = function (objectToSave){
     objectToSave.details = objectToSave.details.totalDaily;
     return objectToSave; 
 }
 
-Food.prototype.save = function(objectToSave){
+FoodDatabase.prototype.save = function(objectToSave){
    this.databaseRequest.post(objectToSave, this.dateSelectorValue)
    .then((allData)=>{
        PubSub.publish('FormView:all-data-ready', allData);
    });
 }
 
-Food.prototype.deleteAll = function (date) {
+FoodDatabase.prototype.deleteAll = function (date) {
     this.databaseRequest.deleteAll(date)
     .then((allData)=>{
         PubSub.publish('FormView:all-data-ready', allData);
       });
 }
 
-Food.prototype.delete = function (id, date) {
+FoodDatabase.prototype.delete = function (id, date) {
   this.databaseRequest.delete(id, date)
   .then((allData)=>{
     PubSub.publish('FormView:all-data-ready', allData);
@@ -62,4 +62,4 @@ Food.prototype.delete = function (id, date) {
 
 }
 
-module.exports = Food;
+module.exports = FoodDatabase;
