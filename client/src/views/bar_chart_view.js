@@ -1,10 +1,10 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const ChartView = function(container){
+const BarChartView = function(container){
     this.container = container;
 }
 
-ChartView.prototype.bindEvents = function(){
+BarChartView.prototype.bindEvents = function(){
     PubSub.subscribe("SummaryView:nutrient-object-ready", (event)=>{
         const nutrientInfoObject = event.detail;
         this.data = nutrientInfoObject;
@@ -12,12 +12,12 @@ ChartView.prototype.bindEvents = function(){
     });
 }
 
-ChartView.prototype.render = function(){
+BarChartView.prototype.render = function(){
     this.createTableElements();
     this.displayChart();
 }
 
-ChartView.prototype.createTableElements = function(){
+BarChartView.prototype.createTableElements = function(){
     this.dataTable = document.createElement('table');
     this.dataTable.setAttribute('id', 'datatable');
     this.header = this.dataTable.createTHead();
@@ -33,7 +33,7 @@ ChartView.prototype.createTableElements = function(){
     this.container.appendChild(this.dataTable);
 }
 
-ChartView.prototype.createRows = function(){
+BarChartView.prototype.createRows = function(){
     let i = 0;
     for(let element in this.data){
         const row = this.body.insertRow(i);
@@ -46,7 +46,7 @@ ChartView.prototype.createRows = function(){
     }
 }
 
-ChartView.prototype.displayChart = function(){
+BarChartView.prototype.displayChart = function(){
     Highcharts.chart('chart-container', {
         data: {
             table: 'datatable',
@@ -81,5 +81,5 @@ ChartView.prototype.displayChart = function(){
       });
 }
 
-module.exports = ChartView;
+module.exports = BarChartView;
 
