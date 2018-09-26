@@ -211,7 +211,7 @@ select {
   margin: 0 auto;
   padding: 10px;
   text-align: center;
-  background-color: white;
+  background-color: #FCF1F3;
   text-transform: capitalize;
 }
 
@@ -263,7 +263,7 @@ select {
   border: 1px;
   border-style: solid;
   border-width: 1px;
-  border-color: #BABABA;
+  border-color: #AAAAAA;
 }
 
 .item-details-list li {
