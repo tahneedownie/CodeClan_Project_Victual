@@ -30,7 +30,7 @@ FoodDatabase.prototype.bindEvents = function(){
 FoodDatabase.prototype.getExistingData = function(){
   this.databaseRequest.getForDate(this.dateSelectorValue)
   .then((allData)=>{
-    PubSub.publish('FormView:all-data-ready', allData);
+    PubSub.publish('FoodDatabase:all-data-ready', allData);
   });
 }
 
@@ -42,21 +42,21 @@ FoodDatabase.prototype.extractTotalDaily = function (objectToSave){
 FoodDatabase.prototype.save = function(objectToSave){
    this.databaseRequest.post(objectToSave, this.dateSelectorValue)
    .then((allData)=>{
-       PubSub.publish('FormView:all-data-ready', allData);
+       PubSub.publish('FoodDatabase:all-data-ready', allData);
    });
 }
 
 FoodDatabase.prototype.deleteAll = function (date) {
     this.databaseRequest.deleteAll(date)
     .then((allData)=>{
-        PubSub.publish('FormView:all-data-ready', allData);
+        PubSub.publish('FoodDatabase:all-data-ready', allData);
       });
 }
 
 FoodDatabase.prototype.delete = function (id, date) {
   this.databaseRequest.delete(id, date)
   .then((allData)=>{
-    PubSub.publish('FormView:all-data-ready', allData);
+    PubSub.publish('FoodDatabase:all-data-ready', allData);
   });
 
 }

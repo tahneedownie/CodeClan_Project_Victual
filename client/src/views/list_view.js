@@ -6,7 +6,7 @@ const ListView = function (listContainer, deleteAllButton) {
 }
 
 ListView.prototype.bindEvents = function () {
-    PubSub.subscribe('FormView:all-data-ready', (event) => {
+    PubSub.subscribe('FoodDatabase:all-data-ready', (event) => {
         this.listContainer.innerHTML = "<h2>FOOD DIARY</h2>";
         this.renderAll(event.detail);
     });
