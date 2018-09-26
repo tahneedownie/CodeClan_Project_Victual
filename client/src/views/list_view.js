@@ -30,11 +30,16 @@ ListView.prototype.renderOne = function (dataItem) {
     const nameHeading = this.createHeading(dataItem);
     div.appendChild(nameHeading);
 
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'food-item-button-container';
+
     const deleteButton = this.createDeleteButton(dataItem);
-    div.appendChild(deleteButton);
+    buttonContainer.appendChild(deleteButton);
 
     const expandButton = this.createExpandButton();
-    div.appendChild(expandButton);
+    buttonContainer.appendChild(expandButton);
+
+    div.appendChild(buttonContainer);
 
     const nutrientList = this.createUnorderedList();
     this.generateNutrientDetails(nutrientList, dataItem);
