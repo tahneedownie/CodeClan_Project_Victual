@@ -26,7 +26,7 @@ SummaryView.prototype.renderSummary = function (allData) {
     const unorderedList = document.createElement('ul');
     unorderedList.className = "summary-details-list";
 
-    const nutrientInfoObject = {};
+    const nutrientInfoObject = {}; 
     for (const mineral in this.allPotentialMinerals) {
         const listItem = document.createElement('li');
         listItem.textContent = `${this.allPotentialMinerals[mineral]}: ${this.calculateTotal(allData, mineral)}%`

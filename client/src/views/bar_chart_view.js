@@ -53,8 +53,8 @@ BarChartView.prototype.displayChart = function(){
             enablePolling: true
         },
         chart: {
-            type: 'bar',
-            backgroundColor: 'rgba(242, 242, 242, 1)'
+            type: 'bar'
+            // backgroundColor: 'rgba(242, 242, 242, 1)'
         },
         title: {
             text: 'Your Total Daily Intake'
