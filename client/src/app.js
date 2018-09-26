@@ -1,6 +1,6 @@
 const FormView = require('./views/form_view.js');
 const ListView = require('./views/list_view.js');
-const ChartView = require('./views/chart_view.js');
+const BarChartView = require('./views/bar_chart_view.js');
 const SpiderChartView = require('./views/spider_chart_view.js');
 const LineChartView = require('./views/line_chart_view.js');
 const SummaryView = require('./views/summary_view.js');
@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     foodDatabase.bindEvents();
 
     const chartContainer = document.querySelector('#chart-container');
-    const chartView = new ChartView(chartContainer);
-    chartView.bindEvents();
+    const barChartView = new BarChartView(chartContainer);
+    barChartView.bindEvents();
 
     // const spiderChartContainer = document.querySelector('#spider-chart-container');
     const spiderChartView = new SpiderChartView();
