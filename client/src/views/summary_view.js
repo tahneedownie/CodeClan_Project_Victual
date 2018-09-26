@@ -45,13 +45,13 @@ SummaryView.prototype.renderSummary = function (allData) {
     this.publishNutrientObject(nutrientInfoObject);
 }
 
-SummaryView.prototype.publishNutrientObject = function(nutrientInfoObject){
+SummaryView.prototype.publishNutrientObject = function (nutrientInfoObject) {
     PubSub.publish("SummaryView:nutrient-object-ready", nutrientInfoObject);
 }
 
 SummaryView.prototype.calculateTotal = function (allData, mineral) {
     let totalPercentage = 0;
-    for (const dataItem of allData ) {
+    for (const dataItem of allData) {
         if (dataItem.details[mineral]) {
             const amountOfUnits = dataItem.amount;
             totalPercentage += (dataItem.details[mineral].quantity * amountOfUnits);
@@ -61,31 +61,31 @@ SummaryView.prototype.calculateTotal = function (allData, mineral) {
 }
 
 
-SummaryView.prototype.getThreeMostDeficientNutrients = function(nutrientInfoObject){
+SummaryView.prototype.getThreeMostDeficientNutrients = function (nutrientInfoObject) {
     const nutrientInfoArray = [];
-    for(const objectKey of Object.keys(nutrientInfoObject)){
+    for (const objectKey of Object.keys(nutrientInfoObject)) {
         nutrientInfoArray.push(nutrientInfoObject[objectKey]);
     };
-    nutrientInfoArray.sort((object1, object2)=>{
+    nutrientInfoArray.sort((object1, object2) => {
         return object1.amount - object2.amount;
     });
-    const nutrientNameArray = nutrientInfoArray.map((object)=>{
+    const nutrientNameArray = nutrientInfoArray.map((object) => {
         return object.name;
     });
-    return nutrientNameArray.slice(0,3);
+    return nutrientNameArray.slice(0, 3);
 }
 
-SummaryView.prototype.createRecipeButtons = function(){
+SummaryView.prototype.createRecipeButtons = function () {
     const buttonsDiv = document.querySelector('#recipe-suggestion-buttons-container');
     buttonsDiv.innerHTML = '';
     const div = document.createElement('div');
     div.setAttribute('id', 'recipe-buttons-container');
 
-    this.threeMostDeficientNutrients.forEach((nutrient)=>{
+    this.threeMostDeficientNutrients.forEach((nutrient) => {
         const button = document.createElement('button');
         button.className = 'recipe-for-nutrient-button';
         button.textContent = nutrient + " Rich Recipes";
-        button.addEventListener('click', (event)=>{
+        button.addEventListener('click', (event) => {
             PubSub.publish(`SummaryView:nutrient-clicked`, nutrient);
         });
 

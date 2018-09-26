@@ -21,8 +21,8 @@ const createRouter = function (collection) {
     router.get('/:date', (req, res) => {
         const date = req.params.date;
         collection
-        .find({ date: date})
-        .toArray()
+            .find({ date: date })
+            .toArray()
             .then((docs) => {
                 res.json(docs)
             })
@@ -53,7 +53,7 @@ const createRouter = function (collection) {
             .insertOne(newData)
             .then(() => {
                 collection
-                    .find({ date: date})
+                    .find({ date: date })
                     .toArray()
                     .then((docs) => {
                         res.json(docs)
@@ -63,7 +63,6 @@ const createRouter = function (collection) {
                 console.error(error)
             })
     })
-
 
     // UPDATE
     router.put('/:id/:date', (req, res) => {
@@ -76,7 +75,7 @@ const createRouter = function (collection) {
         )
             .then(() => {
                 collection
-                    .find({date: date})
+                    .find({ date: date })
                     .toArray()
                     .then((docs) => {
                         res.json(docs)
@@ -93,7 +92,7 @@ const createRouter = function (collection) {
         const date = req.params.date;
         collection
             .deleteOne({ _id: ObjectID(id) })
-            .then(() => collection.find({date: date}).toArray())
+            .then(() => collection.find({ date: date }).toArray())
             .then((docs) => res.json(docs))
             .catch((error) => {
                 console.error(error)
@@ -104,10 +103,10 @@ const createRouter = function (collection) {
     // DELETE ALL FOR DATE
     router.delete('/:date', (req, res) => {
         const date = req.params.date;
-        collection.deleteMany({date: date})
+        collection.deleteMany({ date: date })
             .then(() => {
                 collection
-                    .find({date: date})
+                    .find({ date: date })
                     .toArray()
                     .then((docs) => {
                         res.json(docs)
