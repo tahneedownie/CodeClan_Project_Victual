@@ -61,11 +61,6 @@ SummaryView.prototype.calculateTotal = function (allData, mineral) {
     return totalPercentage.toFixed(2);
 }
 
-SummaryView.prototype.displayRecipes  = function(threeMostDeficientNutrients){
-    const recipeDiv = document.querySelector("#recipe-suggestions");
-    const recipeView = new RecipeView(recipeDiv);
-    recipeView.displayInitialSuggestions(threeMostDeficientNutrients);
-}
 
 SummaryView.prototype.getThreeMostDeficientNutrients = function(nutrientInfoObject){
     const nutrientInfoArray = [];
