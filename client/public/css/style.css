@@ -236,6 +236,10 @@ select {
   font-weight: lighter;
 }
 
+.food-item-button-container {
+  
+}
+
 .item-delete-button {
   background-color: #E06C7B;
   font-size: 10pt;

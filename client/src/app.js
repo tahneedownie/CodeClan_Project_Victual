@@ -1,25 +1,19 @@
 const FormView = require('./views/form_view.js');
 const ListView = require('./views/list_view.js');
 const ChartView = require('./views/chart_view.js');
+const SpiderChartView = require('./views/spider_chart_view.js');
 const LineChartView = require('./views/line_chart_view.js');
 const SummaryView = require('./views/summary_view.js');
 const FoodDatabase = require('./models/food_database.js');
-
-
-
 const DateSelectorView = require('./views/date_selector_view.js');
-
-//const dotenv = require('dotenv').config();
 const RecipeRequest = require('./helpers/recipe_request.js');
 const RecipeView = require('./views/recipe_view.js');
 
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
 
     const dateSelector = document.querySelector('#date-selector');
     const dateSelectorView = new DateSelectorView(dateSelector);
     dateSelectorView.bindEvents();
-
-    console.log(dateSelector);
 
     const listDiv = document.querySelector('#food-list');
     const deleteAllButton = document.querySelector('#delete-all-button');
@@ -50,6 +44,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const chartView = new ChartView(chartContainer);
     chartView.bindEvents();
 
-
+    // const spiderChartContainer = document.querySelector('#spider-chart-container');
+    const spiderChartView = new SpiderChartView();
+    spiderChartView.bindEvents();
 
 });
