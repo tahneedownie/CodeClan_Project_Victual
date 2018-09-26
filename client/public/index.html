@@ -19,28 +19,34 @@
 
   <p id="top-page-reference"></p>
 
-
   <audio id="audio" src="" autostart="false"></audio>
   <a><img class="logo" onclick="playSound();" src="./css/images/victual_logo_green_V4.png" alt="victual_logo"></a>
 
-  <div class="decoration"> </div>
+    <div class="decoration"></div>
+    <div class="nav_bar_date_container">
 
-  <ul class="nav_bar">
-    <a class="nav_item" href="#food-list">FOOD DIARY</a>
-    <a class="nav_item" href="#summary-heading">SUMMARY</a>
-    <a class="nav_item" href="#recipe-suggestion-buttons-container">RECIPES</a>
-  </ul>
+    <ul class="nav_bar">
+      <a class="nav_item" href="#food-list">FOOD DIARY</a>
+      <a class="nav_item" href="#summary-heading">ANALYSIS</a>
+      <a class="nav_item" href="#recipe-suggestion-buttons-container">RECIPES</a>
+    </ul>
 
-  <div class="decoration_2"> </div>
+    <div class="date_selector_container">
+    <div class="date_selector_field">
+        <label class="date_selector_label" for="name">Date:</label>
+        <input class="date_selector_drop_down" type="date" id="date-selector" required="required">
+    </div>
+    </div>
+
+    </div>
+
+    <div class="decoration_2"> </div>
+
+
 
   <div class="form_with_header_wrapper">
 
-    <div class="form-item">
-      <label class="primary" for="name">Date:</label>
-      <input type="date" id="date-selector" required="required">
-    </div>
-
-    <h2>ADD FOOD / DRINK</h2>
+    <h2 class="black_background">ADD FOOD / DRINK</h2>
 
     <form id="food-form">
 
@@ -104,6 +110,7 @@
     <div id="food-list"></div>
   </div>
 
+
   <h2 id="summary-heading">YOUR DAILY SUMMARY</h2>
 
   <div id="charts-outer-div">
@@ -115,6 +122,7 @@
   </div>
 
   <div id="line-chart-div">
+
 
     <h3>Your Last 7 Days</h3>
 
