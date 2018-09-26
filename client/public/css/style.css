@@ -48,11 +48,14 @@ a:hover {
 }
 
 .date_selector_container {
-  background-color: #C6CAAF;
-  opacity: 0.80;
+  background-color: #D2E8B7;
   margin-right: 25px;
   margin-bottom: 5px;
-  padding: 6px;
+  /* padding: 6px; */
+  padding-top: 6pt;
+  padding-bottom: 6pt;
+  padding-left: 8pt;
+  padding-right: 8pt;
 }
 
 .date_selector_label {
