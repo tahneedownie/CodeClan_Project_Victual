@@ -122,7 +122,7 @@ ChartView.prototype.displaySpiderChart = function () {
         },
     
         pane: {
-            size: '75%'
+            size: '80%'
         },
     
         xAxis: {
