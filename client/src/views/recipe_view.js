@@ -1,5 +1,4 @@
 const PubSub = require('../helpers/pub_sub.js');
-const RecipeAPIRequest = require('../helpers/recipe_API_request.js');
 
 const RecipeView = function (container) {
     this.container = container;
@@ -7,7 +6,7 @@ const RecipeView = function (container) {
 
 RecipeView.prototype.bindEvents = function () {
     this.addFormListener();
-    PubSub.subscribe("FoodAPI:recipe-info-ready", (event)=>{
+    PubSub.subscribe("FoodAPI:recipe-info-ready", (event) => {
         this.container.style.display = "block";
         this.render(event.detail.recipes, event.detail.nutrient);
     });
@@ -36,53 +35,78 @@ RecipeView.prototype.publishFilteredRecipeRequest = function (deficientNutrient,
     PubSub.publish("RecipeView:filtered-recipe-clicked", recipeQuery);
 }
 
-
 RecipeView.prototype.render = function (recipes, deficientNutrient) {
+    const recipeListContainer = this.wipeRecipeSuggestions();
+    const heading = this.createRecipeSectionHeading(deficientNutrient);
+    recipeListContainer.appendChild(heading);
+    const randomThreeRecipes = this.getRandomThree(recipes.hits);
+
+    if (randomThreeRecipes.length === 0) {
+        const noResultsMessage = this.generateNoResultsMessage();
+        recipeListContainer.appendChild(noResultsMessage);
+    } else {
+        const recipeImagesDiv = document.createElement('div');
+        recipeImagesDiv.className = 'recipe-images-div';
+        for (let recipeObject of randomThreeRecipes) {
+            const recipeDiv = this.renderRecipe(recipeObject);
+            recipeImagesDiv.appendChild(recipeDiv);
+        }
+        recipeListContainer.appendChild(recipeImagesDiv);
+    }
+}
+
+RecipeView.prototype.wipeRecipeSuggestions = function () {
     const recipeListContainer = document.querySelector('#recipe-suggestions');
-    console.log(recipeListContainer);
     recipeListContainer.innerHTML = "";
+    return recipeListContainer;
+}
+
+RecipeView.prototype.createRecipeSectionHeading = function (deficientNutrient) {
     const heading = document.createElement("h2");
     heading.className = 'recipe-suggestions-heading';
     heading.textContent = `RECIPES HIGH IN ${deficientNutrient.toUpperCase()}`;
-    recipeListContainer.appendChild(heading);
+    return heading;
+}
 
-    const randomThreeRecipes = this.getRandomThree(recipes.hits);
-    if (randomThreeRecipes.length === 0) {
-        const noResults = document.createElement("h3");
-        noResults.className = 'no-recipe-results-message';
-        noResults.textContent = "Sorry, no results found."
-        recipeListContainer.appendChild(noResults);
-    }
-    else {
-        
-        const recipeImagesDiv = document.createElement('div');
-        recipeImagesDiv.className = 'recipe-images-div';
+RecipeView.prototype.generateNoResultsMessage = function () {
+    const noResultsMessage = document.createElement("h3");
+    noResultsMessage.className = 'no-recipe-results-message';
+    noResultsMessage.textContent = "Sorry, no results found.";
+    return noResultsMessage;
+}
 
-        for (let recipeObject of randomThreeRecipes) {
-            console.log(recipeObject);
+RecipeView.prototype.renderRecipe = function (recipeObject) {
+    const recipeDiv = document.createElement('div');
+    recipeDiv.className = 'recipe-title-img-div';
 
-            const recipeDiv = document.createElement('div');
-            recipeDiv.className = 'recipe-title-img-div';
+    const title = this.createSingleRecipeHeading(recipeObject);
+    const url = this.createSingleRecipeLink(recipeObject);
+    url.appendChild(title);
+    recipeDiv.appendChild(url);
 
-            const title = document.createElement("h3");
-            title.textContent = recipeObject.recipe.label;
-            const url = document.createElement("a");
-            url.setAttribute("href", recipeObject.recipe.url);
-            url.className = 'title-of-recipe';
-            url.setAttribute('target', '_blank');
-            url.appendChild(title);
-            recipeDiv.appendChild(url);
+    const recipeImage = this.createSingleRecipeImage(recipeObject);
+    url.appendChild(recipeImage);
+    return recipeDiv;
+}
 
+RecipeView.prototype.createSingleRecipeHeading = function (recipeObject) {
+    const title = document.createElement("h3");
+    title.textContent = recipeObject.recipe.label;
+    return title;
+}
 
-            const recipeImage = document.createElement('img');
-            recipeImage.src = recipeObject.recipe.image;
-            url.appendChild(recipeImage);
+RecipeView.prototype.createSingleRecipeLink = function (recipeObject) {
+    const url = document.createElement("a");
+    url.setAttribute("href", recipeObject.recipe.url);
+    url.className = 'title-of-recipe';
+    url.setAttribute('target', '_blank');
+    return url;
+}
 
-            recipeImagesDiv.appendChild(recipeDiv);
-        }
-
-        recipeListContainer.appendChild(recipeImagesDiv);
-    }
+RecipeView.prototype.createSingleRecipeImage = function (recipeObject) {
+    const recipeImage = document.createElement('img');
+    recipeImage.src = recipeObject.recipe.image;
+    return recipeImage;
 }
 
 RecipeView.prototype.getRandomThree = function (array) {
