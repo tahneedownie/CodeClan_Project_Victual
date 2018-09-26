@@ -4,9 +4,7 @@
   border: 0;
   margin: 0;
   padding: 0;
-  /* text-transform: uppercase; */
 }
-
 
 #top-page-reference {
   /* display: none; */
@@ -51,7 +49,6 @@ a:hover {
   background-color: #D2E8B7;
   margin-right: 25px;
   margin-bottom: 5px;
-  /* padding: 6px; */
   padding-top: 6pt;
   padding-bottom: 6pt;
   padding-left: 8pt;
@@ -59,7 +56,6 @@ a:hover {
 }
 
 .date_selector_label {
-  /* color: white; */
   color: #050505;
   font-size: 12pt;
   display: block;
@@ -102,7 +98,6 @@ a:hover {
   z-index: 2;
 }
 
-
 h2.black_background {
   background-color: #050505;
   opacity: 0.70;
@@ -116,6 +111,11 @@ h2.black_background {
   color: white;
   margin-top: 20px;
   margin-left: 0px;
+}
+
+h4 {
+  font-size: 14pt;
+  text-decoration: underline;
 }
 
 .form_with_header_wrapper {
@@ -154,8 +154,11 @@ label.primary {
 input {
   width: 150px;
   height: 20px;
-  padding-left: 10px;
-  /* text-align: center; */
+  padding-left: 0px;
+}
+
+.input-padding {
+  padding-left: 6px;
 }
 
 select {
@@ -200,12 +203,6 @@ select {
   display: none;
 }
 
-
-
-
-
-/* FOOD DIARY SECTION*/
-
 #food-list-outer-container {
   background-color: #D3BCC4;
   padding-bottom: 30px;
@@ -230,7 +227,6 @@ select {
   margin-bottom: 30px;
 }
 
-/* food item div */
 .food-item {
   width: 300px;
   margin: 5px auto;
@@ -244,7 +240,6 @@ select {
 }
 
 .food-item-button-container {
-
 }
 
 .item-delete-button {
@@ -282,9 +277,6 @@ select {
   margin-bottom: 12px;
 }
 
-
-/* CHARTS */
-
 #all-charts-container {
   background-color: rgba(253, 251, 217, 1);
   padding-bottom: 10px;
@@ -295,10 +287,8 @@ select {
   flex-direction: row;
   list-style-type: none;
   justify-content: center;
-  /* background-color: #F1E7E6; */
   padding-top: 50px;
   margin-bottom: 50px;
-  /* background-color: rgba(253, 251, 217, 1); */
 }
 
 #chart-container {
@@ -320,7 +310,7 @@ select {
   text-decoration: underline;
   text-align: center;
   background-color: rgba(253, 251, 217, 1);
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 #line-chart-outer {
@@ -346,11 +336,10 @@ select {
 
 #line-chart-options {
   text-align-last:center;
-  margin: 10px 0 5px 0;
+  margin: 20px 0 20px 0;
+  border-radius: 0px;
+  background-color: #8EC63F;
 }
-
-
-/* SUMMARY VIEW */
 
 #summary-container {
   display: none;
@@ -362,15 +351,10 @@ select {
 }
 
 .summary-details-list {
-
 }
 
 .summary-details-list li {
-
 }
-
-
-/* RECIPE BUTTONS */
 
 #recipe-buttons-container {
   display: flex;
@@ -391,27 +375,17 @@ select {
   font-size : 15px;
 }
 
-/* RECIPES */
-
 #recipes-container {
-  /* border: 1px solid black; */
-  /* text-align: center; */
-  /* margin-top: 30px; */
-  /* padding-bottom: 15px; */
 }
 
 #recipes-container h3 {
   font-size: 13pt;
   color: #050505;
   text-align: center;
-  /* margin: 15px 0; */
   padding-bottom: 15px;
   text-transform: uppercase;
   text-decoration: underline;
 }
-
-/* RECPIES FILTER FORM */
-
 
 #filter-selection-div{
   width: 50%;
@@ -421,8 +395,8 @@ select {
 
 #filter-form-and-title-div {
   background-color: white;
-  padding: 15px 0px;
-
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 form #filter-recipes {
@@ -430,10 +404,8 @@ form #filter-recipes {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  /* background-color: red; */
   margin-bottom: 10px;
 }
-
 
 .filter-radio {
   width: 50%;
@@ -447,7 +419,6 @@ form #filter-recipes {
 }
 
 .filter-radio label {
-  /* border: 1px solid black; */
   display: inline-block;
   width: 250px;
   text-align: center;
@@ -496,18 +467,12 @@ form #filter-recipes {
 
 #exlusions-label-div{
   background-color: white;
-  /* border: 1px solid black; */
   padding: 10px;
 }
 
-/* RECIPES SUGGESTIONS RESULTS */
-
-
 #recipe-suggestions {
-  background-color: rgba(142, 198, 63, 0.2);
-  padding-top: 20px;
+  padding-top: 40px;
   margin-top: 0px;
-
 }
 
 .recipe-suggestions-heading {
@@ -519,7 +484,6 @@ form #filter-recipes {
 }
 
 .no-recipe-results-message {
-
 }
 
 .recipe-images-div {
@@ -530,7 +494,6 @@ form #filter-recipes {
 
 .recipe-title-img-div {
   margin: 20px;
-
 }
 
 .recipe-title-img-div a img {
