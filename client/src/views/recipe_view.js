@@ -13,17 +13,6 @@ RecipeView.prototype.bindEvents = function () {
     });
 }
 
-// RecipeView.prototype.displayInitialSuggestions = function (deficientNutrient) {
-//     const recipeListContainer = document.querySelector('#recipe-suggestions');
-//     recipeListContainer.innerHTML = "";
-
-//     const recipeRequest = new RecipeRequest();
-//     recipeRequest.get(deficientNutrient, "none", [])
-//         .then((recipes) => {
-//             this.render(recipes, deficientNutrient);
-//         });
-// }
-
 RecipeView.prototype.addFormListener = function () {
     const filterRecipeForm = document.querySelector('#filter-recipes');
     filterRecipeForm.addEventListener('submit', (event) => {
