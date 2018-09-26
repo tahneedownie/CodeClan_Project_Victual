@@ -11,7 +11,6 @@ FormView.prototype.bindEvents = function(){
         event.preventDefault();
         const recipeDiv = document.querySelector('#recipes-container');
         recipeDiv.innerHTML = "";
-        this.handleEvent(event);
         this.form.reset();
     });
 }
