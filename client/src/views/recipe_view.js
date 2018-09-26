@@ -7,7 +7,6 @@ const RecipeView = function (container) {
 
 RecipeView.prototype.bindEvents = function () {
     PubSub.subscribe("SummaryView:nutrient-clicked", (event) => {
-
         this.container.style.display = "block";
         this.nutrientName = event.detail;
         this.displayInitialSuggestions(this.nutrientName);

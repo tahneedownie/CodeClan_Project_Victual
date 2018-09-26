@@ -9,6 +9,8 @@ const FormView = function(form, dateSelector){
 FormView.prototype.bindEvents = function(){
     this.form.addEventListener('submit', (event)=>{
         event.preventDefault();
+        const recipeDiv = document.querySelector('#recipes-container');
+        recipeDiv.innerHTML = "";
         this.handleEvent(event);
         this.form.reset();
     });
@@ -27,7 +29,6 @@ FormView.prototype.queryAPI = function(nameOfFood, numberOfUnits, unitSelected){
  
     APIrequest.get(nameOfFood)
     .then((result) => {
-        console.log(result);
         foodURI = result.hints[0].food.uri;
     })
     .then(()=>{

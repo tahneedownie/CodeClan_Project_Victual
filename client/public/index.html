@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/bundle.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <script src="https://code.highcharts.com/modules/data.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  </head>
-  <body>
 
-    <p id= "top-page-reference"></p>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/bundle.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="js/play_sound.js"></script>
+</head>
 
+<body>
 
-  <img class="logo" src="./css/images/victual_logo_green_V4.png" alt="victual_logo">
+  <p id="top-page-reference"></p>
 
-    <div class="decoration"> </div>
+  <audio id="audio" src="" autostart="false"></audio>
+  <a><img class="logo" onclick="playSound();" src="./css/images/victual_logo_green_V4.png" alt="victual_logo"></a>
 
+    <div class="decoration"></div>
     <div class="nav_bar_date_container">
 
     <ul class="nav_bar">
       <a class="nav_item" href="#food-list">FOOD DIARY</a>
-      <a class="nav_item" href="#chart-container">ANALYSIS</a>
+      <a class="nav_item" href="#summary-heading">ANALYSIS</a>
       <a class="nav_item" href="#recipe-suggestion-buttons-container">RECIPES</a>
     </ul>
 
@@ -43,7 +45,6 @@
 
 
   <div class="form_with_header_wrapper">
-
 
     <h2 class="black_background">ADD FOOD / DRINK</h2>
 
@@ -97,80 +98,85 @@
 
     </form>
 
-    </div>
+  </div>
 
-    <a href="#top-page-reference">
+  <a href="#top-page-reference">
     <img class="arrow" src="./css/images/white_arrow.png" alt="arrow nav">
-    </a>
+  </a>
 
-    <div class="colour-block"></div>
+  <div class="colour-block"></div>
 
-    <div id="food-list-outer-container">
-      <div id="food-list"></div>
-    </div>
+  <div id="food-list-outer-container">
+    <div id="food-list"></div>
+  </div>
 
 
-<div id="charts-outer-div">
+  <h2 id="summary-heading">YOUR DAILY SUMMARY</h2>
 
-  <div id="chart-container"></div>
+  <div id="charts-outer-div">
 
-  <div id="spider-chart-container"></div>
+    <div id="chart-container"></div>
 
-</div>
+    <div id="spider-chart-container"></div>
+
+  </div>
 
   <div id="line-chart-div">
 
-      <h3>See data for last 7 days</h3>
 
-      <select id="line-chart-options">
-              <option disabled selected value="">--select--</option>
-              <option value="Calcium">Calcium</option>
-              <option value="Carbs">Carbs</option>
-              <option value="Cholesterol">Cholesterol</option>
-              <option value="Energy">Energy</option>
-              <option value="Fat">Fat</option>
-              <option value="Fiber">Fiber</option>
-              <option value="Iron">Iron</option>
-              <option value="Folic Acid">Folic Acid</option>
-              <option value="Niacin (B3)">Niacin (B3)</option>
-              <option value="Phosphorus">Phosphorus</option>
-              <option value="Potassium">Potassium</option>
-              <option value="Protein">Protein</option>
-              <option value="Riboflavin (B2)">Riboflavin (B2)</option>
-              <option value="Sodium">Sodium</option>
-              <option value="Thiamin (B1)">Thiamin (B1)</option>
-              <option value="Vitamin A">Vitamin A</option>
-              <option value="Vitamin B6">Vitamin B6</option>
-              <option value="Vitamin B12">Vitamin B12</option>
-              <option value="Vitamin C">Vitamin C</option>
-              <option value="Vitamin D">Vitamin D</option>
-              <option value="Vitamin E">Vitamin E</option>
-              <option value="Vitamin K">Vitamin K</option>
-              <option value="Zinc">Zinc</option>
+    <h3>Your Last 7 Days</h3>
 
-      </select>
+    <select id="line-chart-options">
+      <option disabled selected value="">--select--</option>
+      <option value="Calcium">Calcium</option>
+      <option value="Carbs">Carbs</option>
+      <option value="Cholesterol">Cholesterol</option>
+      <option value="Energy">Energy</option>
+      <option value="Fat">Fat</option>
+      <option value="Fiber">Fiber</option>
+      <option value="Iron">Iron</option>
+      <option value="Folic Acid">Folic Acid</option>
+      <option value="Niacin (B3)">Niacin (B3)</option>
+      <option value="Phosphorus">Phosphorus</option>
+      <option value="Potassium">Potassium</option>
+      <option value="Protein">Protein</option>
+      <option value="Riboflavin (B2)">Riboflavin (B2)</option>
+      <option value="Sodium">Sodium</option>
+      <option value="Thiamin (B1)">Thiamin (B1)</option>
+      <option value="Vitamin A">Vitamin A</option>
+      <option value="Vitamin B6">Vitamin B6</option>
+      <option value="Vitamin B12">Vitamin B12</option>
+      <option value="Vitamin C">Vitamin C</option>
+      <option value="Vitamin D">Vitamin D</option>
+      <option value="Vitamin E">Vitamin E</option>
+      <option value="Vitamin K">Vitamin K</option>
+      <option value="Zinc">Zinc</option>
 
-      <div id="line-chart-container"></div>
+    </select>
 
-      </div>
+    <div id="line-chart-container"></div>
 
-  <div id="recipe-suggestion-buttons-container"></div>
+  </div>
+
 
   <div id="recipes-container">
 
-    <label for="filter-recipes">Dietary requirements</label>
+      <div id="recipe-suggestions"></div>
+
+
+    <h3>Dietary requirements</h3>
     <form id="filter-recipes">
 
       <div id="filter-selection-div">
 
         <div class="filter-radio">
           <input type="radio" id="none" name="health" value="none" checked="true" />
-          <label for="none">No dietary requirements</label>
+          <label for="none">No Dietary Requirements</label>
         </div>
 
         <div class="filter-radio">
           <input type="radio" id="alcohol-free" name="health" value="alcohol-free" />
-          <label for="alcohol-free">No alcohol</label>
+          <label for="alcohol-free">No Alcohol</label>
         </div>
 
         <div class="filter-radio">
@@ -185,26 +191,30 @@
 
         <div class="filter-radio">
           <input type="radio" id="wheat-free" name="health" value="wheat-free" />
-          <label for="wheat-free">No wheat</label>
+          <label for="wheat-free">No Wheat</label>
         </div>
 
       </div>
 
       <div id="exlusions-div">
-      <label for="exclusions">Enter any ingredient you do NOT want in the recipe. You can enter multiple ingredients by
-        separating with a comma, e.g: chickpea, garlic</label>
-      <div class="filter-text-div">
-          <input id="exclusions" type="text" placeholder="enter ingredients" name="exclusions">
-      </div>
+        <div id="exlusions-label-div">
+          <label for="exclusions">Enter any ingredient you do NOT want in the recipe. You can enter multiple
+            ingredients by
+            separating with a comma (e.g: chickpea, garlic):</label>
+        </div>
+        <div class="filter-text-div">
+          <input id="exclusions" type="text" placeholder="Enter ingredients..." name="exclusions" autocomplete="off">
+        </div>
       </div>
 
-      <button id="filter-recipe-button" type="submit">filter</button>
+      <button id="filter-recipe-button" type="submit">Filter</button>
 
     </form>
 
-    <div id="recipe-suggestions"></div>
 
   </div>
+
+  <div id="recipe-suggestion-buttons-container"></div>
 
 
   <div id="summary-container"></div>

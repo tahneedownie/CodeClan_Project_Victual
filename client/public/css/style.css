@@ -297,6 +297,12 @@ select {
   height: 500px;
 }
 
+#summary-heading {
+  color: black;
+  text-decoration: underline;
+  text-align: center;
+}
+
 #line-chart-container {
   min-width: 310px;
   width: 75%;
@@ -307,14 +313,17 @@ select {
 
 #line-chart-div {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 #line-chart-div h3 {
-  /* text-align: center; */
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 
 #line-chart-options {
-  /* text-align: center; */
+  text-align-last:center;
+  margin: 10px 0 5px 0;
 }
 
 
@@ -344,9 +353,8 @@ select {
   flex-direction: row;
   list-style-type: none;
   justify-content: center;
-  /* width: 100%;
-  margin: 0 auto;
-  text-align: center; */
+  text-align: center;
+  margin-top: 20px;
 }
 
 .recipe-for-nutrient-button {
@@ -355,12 +363,22 @@ select {
   background-color: #8EC63F;
   color: white;
   cursor: pointer;
+  font-size : 20px;
 }
 
 /* RECIPES */
 
 #recipes-container {
+  /* border: 1px solid black; */
+  /* text-align: center; */
+  margin-top: 30px;
+}
 
+#recipes-container h3 {
+  text-align: center;
+  margin: 10px 0;
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 /* RECPIES FILTER FORM */
@@ -370,28 +388,70 @@ select {
 
 }
 
-.filter-radio{
-
+form#filter-recipes {
+  width:50%;
+  margin: 0 auto;
+  background-color: #D1D1D1;
+  text-align: center;
 }
 
-.filter-radio input {
 
+.filter-radio {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px;
+}
+
+.filter-radio input[type="radio"] {
+  width: 20px;
 }
 
 .filter-radio label {
-
+  /* border: 1px solid black; */
+  display: inline-block;
+  width: 250px;
+  text-align: center;
 }
 
 #exlusions-div {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 15px;
+}
 
+#exclusions-div label {
+  padding: 20px;
+  background-color: white;
 }
 
 .filter-text-div {
-
+  margin: 15px;
 }
 
 #exclusions {
+  text-align: center;
+  width: 80%;
+  height: 30px;
+}
 
+#filter-recipe-button {
+  width: 80px;
+  margin: 0 auto;
+  padding: 10px;
+  margin: 5px;
+  background-color: #8EC63F;
+  color: white;
+  cursor: pointer;
+  font-size : 20px;
+  margin-bottom: 10px;
+}
+
+#exlusions-label-div{
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
 }
 
 /* RECIPES SUGGESTIONS RESULTS */
