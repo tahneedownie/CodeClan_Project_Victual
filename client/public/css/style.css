@@ -63,10 +63,16 @@ a:hover {
   color: #050505;
   font-size: 12pt;
   display: block;
+  text-align: center;
+  font-weight: bold;
 }
 
 .date_selector_drop_down {
-
+  text-align: center;
+  padding-left: 55px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 14px;
 }
 
 .decoration {
@@ -95,13 +101,6 @@ a:hover {
   z-index: 2;
 }
 
-h2 {
-  font-size: 27px;
-  font-weight: 200;
-  color: white;
-  margin-top: 20px;
-  margin-left: 0px;
-}
 
 h2.black_background {
   background-color: #050505;
@@ -111,6 +110,11 @@ h2.black_background {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: 27px;
+  font-weight: 200;
+  color: white;
+  margin-top: 20px;
+  margin-left: 0px;
 }
 
 .form_with_header_wrapper {
@@ -149,6 +153,8 @@ label.primary {
 input {
   width: 150px;
   height: 20px;
+  padding-left: 10px;
+  /* text-align: center; */
 }
 
 select {
@@ -237,7 +243,7 @@ select {
 }
 
 .food-item-button-container {
-  
+
 }
 
 .item-delete-button {
@@ -278,6 +284,11 @@ select {
 
 /* CHARTS */
 
+#all-charts-container {
+  background-color: rgba(253, 251, 217, 1);
+  padding-bottom: 10px;
+}
+
 #charts-outer-div {
   display: flex;
   flex-direction: row;
@@ -286,7 +297,7 @@ select {
   /* background-color: #F1E7E6; */
   padding-top: 50px;
   margin-bottom: 50px;
-  background-color: rgba(253, 251, 217, 1);
+  /* background-color: rgba(253, 251, 217, 1); */
 }
 
 #chart-container {
@@ -308,6 +319,11 @@ select {
   text-decoration: underline;
   text-align: center;
   background-color: rgba(253, 251, 217, 1);
+  padding-top: 20px;
+}
+
+#line-chart-outer {
+  background-color: rgba(253, 251, 217, 1);
 }
 
 #line-chart-container {
@@ -315,7 +331,6 @@ select {
   width: 75%;
   height: 500px;
   margin: 0 auto;
-  margin-bottom: 50px;
 }
 
 #line-chart-div {
@@ -379,14 +394,16 @@ select {
 #recipes-container {
   /* border: 1px solid black; */
   /* text-align: center; */
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  /* padding-bottom: 15px; */
 }
 
 #recipes-container h3 {
   font-size: 13pt;
   color: #050505;
   text-align: center;
-  margin: 15px 0;
+  /* margin: 15px 0; */
+  padding-bottom: 15px;
   text-transform: uppercase;
   text-decoration: underline;
 }
@@ -400,13 +417,18 @@ select {
   border: 1px solid #BABABA;
 }
 
+#filter-form-and-title-div {
+  background-color: white;
+  padding: 15px 0px;
+
+}
 
 form #filter-recipes {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: #D3BCC4;
+  /* background-color: red; */
   margin-bottom: 10px;
 }
 
@@ -480,8 +502,10 @@ form #filter-recipes {
 
 
 #recipe-suggestions {
-  background-color: #FCF1F3;
-  padding-top: 1px;
+  background-color: rgba(142, 198, 63, 0.2);
+  padding-top: 20px;
+  margin-top: 0px;
+
 }
 
 .recipe-suggestions-heading {
