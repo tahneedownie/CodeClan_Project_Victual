@@ -1,36 +1,12 @@
 const PubSub = require('../helpers/pub_sub.js');
 const RecipeView = require('./recipe_view.js');
+const AllMinerals = require('../models/all_minerals.js');
 
 const SummaryView = function (summaryContainer, lineChartView) {
     this.summaryContainer = summaryContainer;
     this.lineChartView = lineChartView;
-    this.allPotentialMinerals = {
-        "CA": "Calcium",
-        "CHOCDF": "Carbs",
-        "CHOLE": "Cholesterol",
-        "ENERC_KCAL": "Energy",
-        "FAT": "Fat",
-        "FIBTG": "Fiber",
-        "FOLDFE": "Folic Acid",
-        "FE": "Iron",
-        "MG": "Magnesium",
-        "NIA": "Niacin (B3)",
-        "P": "Phosphorus",
-        "K": "Potassium",
-        "PROCNT": "Protein",
-        "RIBF": "Riboflavin (B2)",
-        "NA": "Sodium",
-        "THIA": "Thiamin (B1)",
-        "VITA_RAE": "Vitamin A",
-        "VITB6A": "Vitamin B6",
-        "VITB12": "Vitamin B12",
-        "VITC": "Vitamin C",
-        "VITD": "Vitamin D",
-        "TOCPHA": "Vitamin E",
-        "VITK1": "Vitamin K",
-        "ZN": "Zinc"
-    }
-
+    allMinerals = new AllMinerals();
+    this.allPotentialMinerals = allMinerals.allPotentialMinerals;
 }
 
 SummaryView.prototype.bindEvents = function () {

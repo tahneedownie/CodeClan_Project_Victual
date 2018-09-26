@@ -46,7 +46,6 @@ ChartView.prototype.createRows = function(){
     }
 }
 
-
 ChartView.prototype.displayChart = function(){
     Highcharts.chart('chart-container', {
         data: {
