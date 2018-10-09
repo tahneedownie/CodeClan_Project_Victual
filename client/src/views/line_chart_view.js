@@ -1,4 +1,3 @@
-const PubSub = require('../helpers/pub_sub.js');
 const moment = require('moment');
 const DatabaseRequest = require('../helpers/database_request.js');
 const AllMinerals = require('../models/all_minerals.js');
@@ -18,77 +17,47 @@ LineChartView.prototype.bindEvents = function () {
 
 LineChartView.prototype.createGraph = function (nutrientToDisplay) {
     this.nutrientToDisplay = nutrientToDisplay;
-    // const databaseRequest = new DatabaseRequest('http://localhost:3000/api/user_food_items');
-    const databaseRequest = new DatabaseRequest('https://victual-nutrition-app.herokuapp.com/api/user_food_items');
+    // this.databaseRequest = new DatabaseRequest('http://localhost:3000/api/user_food_items');
+    this.databaseRequest = new DatabaseRequest('https://victual-nutrition-app.herokuapp.com/api/user_food_items');
+    this.getDatesData(7);
+    this.RDAData = [];
+    this.populateGraph(this.datesData.length);
+}
 
-    var today = moment().format('YYYY-MM-DD');
-    var yesterday = moment().subtract(1, "days").format('YYYY-MM-DD');
-    var twoDaysAgo = moment().subtract(2, "days").format('YYYY-MM-DD');
-    var threeDaysAgo = moment().subtract(3, "days").format('YYYY-MM-DD');
-    var fourDaysAgo = moment().subtract(4, "days").format('YYYY-MM-DD');
-    var fiveDaysAgo = moment().subtract(5, "days").format('YYYY-MM-DD');
-    var sixDaysAgo = moment().subtract(6, "days").format('YYYY-MM-DD');
+LineChartView.prototype.getDatesData = function(numberOfDays){
+    this.datesData = [];
+    for(let i = numberOfDays-1; i >= 0; i--){
+        const date = moment().subtract(i, "days").format('YYYY-MM-DD');
+        this.datesData.push(date);
+    }
+}
 
-    this.datesData = [sixDaysAgo, fiveDaysAgo, fourDaysAgo, threeDaysAgo, twoDaysAgo, yesterday, today];
+LineChartView.prototype.populateGraph = function(counter){
+    if(counter <= 0){
+        this.RDAData.reverse();
+        this.render();
+        return;
+    };
+    this.databaseRequest.getForDate(this.datesData[counter-1])
+    .then((singleDaysData) => {
+        this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData)));
+        counter--;
+        this.populateGraph(counter);
+    });
+}
 
+LineChartView.prototype.calculateTotal = function (allData) {
     let mineralKey = "";
     for (let mineral in this.allPotentialMinerals) {
         if (this.allPotentialMinerals[mineral] === this.nutrientToDisplay) {
             mineralKey = mineral;
         };
     }
-    this.RDAData = [];
-
-    databaseRequest.getForDate(today)
-        .then((singleDaysData) => {
-            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-        })
-        .then(() => {
-            databaseRequest.getForDate(yesterday)
-                .then((singleDaysData) => {
-                    this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-                })
-                .then(() => {
-                    databaseRequest.getForDate(twoDaysAgo)
-                        .then((singleDaysData) => {
-                            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-                        })
-                        .then(() => {
-                            databaseRequest.getForDate(threeDaysAgo)
-                                .then((singleDaysData) => {
-                                    this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-                                })
-                                .then(() => {
-                                    databaseRequest.getForDate(fourDaysAgo)
-                                        .then((singleDaysData) => {
-                                            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-                                        })
-                                        .then(() => {
-                                            databaseRequest.getForDate(fiveDaysAgo)
-                                                .then((singleDaysData) => {
-                                                    this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-                                                })
-                                                .then(() => {
-                                                    databaseRequest.getForDate(sixDaysAgo)
-                                                        .then((singleDaysData) => {
-                                                            this.RDAData.push(parseFloat(this.calculateTotal(singleDaysData, mineralKey)));
-                                                            this.RDAData.reverse();
-                                                            this.render();
-                                                        })
-                                                })
-                                        })
-                                })
-                        })
-                })
-        });
-}
-
-LineChartView.prototype.calculateTotal = function (allData, mineral) {
     let totalPercentage = 0;
     for (const dataItem of allData) {
-        if (dataItem.details[mineral]) {
+        if (dataItem.details[mineralKey]) {
             const amountOfUnits = dataItem.amount;
-            totalPercentage += (dataItem.details[mineral].quantity * amountOfUnits);
+            totalPercentage += (dataItem.details[mineralKey].quantity * amountOfUnits);
         }
     }
     return totalPercentage.toFixed(2);
@@ -114,7 +83,6 @@ LineChartView.prototype.displayChart = function () {
 
         chart: {
             type: 'line'
-            // backgroundColor: 'rgba(242, 242, 242, 1)'
         },
         title: {
             text: `Weekly ${this.nutrientToDisplay}`
