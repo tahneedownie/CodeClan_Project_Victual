@@ -18,7 +18,9 @@ LineChartView.prototype.bindEvents = function () {
 
 LineChartView.prototype.createGraph = function (nutrientToDisplay) {
     this.nutrientToDisplay = nutrientToDisplay;
-    const databaseRequest = new DatabaseRequest('http://localhost:3000/api/user_food_items');
+    // const databaseRequest = new DatabaseRequest('http://localhost:3000/api/user_food_items');
+    const databaseRequest = new DatabaseRequest('https://victual-nutrition-app.herokuapp.com/api/user_food_items');
+
     var today = moment().format('YYYY-MM-DD');
     var yesterday = moment().subtract(1, "days").format('YYYY-MM-DD');
     var twoDaysAgo = moment().subtract(2, "days").format('YYYY-MM-DD');

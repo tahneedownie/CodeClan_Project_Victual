@@ -4,10 +4,11 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node -r dotenv/config server/server.js dotenv_config_path=.env",
     "server:dev": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
   },
   "author": "",
   "license": "ISC",
@@ -21,5 +22,8 @@
     "nodemon": "^1.18.4",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0"
+  },
+  "engines": {
+    "node": "10.2.1"
   }
 }

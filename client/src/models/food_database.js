@@ -2,7 +2,8 @@ const PubSub = require('../helpers/pub_sub.js');
 const DatabaseRequest = require('../helpers/database_request.js');
 
 const FoodDatabase = function(dateSelector){
-    this.databaseRequest = new DatabaseRequest('http://localhost:3000/api/user_food_items');
+    // this.databaseRequest = new DatabaseRequest('http://localhost:3000/api/user_food_items');
+    this.databaseRequest = new DatabaseRequest('https://victual-nutrition-app.herokuapp.com/api/user_food_items');
     this.dateSelectorValue = dateSelector.value;
 }
 
@@ -36,7 +37,7 @@ FoodDatabase.prototype.getExistingData = function(){
 
 FoodDatabase.prototype.extractTotalDaily = function (objectToSave){
     objectToSave.details = objectToSave.details.totalDaily;
-    return objectToSave; 
+    return objectToSave;
 }
 
 FoodDatabase.prototype.save = function(objectToSave){
